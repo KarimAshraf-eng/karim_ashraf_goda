@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 2 - Web Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../../../css/style.css">
+
+    <style>
+        /* تنسيقات خاصة بشريحة هذه المحاضرة (Bilingual Layout) */
+        .slide-screen {
+            padding: 30px;
+            justify-content: flex-start;
+            align-items: stretch;
+            text-align: right;
+            overflow-y: auto;
+        }
+
+        .bilingual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+            border-right: 4px solid #ffbe0b;
+        }
+
+        .en-text {
+            text-align: left;
+            direction: ltr;
+            width: 48%;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        .ar-text {
+            text-align: right;
+            direction: rtl;
+            width: 48%;
+            font-size: 1.1rem;
+            color: #ffbe0b;
+        }
+
+        .explanation-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-right: 3px solid #4fd1c5;
+        }
+
+        .explanation-box h4 {
+            color: #4fd1c5;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .explanation-box p {
+            font-size: 1rem;
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        .example-box {
+            background: rgba(79, 209, 197, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-right: 3px solid #667eea;
+            color: #e2e8f0;
+        }
+
+        .example-box strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="page active">
+            <a href="../../../index.html" class="btn-back"><i class="fas fa-arrow-right"></i> خروج من العرض</a>
+
+            <div class="presentation-container">
+                <div class="slide-screen" id="slides-container">
+                </div>
+
+                <div class="presentation-controls">
+                    <button class="btn-control" onclick="prevSlide()"><i class="fas fa-chevron-right"></i>
+                        السابق</button>
+                    <span id="slide-counter" class="slide-counter-text">1 / 42</span>
+                    <button class="btn-control" onclick="nextSlide()">التالي <i
+                            class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. قاعدة بيانات المحاضرة (Data Structure)
+        // ==========================================
+        const lectureData = [
+            {
+                slideNum: 1,
+                content: [
+                    { en: "Web Analytics", ar: "تحليلات الويب" },
+                    { en: "Approaches and How It Works", ar: "المناهج وكيفية عملها" }
+                ],
+                explanation: "هذه هي الشريحة الافتتاحية للمحاضرة. توضح أن الموضوع الرئيسي الذي سندرسه هو 'تحليلات الويب'، وسنركز على فهم المناهج والأساليب المختلفة المستخدمة في هذا المجال، بالإضافة إلى الجانب التقني المتعلق بكيفية عمل هذه التحليلات وجمعها للبيانات.",
+                example: "تخيل أن لديك متجراً إلكترونياً لبيع الملابس. تحليلات الويب ستكون بمثابة 'كاميرات المراقبة' و'دفاتر الحسابات' الذكية التي تخبرك بكيفية دخول الزبائن للمتجر، وما هي الأقسام التي زاروها، وكيف تتصرف حتى تزيد من مبيعاتك."
+            },
+            {
+                slideNum: 2,
+                content: [
+                    { en: "TABLE OF CONTENTS", ar: "جدول المحتويات" },
+                    { en: "1 Introduction", ar: "1 مقدمة" },
+                    { en: "2 Web Analytics Approach", ar: "2 منهج تحليلات الويب" },
+                    { en: "3 How web analytics works", ar: "3 كيف تعمل تحليلات الويب" },
+                    { en: "4 Google Analytics", ar: "4 جوجل أناليتكس (إحصاءات جوجل)" },
+                    { en: "5 Metrics", ar: "5 المقاييس" }
+                ],
+                explanation: "تعرض هذه الشريحة الفهرس والمواضيع الرئيسية التي سيتم تغطيتها في المحاضرة. المحاضرة مقسمة إلى 5 أجزاء مترابطة تبدأ بمقدمة، ثم المنهجية، تليها طريقة العمل التقنية، ثم تطبيق عملي على أشهر أداة وهي 'جوجل أناليتكس'، وتختتم بأهم المقاييس والأرقام التي يجب أن نفهمها.",
+                example: "هذا الجدول يشبه خريطة الطريق؛ يخبرنا أننا سنبدأ بتعلم الحروف (المقدمة)، ثم الكلمات (المنهج)، ثم القواعد (كيف تعمل)، ثم سنقرأ كتاباً (جوجل أناليتكس)، وأخيراً سنتعلم كيف نقيم ما قرأناه (المقاييس)."
+            },
+            {
+                slideNum: 3,
+                content: [
+                    { en: "1 Introduction", ar: "1 مقدمة" }
+                ],
+                explanation: "شريحة فاصلة تعلن بدء القسم الأول من المحاضرة وهو 'المقدمة' للتعريف بمفهوم تحليلات الويب.",
+                example: null
+            },
+            {
+                slideNum: 4,
+                content: [
+                    { en: "Web analytics", ar: "تحليلات الويب" },
+                    { en: "Web analytics is measuring, collecting, analyzing, and reporting web data to understand and optimize web usage.", ar: "تحليلات الويب هي قياس وجمع وتحليل وإصدار تقارير عن بيانات الويب من أجل فهم وتحسين استخدام الويب." },
+                    { en: "It provides key insights into user behavior, trends, and preferences", ar: "إنها توفر رؤى أساسية (معلومات عميقة) حول سلوك المستخدم، والاتجاهات، والتفضيلات." },
+                    { en: "Make informed decisions, and continuous improvement", ar: "اتخاذ قرارات مستنيرة (مبنية على معلومات)، والتحسين المستمر." }
+                ],
+                explanation: "تشرح هذه الشريحة التعريف الأكاديمي والعملي لمصطلح 'تحليلات الويب'. هي ليست مجرد أرقام، بل هي عملية متكاملة تبدأ بـ 'قياس' و'جمع' البيانات (مثل عدد الزوار)، ثم 'تحليلها' لاستخراج معلومات مفيدة، ووضعها في 'تقارير'. الهدف النهائي من كل هذا هو فهم سلوك الزوار لمعرفة ما يفضلونه، وبناءً على ذلك يتم اتخاذ قرارات صحيحة لتطوير الموقع باستمرار.",
+                example: "إذا اكتشفت من خلال 'تحليلات الويب' أن 80% من زوار موقعك الإخباري يقرؤون قسم 'الرياضة' ويتجاهلون قسم 'السياسة' (هذا هو سلوك المستخدم وتفضيلاته)، فالقرار المستنير هنا هو التركيز على زيادة الأخبار الرياضية ووضعها في الصفحة الرئيسية لجذب المزيد من الزوار (هذا هو التحسين المستمر)."
+            },
+            {
+                slideNum: 5,
+                content: [
+                    { en: "Process", ar: "العملية (أو خطوات المعالجة)" },
+                    { en: "Track", ar: "تتبع" },
+                    { en: "Measure", ar: "قياس" },
+                    { en: "Analyze", ar: "تحليل" },
+                    { en: "Take Informed Decision", ar: "اتخاذ قرار مستنير" },
+                    { en: "Continuous Improvement", ar: "تحسين مستمر" }
+                ],
+                explanation: "هذه الشريحة تلخص دورة حياة تحليلات الويب في خمس خطوات متتالية لا تتوقف. نبدأ بـ 'التتبع' (مراقبة حركة الزوار)، ثم 'القياس' (تحويل هذه الحركات إلى أرقام)، ثم 'التحليل' (فهم معنى هذه الأرقام)، مروراً بـ 'اتخاذ القرارات' بناءً على هذا الفهم، وصولاً إلى 'التحسين المستمر' للموقع، لتبدأ الدورة من جديد.",
+                example: "(تتبع): نراقب أين ينقر الزوار في صفحة شراء المنتج. (قياس): نجد أن 100 شخص أضافوا المنتج للعربة ولكن 10 فقط اشتروا. (تحليل): نكتشف أن زر 'الدفع' غير واضح أو أن مصاريف الشحن مفاجئة وعالية. (اتخاذ قرار): نقوم بتكبير زر الدفع وإيضاح مصاريف الشحن مسبقاً. (التحسين): نلاحظ زيادة المبيعات، ونستمر في البحث عن أشياء أخرى لنحسنها."
+            },
+            {
+                slideNum: 6,
+                content: [
+                    { en: "Data Source\n• Tracking Code\n• Record user activity", ar: "مصدر البيانات\n• كود التتبع\n• تسجيل نشاط المستخدم" },
+                    { en: "Collection\n• Data collected\n• Data processed", ar: "الجمع\n• البيانات المجمعة\n• البيانات المعالجة" },
+                    { en: "Presentation\n• Summarized data\n• Data visualization", ar: "العرض (أو التقديم)\n• بيانات ملخصة\n• التمثيل البصري للبيانات (تصوير البيانات)" }
+                ],
+                explanation: "تشرح هذه الشريحة رحلة البيانات من لحظة إنشائها حتى تصبح تقريراً جاهزاً للقراءة، وذلك عبر ثلاث مراحل أساسية: 1. مصدر البيانات 2. الجمع 3. العرض.",
+                example: "عندما تدخل لمتجر وتقوم بالضغط على صورة حذاء، 'كود التتبع' يلاحظ ذلك ويرسله للخادم (مصدر البيانات). يقوم الخادم بجمع مئات النقرات من مئات المستخدمين وينظمها (الجمع). في النهاية، يظهر لصاحب المتجر رسم بياني جميل بشكل دائري يوضح أن 70% من النقرات كانت على الأحذية الرياضية (العرض والتمثيل البصري)."
+            },
+            {
+                slideNum: 7,
+                content: [
+                    { en: "2 Web Analytics Approach", ar: "2 منهج تحليلات الويب" }
+                ],
+                explanation: "شريحة فاصلة تعلن بدء القسم الثاني من المحاضرة، والذي سيركز على المنهجية وطريقة التفكير السليمة عند استخدام تحليلات الويب، وكيفية طرح الأسئلة الصحيحة.",
+                example: null
+            },
+            {
+                slideNum: 8,
+                content: [
+                    { en: "Know your website", ar: "تعرف على موقعك" },
+                    { en: "Pose a question", ar: "اطرح سؤالاً" },
+                    { en: "Transform and analyze", ar: "التحويل والتحليل" },
+                    { en: "Answer the question", ar: "أجب على السؤال" },
+                    { en: "Continuous improvement", ar: "التحسين المستمر" }
+                ],
+                explanation: "تضع هذه الشريحة خريطة ذهنية أو استراتيجية للعمل كمحلل بيانات ويب. لا يجب أن تفتح أدوات التحليل فوراً، بل يجب أن تمر بهذه الخطوات الخمس.",
+                example: "(تعرف على موقعك): أنا أملك مدونة طبخ. (اطرح سؤالاً): لماذا لا يقرأ الناس وصفة البيتزا حتى النهاية؟ (تحويل وتحليل): أراجع بيانات أداة التحليل وأجد أن الزوار يغادرون عند وصولهم لصورة العجين. (إجابة السؤال): الزوار يغادرون لأن صورة العجين حجمها كبير جداً وتأخذ وقتاً طويلاً في التحميل. (تحسين مستمر): أقوم بتصغير حجم الصورة ليسرع الموقع."
+            },
+            {
+                slideNum: 9,
+                content: [
+                    { en: "Get to know your website", ar: "تعرف على موقعك الإلكتروني" },
+                    { en: "• The first step to using your web analytics tool is to not use it at all and instead spend time getting to know your website.", ar: "• الخطوة الأولى لاستخدام أداة تحليلات الويب الخاصة بك هي ألا تستخدمها على الإطلاق، وبدلاً من ذلك اقضِ بعض الوقت للتعرف على موقعك." },
+                    { en: "• Exploring your website is the best way to understand how its pages fit together", ar: "• استكشاف موقعك الإلكتروني هو أفضل طريقة لفهم كيف تتناسب صفحاته وترتبط مع بعضها البعض." }
+                ],
+                explanation: "هذه الشريحة تشرح الخطوة الأولى من المنهجية (المذكورة في الشريحة السابقة). وهي تقدم نصيحة ذهبية ومفارقة لطيفة: 'أفضل بداية للتحليل هي ألا تحلل!'.",
+                example: "لا يمكنك تحليل بيانات موقع جامعة إذا لم تكن تعرف كيف يتنقل الطالب من 'الصفحة الرئيسية' إلى 'شؤون الطلبة' ثم إلى 'تسجيل المواد'. يجب أن تفهم الهيكل أولاً حتى يكون للأرقام معنى."
+            },
+            {
+                slideNum: 10,
+                content: [
+                    { en: "Pose The Question", ar: "اطرح السؤال" },
+                    { en: "You start with the thing you want to learn:", ar: "تبدأ بالشيء الذي تريد أن تتعلمه (أو تكتشفه):" },
+                    { en: "\"Where do users go after viewing the Our Services page?\"", ar: "\"إلى أين يذهب المستخدمون بعد مشاهدة صفحة 'خدماتنا'؟\"" },
+                    { en: "\"What pages do users spend the most time on?\"", ar: "\"ما هي الصفحات التي يقضي فيها المستخدمون معظم الوقت؟\"" },
+                    { en: "\"What are the categories of information needs that drive users to my website?\"", ar: "\"ما هي فئات المعلومات التي يحتاجها المستخدمون وتدفعهم لزيارة موقعي؟\"" }
+                ],
+                explanation: "توضح هذه الشريحة الخطوة الثانية في المنهجية، وهي أهمية تحديد الهدف قبل البحث في البيانات. يجب أن تدخل إلى أدوات التحليل وأنت تحمل سؤالاً محدداً في ذهنك لتتجنب الضياع وسط ملايين الأرقام.",
+                example: "بدلاً من فتح جوجل أناليتكس والنظر عشوائياً للأرقام (مما يسبب التشتت)، افتحه وأنت تقول: 'أنا أريد إجابة على سؤال واحد اليوم: هل الزوار الذين يأتون من إعلانات الفيسبوك يشترون أكثر أم الزوار الذين يأتون من إعلانات جوجل؟' هكذا سيكون تحليلك موجهاً ومفيداً."
+            },
+            {
+                slideNum: 11,
+                content: [
+                    { en: "WHY?", ar: "لماذا؟" },
+                    { en: "• you may have a \"why\" question like", ar: "• قد يكون لديك سؤال يبدأ بـ \"لماذا\" مثل:" },
+                    { en: "\"Why aren't users clicking on this button\" or", ar: "\"لماذا لا ينقر المستخدمون على هذا الزر؟\" أو" },
+                    { en: "\"Why do so many users go to this page?\"", ar: "\"لماذا يذهب عدد كبير من المستخدمين إلى هذه الصفحة؟\"" },
+                    { en: "web analytics is no good at answering \"why\" questions,", ar: "تحليلات الويب ليست جيدة في الإجابة على أسئلة \"لماذا\"." },
+                    { en: "you will need to use analytics to test a theory or to simply give you a starting point for evaluating your website through other means", ar: "ستحتاج إلى استخدام التحليلات لاختبار نظرية ما، أو ببساطة لتعطيك نقطة انطلاق لتقييم موقعك الإلكتروني من خلال وسائل أخرى." }
+                ],
+                explanation: "هذه الشريحة توضح حقيقة مهمة جداً عن أدوات تحليلات الويب: إنها تخبرك بـ \"ماذا يحدث\" وليس \"لماذا يحدث\". الأداة ستعطيك الرقم، ولكنها لا تقرأ أفكار المستخدمين لتعرف سبب تصرفهم. لذلك، نستخدم الأرقام كدليل أو \"نقطة انطلاق\" لبناء افتراضاتنا واختبارها، أو نلجأ لطرق أخرى مثل سؤال المستخدمين مباشرة (الاستبيانات) لمعرفة السبب.",
+                example: "التحليلات تخبرك أن \"90% من الزوار يغادرون صفحة الدفع دون الشراء\" (هذا هو ماذا يحدث). لكنها لن تخبرك بـ لماذا. بناءً على هذا الرقم كنقطة انطلاق، تضع أنت نظرية: \"ربما طرق الدفع المتاحة قليلة؟\"، فتقوم بإضافة طرق دفع جديدة وتراقب التحليلات مرة أخرى لترى إن كانت نظريتك صحيحة."
+            },
+            {
+                slideNum: 12,
+                content: [
+                    { en: "Gather Data", ar: "جمع البيانات" },
+                    { en: "gather the data from the appropriate tools For questions about the behavior of users, and monitoring the page's use, Google Analytics/clicky/ adobe analytics will be a perfect choice.", ar: "اجمع البيانات من الأدوات المناسبة. بالنسبة للأسئلة المتعلقة بسلوك المستخدمين، ومراقبة استخدام الصفحة، ستكون أدوات مثل إحصاءات جوجل (Google Analytics) / كليكي (Clicky) / أدوبي أناليتكس (Adobe Analytics) خياراً مثالياً." },
+                    { en: "For scraping website data and content, use ready made tools like a web scrapping tool (web scraper) or programming with Python (labs)", ar: "من أجل استخراج (كشط) بيانات ومحتوى الموقع، استخدم أدوات جاهزة مثل أداة استخراج بيانات الويب (web scraper) أو البرمجة باستخدام لغة بايثون (في المعامل)." }
+                ],
+                explanation: "هنا ننتقل إلى الخطوة العملية في المنهجية: من أين نأتي بالبيانات؟ الشريحة تقسم الهدف إلى قسمين: إذا كان هدفك هو مراقبة الزوار وسلوكهم داخل موقعك، فاستخدم أدوات تحليل جاهزة ومشهورة مثل Google Analytics. أما إذا كان هدفك هو سحب بيانات ومعلومات معروضة على الشاشة في مواقع أخرى (مثل أسعار المنتجات)، فهنا نستخدم تقنية تسمى \"Web Scraping\" (كشط أو استخراج بيانات الويب) باستخدام أدوات جاهزة أو لغات برمجة مثل Python.",
+                example: "إذا أردت معرفة عدد الذين زاروا موقعك اليوم، تستخدم Google Analytics. أما إذا أردت سحب أسعار جميع الهواتف المحمولة المعروضة في موقع \"أمازون\" لمقارنتها بأسعارك، فهنا تستخدم أداة Web Scraper أو كود Python."
+            },
+            {
+                slideNum: 13,
+                content: [
+                    { en: "• Web scraping is the process of extracting content and data from a website (Price scraping, Content scraping)", ar: "• استخراج بيانات الويب (كشط الويب) هو عملية استخراج المحتوى والبيانات من موقع إلكتروني (مثل: استخراج الأسعار، استخراج المحتوى)." },
+                    { en: "• Web scraping protection", ar: "• الحماية من استخراج بيانات الويب:" },
+                    { en: "Ο HTML fingerprint", ar: "Ο بصمة الـ HTML (تحليل بنية الصفحة)." },
+                    { en: "Behavior analysis", ar: "تحليل السلوك." },
+                    { en: "Ο IP reputation", ar: "Ο سمعة عنوان الـ IP (عنوان بروتوكول الإنترنت)." },
+                    { en: "Ο Progressive challenges (CAPTСНА challenge)", ar: "Ο التحديات المتدرجة (مثل تحدي رموز الكابتشا CAPTCHA)." }
+                ],
+                explanation: "تشرح هذه الشريحة مصطلح الـ \"Web Scraping\" (وهو سحب البيانات برمجياً من المواقع) والذي يستخدم عادة لجمع أسعار المنافسين أو المقالات. نظراً لأن بعض المواقع لا ترغب في أن يقوم أحد بسحب بياناتها آلياً، فإنها تضع طرقاً للحماية ، مثل: التعرّف على شكل الكود الآلي (البصمة) ، أو ملاحظة السلوك غير البشري (مثل التصفح بسرعة خارقة) ، أو حظر عناوين الإنترنت (IP) المشبوهة ، أو إظهار اختبار \"أنا لست روبوت\" (CAPTCHA) للتأكد من أن المتصفح إنسان حقيقي.",
+                example: "عندما تحاول الدخول لموقع لشراء تذاكر طيران وتقوم بتحديث الصفحة 50 مرة في الدقيقة بحثاً عن سعر أرخص، قد يظن الموقع أنك \"روبوت\" يسحب البيانات، فيقوم فجأة بإظهار صور ويطلب منك تحديد \"إشارات المرور\" (هذا هو تحدي الكابتشا المذكور للحماية من السحب الآلي)."
+            },
+            {
+                slideNum: 14,
+                content: [
+                    { en: "Chrome Extensions Web Scraper", ar: "إضافات متصفح كروم لاستخراج بيانات الويب" },
+                    { en: "• Web scraper", ar: "• أداة استخراج الويب (Web scraper)" },
+                    { en: "• Scarper", ar: "• سكاربر (Scarper)" },
+                    { en: "• Agenty", ar: "• أجينتي (Agenty)" },
+                    { en: "• Simple scraper", ar: "• أداة الاستخراج البسيطة (Simple scraper)" },
+                    { en: "Chrome Extensions for Web Scraping", ar: "إضافات كروم لاستخراج بيانات الويب" },
+                    { en: "small software programs that enable users to tailor Chrome functionality and behavior to individual needs or preferences.", ar: "هي برامج برمجية صغيرة تمكّن المستخدمين من تخصيص وظائف وسلوك متصفح كروم لتناسب الاحتياجات أو التفضيلات الفردية." },
+                    { en: "They are built on web technologies such as HTML, JavaScript, and CSS.", ar: "يتم بناؤها (برمجتها) باستخدام تقنيات الويب مثل HTML و JavaScript و CSS." }
+                ],
+                explanation: "هذه الشريحة تعطينا أمثلة عملية على أدوات جاهزة يمكن تركيبها مباشرة على متصفح \"جوجل كروم\" للقيام بعملية سحب البيانات (Web Scraping) دون الحاجة لتعلم البرمجة المعقدة. تذكر الشريحة 4 أمثلة شهيرة لهذه الإضافات. وتشرح أن \"إضافات كروم\" بشكل عام هي مجرد برامج صغيرة مبرمجة بلغات المواقع العادية، تضاف للمتصفح لتعطيه قدرات جديدة.",
+                example: "بدلاً من كتابة كود معقد لنسخ 1000 تغريدة من موقع تويتر، يمكنك تثبيت إضافة مثل \"Simple scraper\" على متصفحك، وبضغطة زر واحدة تقوم الإضافة بنسخ جميع النصوص ووضعها لك في ملف إكسيل جاهز."
+            },
+            {
+                slideNum: 15,
+                content: [
+                    { en: "Let's Try Web Scraper", ar: "دعونا نجرب أداة استخراج الويب (Web Scraper)" },
+                    { en: "https://surveys.webscraper.io/", ar: "(رابط موقع التدريب المذكور)" }
+                ],
+                explanation: "هذه الشريحة تعتبر تدريباً عملياً (ورشة عمل مصغرة) للطلاب. يطلب فيها المحاضر من الحضور الدخول إلى الرابط المرفق وهو موقع مخصص للتدريب على أداة استخراج البيانات \"Web Scraper\".",
+                example: "سيقوم المحاضر بفتح هذا الرابط أمام الطلاب، وسيبدأ بتطبيق ما شرحه في الشريحة السابقة، ليريهم كيف تقوم الأداة بتحديد العناصر في الموقع وسحبها في جداول."
+            },
+            {
+                slideNum: 16,
+                content: [
+                    { en: "Is Web Scraping Illegal ?", ar: "هل استخراج (كشط) بيانات الويب غير قانوني؟" },
+                    { en: "Legal", ar: "قانوني" },
+                    { en: "Illegal", ar: "غير قانوني" }
+                ],
+                explanation: "هذه الشريحة تطرح سؤالاً أخلاقياً وقانونياً مهماً جداً يطرحه الكثيرون: هل سرقة أو سحب بيانات المواقع الأخرى مسموح به قانوناً؟. الشريحة تضع الكلمتين متضادتين (قانوني / غير قانوني) لتفتح باب النقاش؛ فعملية السحب في حد ذاتها كتقنية ليست ممنوعة، لكن الغرض منها ونوع البيانات هو ما يحدد ذلك.",
+                example: "إذا سحبت بيانات عامة متاحة للجميع مثل حالة الطقس أو عناوين الأخبار، فهذا غالباً \"قانوني\". لكن إذا قمت بتجاوز أنظمة الحماية وسحبت بيانات شخصية للمستخدمين أو معلومات محمية بحقوق ملكية لبيعها، فهذا حتماً \"غير قانوني\"."
+            },
+            {
+                slideNum: 17,
+                content: [
+                    { en: "Transform and Analyze", ar: "التحويل والتحليل" },
+                    { en: "you're simply looking up a piece of data in a standard report in the interface of your web analytics tool.", ar: "أنت ببساطة تبحث عن جزء من البيانات في تقرير قياسي داخل واجهة أداة تحليلات الويب الخاصة بك." },
+                    { en: "you will transform the data in some way.", ar: "ستقوم بتحويل البيانات بطريقة ما." },
+                    { en: "You may combine disparate data into a single table, sort or filter through a data set to get the subset that you need", ar: "يمكنك دمج بيانات متباينة (مختلفة) في جدول واحد، أو ترتيب أو تصفية مجموعة البيانات للحصول على المجموعة الفرعية التي تحتاجها." },
+                    { en: "Analyze the data. What story emerges from the data?", ar: "تحليل البيانات. ما هي القصة التي تظهر (أو نستنتجها) من البيانات؟" }
+                ],
+                explanation: "نعود هنا إلى خطوات منهجية التحليل (المذكورة في شريحة 8). الخطوة الثالثة هي أن تأخذ الأرقام التي وجدتها وتلعب بها لتفهمها. أحياناً تكون الإجابة واضحة ومباشرة أمامك في التقرير ، وأحياناً تحتاج إلى \"تحويل\" هذه البيانات وتنظيفها؛ كأن تدمج جدولين، أو ترتب الأرقام من الأكبر للأصغر، أو تصفي (تفلتر) النتائج لاستبعاد البيانات غير المفيدة. في النهاية، يجب أن يخرج المحلل بـ \"قصة\" أو استنتاج منطقي من هذه الأرقام.",
+                example: "حملت تقريراً عن مبيعاتك وتقريرًا آخر عن الحملات الإعلانية. لكي تفهم، تقوم بـ \"دمج\" التقريرين في جدول واحد ، ثم تقوم بـ \"تصفية\" (فلترة) البيانات لتظهر فقط المبيعات التي جاءت من السعودية. تنظر للأرقام وتستنتج القصة: \"الحملة الإعلانية أدت إلى مضاعفة المبيعات في السعودية خلال فترة العيد\"."
+            },
+            {
+                slideNum: 18,
+                content: [
+                    { en: "Answer the question", ar: "أجب على السؤال" },
+                    { en: "Answer the question by taking the story you have pieced together and applying it to the question you posed.", ar: "أجب على السؤال من خلال أخذ القصة التي قمت بتجميعها وتطبيقها على السؤال الذي طرحته." },
+                    { en: "for simple questions with simple, answers, this step can be short.", ar: "بالنسبة للأسئلة البسيطة ذات الإجابات البسيطة، يمكن أن تكون هذه الخطوة قصيرة." },
+                    { en: "For more complex analyses, you may write a report, some text to accompany the data, or create a chart or set of slides,", ar: "بالنسبة للتحليلات الأكثر تعقيداً، قد تكتب تقريراً، أو بعض النصوص المصاحبة للبيانات، أو تقوم بإنشاء رسم بياني أو مجموعة من الشرائح،" },
+                    { en: "• you must tell a story about the data to make them meaningful to others", ar: "• يجب أن تحكي قصة حول البيانات لجعلها ذات معنى للآخرين." }
+                ],
+                explanation: "هذه هي الخطوة الرابعة في منهجيتنا. بعد أن حللت البيانات وفهمت \"القصة\" ، حان الوقت لتقديم الإجابة النهائية للسؤال الذي طرحته في البداية. إذا كان سؤالك بسيطاً (مثل: ما هي أكثر دولة تزور موقعنا؟)، فالإجابة ستكون كلمة واحدة (مثل: مصر). لكن للأسئلة الصعبة (مثل: لماذا انخفضت المبيعات هذا الشهر؟)، هنا يجب أن تجهز تقريراً مفصلاً يحتوي على رسومات بيانية ونصوص تشرح ما حدث. الأهم هو أن تحول الأرقام الجافة إلى \"قصة\" يفهمها مديرك أو فريق العمل.",
+                example: "سؤالك كان: \"لماذا لا يشترك الناس في نشرتنا البريدية؟\". إجابتك لفريقك (القصة) يجب ألا تكون: \"معدل الارتداد 80%\"، بل يجب أن تكون: \"وجدنا من البيانات أن المستخدمين يغادرون الصفحة عندما يطلب منهم إدخال رقم هاتفهم، مما يعني أن طلب تفاصيل كثيرة يزعجهم ويقلل الاشتراكات\"."
+            },
+            {
+                slideNum: 19,
+                content: [
+                    { en: "Continuous Improvement", ar: "التحسين المستمر" },
+                    { en: "Embrace a culture of continuous improvement by regularly reviewing and refining web analytics strategies.", ar: "تبنى ثقافة التحسين المستمر من خلال المراجعة الدورية وتطوير استراتيجيات تحليلات الويب." },
+                    { en: "Stay agile and adaptable to evolving market trends and user behavior.", ar: "ابقَ مرناً وقابلاً للتكيف مع اتجاهات السوق المتطورة وسلوك المستخدم." }
+                ],
+                explanation: "الخطوة الخامسة والأخيرة في رحلة التحليل. تحليلات الويب ليست مهمة تقوم بها مرة واحدة وتتركها، بل هي عملية مستمرة. بعد أن تجيب على سؤالك وتحسن موقعك بناءً عليه، يجب أن تتبنى \"ثقافة التحسين\"، فتبحث عن أخطاء جديدة وتراجع استراتيجياتك باستمرار. المستخدمون يغيرون طرق تصفحهم، والسوق يتطور، لذا يجب أن تكون مرناً وتواكب هذه التغيرات دائماً.",
+                example: "قمت بتحسين موقعك ليناسب تصفح أجهزة الكمبيوتر ونجح الأمر. بعد عام، تغير سلوك المستخدمين وأصبح الجميع يزور متجرك من الهاتف المحمول. يجب أن تكون مرناً وتعود للتحليل من جديد لتحسين تجربة استخدام الموبايل."
+            },
+            {
+                slideNum: 20,
+                content: [
+                    { en: "3 How Web Analytics works", ar: "3 كيف تعمل تحليلات الويب" }
+                ],
+                explanation: "هذه شريحة فاصلة إيذاناً ببدء القسم الثالث من المحاضرة. بعد أن فهمنا المفاهيم والمنهجية، سيبدأ هذا القسم في شرح الجانب التقني: كيف تلتقط المواقع هذه البيانات فنياً؟ وكيف يتم تسجيلها؟",
+                example: null
+            },
+            {
+                slideNum: 21,
+                content: [
+                    { en: "Methods to monitor activities on websites", ar: "طرق مراقبة الأنشطة على المواقع الإلكترونية." },
+                    { en: "Log files", ar: "ملفات السجل (Log files)." },
+                    { en: "your website is hosted on a webserver that creates log files, these accurately store any kind of visitor movement on your site.", ar: "موقعك الإلكتروني مُستضاف على خادم ويب (Webserver) يقوم بإنشاء ملفات سجل، وهذه الملفات تخزن بدقة أي نوع من حركة الزوار على موقعك." },
+                    { en: "This 'Big Data', is difficult to read, complicated to transport, and impossible to digest in raw format.", ar: "هذه \"البيانات الضخمة\" يصعب قراءتها، ومعقدة في نقلها، ومن المستحيل استيعابها بصيغتها الخام." },
+                    { en: "tools like AWStats and Swamill can access this information.", ar: "أدوات مثل AWStats و Swamill يمكنها الوصول إلى هذه المعلومات." },
+                    { en: "Page tagging (JavaScript based tracking)", ar: "وضع العلامات على الصفحات (تتبع قائم على الجافا سكريبت)." },
+                    { en: "an invisible snippet of javaScript code in a web page that tags a visitor with a cookie and sends data back to a central server.", ar: "مقتطف غير مرئي من كود جافا سكريبت في صفحة الويب يقوم بتمييز الزائر بملف تعريف ارتباط (Cookie) ويرسل البيانات مرة أخرى إلى خادم مركزي." }
+                ],
+                explanation: "تشرح هذه الشريحة الطريقتين الأساسيتين اللتين تستخدمهما المواقع لجمع بيانات الزوار. الطريقة الأولى هي القديمة وتسمى \"ملفات السجل\" (Log files) ؛ وهي عبارة عن ملفات نصية ضخمة جداً يكتبها \"الخادم\" (الكمبيوتر الذي يعيش فيه موقعك) تلقائياً، ويسجل فيها كل نقرة وكل تحميل لصورة ، لكن مشكلتها أنها معقدة جداً كأنها طلاسم ولا يمكن للإنسان قراءتها مباشرة. الطريقة الثانية والأحدث هي \"وضع العلامات على الصفحات\" (Page Tagging) ، وهي ببساطة وضع كود برمجي صغير جداً ومخفي (مثل كاميرا المراقبة) داخل صفحات موقعك، وهذا الكود يقوم بوضع علامة مميزة على كل زائر ليتتبعه بسلاسة.",
+                example: "\"ملفات السجل\" تشبه دفتر الزوار الورقي الذي يكتبه حارس أمن العمارة بتفاصيل مملة (دخل شخص الساعة 1، صعد السلم، فتح الباب). بينما \"وضع العلامات\" يشبه إعطاء الزائر \"بطاقة ذكية\" (Cookie) عند دخوله، تخبرنا تلقائياً وبسهولة أين ذهب وكم بقي في كل غرفة."
+            },
+            {
+                slideNum: 22,
+                content: [
+                    { en: "Log Files (Server Log Analysis)", ar: "ملفات السجل (تحليل سجل الخادم)." },
+                    { en: "How it works: When a user requests a webpage, the server records the request in a log file. These files are later analyzed using tools (e.g., AWStats, Webalizer).", ar: "كيف تعمل: عندما يطلب مستخدم صفحة ويب، يسجل الخادم الطلب في ملف سجل. يتم تحليل هذه الملفات لاحقاً باستخدام أدوات (مثل AWStats و Webalizer)." },
+                    { en: "Files are automatically generated and stored on the web server. Every request made to the server (page, images, downloads) is logged.", ar: "يتم إنشاء الملفات تلقائياً وتخزينها على خادم الويب. كل طلب يتم تقديمه للخادم (صفحة، صور، تنزيلات) يتم تسجيله." },
+                    { en: "Log files capture: IP address of the visitor, Date and time of the request, Requested URL/page, Browser and operating system (user agent), Referrer (where the visitor came from)", ar: "تلتقط ملفات السجل: عنوان الـ IP للزائر، تاريخ ووقت الطلب، الرابط/الصفحة المطلوبة، المتصفح ونظام التشغيل، والمُحيل (من أين جاء الزائر)." },
+                    { en: "Advantages: Works even if JavaScript is disabled", ar: "المزايا: تعمل حتى لو تم تعطيل الجافا سكريبت (JavaScript)." },
+                    { en: "Limitations: Limited insight into user behavior on the page (e.g., scrolling, clicks), Difficulty identifying unique users accurately, Cached pages may not be recorded... This causes under-counting page views in log-file analysis", ar: "القيود (العيوب): رؤية محدودة لسلوك المستخدم على الصفحة (مثل: التمرير للأسفل، النقرات)، صعوبة في تحديد المستخدمين الفريدين بدقة، قد لا يتم تسجيل الصفحات المخبأة (Cached)... مما يتسبب في نقص حساب مشاهدات الصفحة في تحليل ملف السجل." }
+                ],
+                explanation: "هذه الشريحة تتعمق أكثر في الطريقة الأولى وهي \"ملفات السجل\" (Log Files) من خلال جدول يوضح كل تفاصيلها. هذه الملفات تُكتب بشكل تلقائي وإجباري على خادم الموقع. الميزة الكبرى لها أنها تعمل دائماً ولا تتأثر بإعدادات متصفح المستخدم. لكن عيوبها قاتلة في التحليل الحديث؛ فهي لا تخبرنا بما فعله الزائر داخل الصفحة (هل نزل لأسفل الصفحة؟ هل ضغط على فيديو؟) ، كما أنها قد تحسب نفس الشخص عدة مرات لأنه دخل من متصفحات مختلفة ، وأحياناً لا تسجل الزيارات إذا كانت الصفحة محفوظة مسبقاً في جهاز المستخدم (Cache).",
+                example: "ملف السجل يخبرك أن \"جهاز كمبيوتر يحمل رقم IP كذا، بنظام ويندوز، دخل إلى موقعك من جوجل الساعة 5 مساءً وحمّل صورة\". لكنه لن يخبرك أبداً إذا كان هذا الشخص قد قرأ المقال أم أغلق الصفحة فوراً."
+            },
+            {
+                slideNum: 23,
+                content: [
+                    { en: "Page Tagging", ar: "وضع العلامات على الصفحات." },
+                    { en: "It works by adding a small piece of JavaScript code to all of the pages on your website that you want to track", ar: "إنها تعمل عن طريق إضافة جزء صغير من كود جافا سكريبت (JavaScript) إلى جميع الصفحات على موقعك الإلكتروني التي ترغب في تتبعها." },
+                    { en: "When a user's browser loads a page, it opens up the HTML file and starts JavaScript code, then it will send the following data to a database:", ar: "عندما يقوم متصفح المستخدم بتحميل صفحة، فإنه يفتح ملف الـ HTML ويبدأ في تشغيل كود الجافا سكريبت، ثم سيرسل البيانات التالية إلى قاعدة بيانات:" },
+                    { en: "What page just got loaded, When it was loaded", ar: "ما هي الصفحة التي تم تحميلها للتو، ومتى تم تحميلها." },
+                    { en: "Where the user just came from (in terms of search engine or a link from another website)", ar: "من أين أتى المستخدم للتو (من حيث محرك البحث أو رابط من موقع إلكتروني آخر)." },
+                    { en: "IP address, Technical details like the user's browser, operating system, screen resolution, etc", ar: "عنوان الـ IP، وتفاصيل فنية مثل متصفح المستخدم، ونظام التشغيل، ودقة الشاشة، إلخ." }
+                ],
+                explanation: "هنا ننتقل للطريقة الثانية والأكثر شيوعاً وهي \"Page Tagging\". الفكرة بسيطة جداً: المبرمج يضع كوداً سرياً صغيراً (جافا سكريبت) في كل صفحة من صفحات الموقع. بمجرد أن تفتح أنت (الزائر) الموقع، يعمل هذا الكود في الخلفية دون أن تشعر، ويبدأ في جمع معلوماتك ويرسلها إلى أدوات التحليل. هذا الكود يجمع كل شيء: أي صفحة فتحت، متى، من أين جئت للموقع، وحتى نوع جهازك وحجم شاشتك.",
+                example: "هذا الكود هو ما يخبر صاحب الموقع: \"هناك زائر دخل الآن من تطبيق تويتر، يستخدم هاتف آيفون بشاشة صغيرة، وفتح صفحة \"اتصل بنا\" في تمام الساعة العاشرة صباحاً\"."
+            },
+            {
+                slideNum: 24,
+                content: [
+                    { en: "It puts a cookie on the user's computer that will let the analytics tool know whether it's already recorded data from that user", ar: "إنها تضع ملف تعريف ارتباط (Cookie) على جهاز كمبيوتر المستخدم مما سيتيح لأداة التحليل معرفة ما إذا كانت قد سجلت بالفعل بيانات من ذلك المستخدم." },
+                    { en: "A cookie is a piece of data that a website stores on users' computers.", ar: "ملف تعريف الارتباط (Cookie) هو جزء من البيانات التي يقوم موقع الويب بتخزينها على أجهزة كمبيوتر المستخدمين." },
+                    { en: "They are used to keep track of things like user preferences, what the user was doing on the website the last time he or she visited, and to keep track of whether a user is currently logged on to a website or not.", ar: "يتم استخدامها لتتبع أشياء مثل تفضيلات المستخدم، وماذا كان يفعل المستخدم على الموقع في المرة الأخيرة التي زاره فيها، ولتتبع ما إذا كان المستخدم مسجلاً الدخول حالياً إلى موقع ويب أم لا." }
+                ],
+                explanation: "تشرح هذه الشريحة مصطلحاً شهيراً نسمعه دائماً وهو الـ \"كوكيز\" (Cookies) أو ملفات تعريف الارتباط. الـ كوكيز ببساطة هي \"ملف نصي صغير جداً\" يضعه الموقع في جهازك (هاتفك أو حاسوبك) ليتذكرك. بدون الكوكيز، سيتعامل الموقع معك كأنك شخص غريب كلما فتحت صفحة جديدة. أدوات التحليل تعتمد كلياً على الكوكيز لتعرف أنك نفس الشخص الذي زار الموقع بالأمس.",
+                example: "عندما تدخل لمتجر إلكتروني وتختار \"اللغة العربية\"، يقوم الموقع بوضع \"كوكي\" في جهازك يكتب فيه: \"هذا الزائر يفضل العربية\". لذلك عندما تغلق المتصفح وتعود غداً، يفتح الموقع باللغة العربية تلقائياً لأنه قرأ الـ \"كوكي\" المخزن في جهازك فتذكرك."
+            },
+            {
+                slideNum: 25,
+                content: [
+                    { en: "Web analytics tools use cookies to track whether a user has visited a website before and how the user originally got to the website (e.g., through a search engine).", ar: "تستخدم أدوات تحليلات الويب ملفات تعريف الارتباط (الكوكيز) لتتبع ما إذا كان المستخدم قد زار موقعاً إلكترونياً من قبل وكيف وصل المستخدم في الأصل إلى الموقع (على سبيل المثال، من خلال محرك بحث)." },
+                    { en: "As the user moves from page to page, the cookie lets analytics know that these pageviews are all part of the same visit.", ar: "بينما ينتقل المستخدم من صفحة إلى أخرى، يُعلم ملف تعريف الارتباط (الكوكي) أداة التحليل أن كل مشاهدات الصفحات هذه هي جزء من نفس الزيارة." },
+                    { en: "If the user does not load a page on the website for a certain period, the visit ends", ar: "إذا لم يقم المستخدم بتحميل صفحة على الموقع الإلكتروني لفترة معينة، فإن الزيارة تنتهي." }
+                ],
+                explanation: "هنا توضح الشريحة أهمية \"الكوكيز\" لأدوات التحليل (مثل جوجل أناليتكس). الكوكي هو الخيط الذي يربط خطواتك ببعضها. بفضله، تعرف الأداة أن النقرة على الصفحة الرئيسية، ثم النقرة على صفحة \"من نحن\"، هما لنفس الشخص (أنت) وليسا لشخصين مختلفين، وبذلك يتم تسجيلها كـ \"زيارة واحدة متصلة\". وتذكر الشريحة قاعدة مهمة: إذا تركت الموقع مفتوحاً دون أي تفاعل أو نقر لفترة معينة (عادة 30 دقيقة)، تعتبر الأداة أن \"الزيارة\" قد انتهت.",
+                example: "إذا دخلت موقعاً إخبارياً، وقرأت مقالاً ثم ذهبت لتشرب القهوة وتحدثت في الهاتف لمدة ساعة، ثم عدت وضغطت على مقال آخر، أداة التحليل ستعتبر أنك قمت بـ \"زيارتين\" منفصلتين، لأن الزيارة الأولى انتهت بسبب طول فترة عدم التفاعل."
+            },
+            {
+                slideNum: 26,
+                content: [
+                    { en: "Accuracy problem of page tagging", ar: "مشكلة دقة وضع العلامات على الصفحات." },
+                    { en: "dependence on JavaScript: if a user's browser has JavaScript disabled, the tool won't gather any data. sometimes the Internet or the analytics tracking script just doesn't work properly and data don't get collected.", ar: "الاعتماد على الجافا سكريبت: إذا كان متصفح المستخدم قد عطل الجافا سكريبت، فلن تجمع الأداة أي بيانات. أحياناً يكون الإنترنت أو نص تتبع التحليلات لا يعمل بشكل صحيح ولا يتم جمع البيانات." },
+                    { en: "Dependence on cookies: Many users delete cookies periodically, while some simply refuse to accept them", ar: "الاعتماد على ملفات تعريف الارتباط (الكوكيز): العديد من المستخدمين يحذفون ملفات تعريف الارتباط بشكل دوري، بينما يرفض البعض ببساطة قبولها." },
+                    { en: "Browser: 1. If users have installed a browser plug-in to prevent analytics tools from tracking their actions or activated. 2. privacy mode (Incognito mode), then you won't be able to gather any data about them.", ar: "المتصفح: 1. إذا قام المستخدمون بتثبيت إضافة للمتصفح لمنع أدوات التحليل من تتبع أفعالهم أو تفعيلها. 2. وضع الخصوصية (وضع التصفح المتخفي)، فلن تتمكن من جمع أي بيانات عنهم." }
+                ],
+                explanation: "رغم أن طريقة \"Page Tagging\" هي الأحدث والأفضل، إلا أن هذه الشريحة تشرح نقاط ضعفها، وهي أنها \"غير دقيقة بنسبة 100%\". لماذا؟ لأنها تعتمد على أشياء يمكن للمستخدم إيقافها. إذا ألغى الزائر تشغيل لغة \"الجافا سكريبت\" من متصفحه، سيصبح كأنه \"شبح\" لا تراه أدوات التحليل. وإذا قام بمسح الـ \"كوكيز\"، ستظن الأداة أنه زائر جديد تماماً. وأيضاً، برامج حجب الإعلانات (AdBlockers) أو استخدام وضع \"التصفح المخفي\" (Incognito) تمنع أدوات التحليل من تسجيل أي شيء يقوم به هذا المستخدم.",
+                example: "دخلت موقعاً وقمت بشراء قميص من خلال \"التصفح المخفي\" (Incognito). في اليوم التالي، صاحب الموقع سيرى أن مبيعاته زادت قميصاً، لكن أداة التحليل ستخبره أنه \"لم يزر الموقع أحد البارحة!\" لأن التصفح المخفي منع تسجيل زيارتك."
+            },
+            {
+                slideNum: 27,
+                content: [
+                    { en: "Conclusion", ar: "استنتاج (أو خاتمة)." },
+                    { en: "Log files are useful for basic traffic analysis and server diagnostics.", ar: "ملفات السجل مفيدة لتحليل حركة المرور الأساسية وتشخيص (أعطال) الخادم." },
+                    { en: "Page tagging is preferred for modern web analytics due to its ability to capture detailed user interactions.", ar: "وضع العلامات على الصفحات هو المُفضل لتحليلات الويب الحديثة نظراً لقدرته على التقاط تفاعلات المستخدم التفصيلية." }
+                ],
+                explanation: "هذه الشريحة تلخص المقارنة بين طريقتي جمع البيانات السابقتين في سطرين. \"ملفات السجل\" لم تعد تستخدم كثيراً في تحليل سلوك الزوار، لكنها ممتازة للمبرمجين لمعرفة المشاكل التقنية في السيرفر أو حساب عدد الزيارات الكلي بدقة. أما الطريقة المفضلة اليوم لكل مسوق أو محلل أعمال فهي \"Page Tagging\" لأنها تعطي تفاصيل عميقة حول ما يفعله الزائر داخل الصفحة، وهو ما يهمنا فعلاً.",
+                example: "إذا سقط الموقع وتعطل، المبرمج سيقرأ \"ملفات السجل\" ليعرف سبب العطل التقني. أما إذا أردت أن تعرف أي لون من المنتجات يتم الضغط عليه أكثر، فستستخدم \"وضع العلامات - Page Tagging\" لأنها تصور لك تفاعل الزائر."
+            },
+            {
+                slideNum: 28,
+                content: [
+                    { en: "In summary", ar: "باختصار (في الملخص)." },
+                    { en: "the data in your web analytics tool are not a definitive statement of what really happened, but rather just what you can measure about what really happened which is", ar: "البيانات الموجودة في أداة تحليلات الويب الخاصة بك ليست بياناً قاطعاً (أكيداً بنسبة 100%) لما حدث بالفعل، بل هي مجرد ما يمكنك قياسه حول ما حدث بالفعل." },
+                    { en: "If you read that 10,467 people visited your homepage in a single week, that's simply how many visitors the tool recorded.", ar: "إذا قرأت أن 10,467 شخصاً زاروا صفحتك الرئيسية في أسبوع واحد، فهذا ببساطة هو عدد الزوار الذين سجلتهم الأداة." },
+                    { en: "Difference of reality is estimated to be 10%", ar: "يُقدر الفارق عن الواقع بنسبة 10%." }
+                ],
+                explanation: "هذه الشريحة تقدم نصيحة ذهبية ومبدأ مهماً لكل محلل بيانات: \"لا تثق بالأرقام ثقة عمياء\". الأرقام التي تراها على الشاشة ليست الحقيقة المطلقة، بل هي فقط \"ما استطاعت الأداة تسجيله\". وكما عرفنا في الشريحة 26، هناك مستخدمون يمسحون الكوكيز أو يستخدمون متصفحات مخفية، وهؤلاء لا يتم تسجيلهم. لذلك، هناك دائماً هامش خطأ يُقدر عالمياً بحوالي 10% بين الرقم الذي تراه في الأداة وبين العدد الحقيقي الفعلي.",
+                example: "جوجل أناليتكس يخبرك أن عدد الزوار اليوم هو 1000 زائر. في الواقع، وبسبب هامش الخطأ (10%)، العدد الحقيقي للزوار قد يكون 1100 زائر، لكن الـ 100 زائر الإضافيين استخدموا برامج حجب التتبع (AdBlockers) فلم تتمكن الأداة من رؤيتهم."
+            },
+            {
+                slideNum: 29,
+                content: [
+                    { en: "Click analytics", ar: "تحليلات النقرات." },
+                    { en: "are tools for analyzing user behavior on a page itself rather than movement between pages.", ar: "هي أدوات لتحليل سلوك المستخدم على الصفحة نفسها بدلاً من الحركة بين الصفحات." },
+                    { en: "Like users click, where they move the mouse, what keys do they press, and how long users spend looking at the top of a page before scrolling down-basically, they let you make recordings of a user's session", ar: "مثل نقرات المستخدمين، وأين يحركون الماوس (الفأرة)، وما هي المفاتيح التي يضغطون عليها، وكم من الوقت يقضيه المستخدمون في النظر إلى الجزء العلوي من الصفحة قبل التمرير للأسفل - في الأساس، إنها تتيح لك إجراء تسجيلات لجلسة المستخدم." },
+                    { en: "such as Tealeaf, CrazyEgg, and ClickTale", ar: "مثل (أدوات): Tealeaf، و CrazyEgg، و ClickTale." }
+                ],
+                explanation: "تشرح هذه الشريحة نوعاً متقدماً جداً وممتعاً من التحليلات يسمى \"تحليل النقرات\". أدوات التحليل العادية تخبرك أن الزائر انتقل من الصفحة (أ) إلى الصفحة (ب). أما هذه الأدوات فهي بمثابة \"تصوير فيديو\" حرفي لما يفعله الزائر داخل الشاشة. فهي تتبع حركة الماوس، والنقرات، وأين يتوقف الزائر ليقرأ. ومن أشهر هذه الأدوات: CrazyEgg التي توفر ما يسمى بـ \"الخرائط الحرارية\" (Heatmaps) لترينا الأماكن الأكثر جذباً للانتباه.",
+                example: "باستخدام أداة مثل CrazyEgg ، ستشاهد تسجيلاً للشاشة يوضح أن الزائر حرّك الماوس فوق صورة المنتج عدة مرات متوقعاً أنها قابلة للتكبير، لكنها لم تكن كذلك، ثم قام بتمرير الصفحة ببطء عند فقرة \"السعر\" ليقرأها بتمعن. هذا يجعلك تقوم بتعديل الصورة لتصبح قابلة للتكبير!"
+            },
+            {
+                slideNum: 30,
+                content: [
+                    { en: "4 Google Analytics", ar: "4 إحصاءات جوجل (Google Analytics)." }
+                ],
+                explanation: "شريحة فاصلة تعلن بدء القسم الرابع والأهم من المحاضرة. بعد أن درسنا المنهجية وكيفية العمل، سنبدأ الآن في تطبيق كل هذا على الأداة الأشهر والأقوى في العالم في هذا المجال: \"Google Analytics\".",
+                example: null
+            },
+            {
+                slideNum: 31,
+                content: [
+                    { en: "What is Google Analytics?", ar: "ما هو جوجل أناليتكس (إحصاءات جوجل)؟" },
+                    { en: "Google Analytics is a free website analytics service offered by Google that gives you insights into how users find and use your website.", ar: "جوجل أناليتكس هي خدمة مجانية لتحليلات مواقع الويب تقدمها جوجل، وتمنحك رؤى حول كيفية عثور المستخدمين على موقعك واستخدامهم له." }
+                ],
+                explanation: "في هذا القسم، نبدأ بالتعرف على أشهر أداة في عالم تحليلات الويب وهي \"Google Analytics\". هذه الشريحة تقدم تعريفاً بسيطاً للأداة: هي أداة تقدمها شركة جوجل مجاناً لأصحاب المواقع، ووظيفتها الأساسية هي إخبارك بقصتين: الأولى هي \"كيف وصل الناس إليك؟\" (مثلاً عبر بحث جوجل أو فيسبوك)، والثانية هي \"ماذا فعلوا عندما وصلوا؟\" (أي الصفحات قرأوها وكم بقوا فيها).",
+                example: "بفضل هذه الأداة المجانية، يمكنك معرفة أن 500 شخص دخلوا موقعك اليوم للبحث عن \"طريقة عمل الكيك\"، وأن معظمهم استخدموا هواتفهم المحمولة لقراءة الوصفة."
+            },
+            {
+                slideNum: 32,
+                content: [
+                    { en: "Why Google Analytics?", ar: "لماذا جوجل أناليتكس؟" },
+                    { en: "• Google Analytics is for any business type", ar: "• جوجل أناليتكس مناسب لأي نوع من الأعمال." },
+                    { en: "• the most popular web analytics tool in the entire world.", ar: "• أداة تحليلات الويب الأكثر شعبية في العالم بأسره." },
+                    { en: "Ο It's installed on at least 10 million websites,", ar: "Ο تم تثبيتها على 10 ملايين موقع ويب على অন্তত،" },
+                    { en: "Ο It's used by 64% of the top 500 US retailers and 45% of Fortune 500 companies and 55.9% of the top one million domains are all using Google Analytics.", ar: "Ο يتم استخدامها من قبل 64% من أفضل 500 بائع تجزئة في الولايات المتحدة، و 45% من شركات فورتشن 500، و 55.9% من أفضل مليون نطاق (موقع) يستخدمون جميعاً جوجل أناليتكس." },
+                    { en: "• Google Analytics Has a market share of over 82%.", ar: "• تستحوذ جوجل أناليتكس على حصة سوقية تزيد عن 82%." }
+                ],
+                explanation: "تشرح هذه الشريحة أسباب هيمنة وقوة أداة جوجل أناليتكس. هي ليست مجرد أداة عادية، بل هي المعيار الذهبي في السوق وتستحوذ على أكثر من 82% من حصة السوق! سواء كان لديك مدونة صغيرة أو كنت تدير شركة عملاقة من كبرى شركات العالم (مثل شركات Fortune 500)، فإن هذه الأداة تلبي احتياجاتك. الأرقام المذكورة في الشريحة تثبت مدى الثقة العالمية فيها.",
+                example: "إذا سألت صديقك الذي يمتلك متجراً صغيراً لبيع الورد، وسألت مدير التسويق في شركة كبرى مثل \"أمازون\" أو \"سامسونج\" عن الأداة التي يعتمدون عليها لمراقبة زوار مواقعهم، فالإجابة المشتركة في الغالب ستكون: \"نستخدم Google Analytics\"."
+            },
+            {
+                slideNum: 33,
+                content: [
+                    { en: "How to use Google Analytics?", ar: "كيف تستخدم جوجل أناليتكس؟" },
+                    { en: "• Google Analytics tracks all of its data by a unique tracking code that you install on your website.", ar: "• يتتبع جوجل أناليتكس جميع بياناته بواسطة كود تتبع فريد تقوم بتثبيته على موقعك الإلكتروني." },
+                    { en: "• This code is essentially a small snippet of JavaScript, that runs in viewer's browser when they visit those pages.", ar: "• هذا الكود هو في الأساس مقتطف صغير من الجافا سكريبت (JavaScript)، والذي يعمل في متصفح المشاهد عندما يزور تلك الصفحات." },
+                    { en: "• The JavaScript code works with a larger JavaScript file on the Google server to collect information about the user's activity when they're on your website.", ar: "• يعمل كود الجافا سكريبت مع ملف جافا سكريبت أكبر موجود على خادم جوجل لجمع المعلومات حول نشاط المستخدم عندما يكون على موقعك." },
+                    { en: "Each time they visit your website, the code tracks information about the site visit.", ar: "في كل مرة يزورون فيها موقعك، يتتبع الكود معلومات حول زيارة الموقع." }
+                ],
+                explanation: "توضح هذه الشريحة آلية عمل جوجل أناليتكس التقنية، وهي تعتمد بشكل كامل على طريقة \"وضع العلامات على الصفحات\" (Page Tagging) التي درسناها في الشريحة 23. الفكرة تبدأ بأن جوجل يعطيك \"كود جافا سكريبت\" صغيراً جداً وخاصاً بك وحدك. تضع هذا الكود في صفحات موقعك. عندما يفتح أي زائر موقعك، يقوم هذا الكود الصغير بالتواصل فوراً مع خوادم جوجل العملاقة، ويبدأ في تسجيل وإرسال كل تحركات الزائر.",
+                example: "تخيل أنك وظفت مراقباً خفياً يقف عند باب متجرك. كلما دخل زائر، يقوم هذا المراقب (وهو كود التتبع) بالاتصال فوراً بالمركز الرئيسي (خوادم جوجل) ليقول لهم: \"لقد دخل للتو زائر من القاهرة، وتوجه إلى قسم الأحذية!\"."
+            },
+            {
+                slideNum: 34,
+                content: [
+                    { en: "Let's Try Google Analytics 4", ar: "دعونا نجرب إحصاءات جوجل 4 (Google Analytics 4)" }
+                ],
+                explanation: "هذه الشريحة هي نقطة انتقال لتدريب عملي. الإصدار الحالي والأحدث من أداة جوجل يسمى (Google Analytics 4 أو اختصاراً GA4). سيقوم المحاضر هنا بفتح واجهة البرنامج الحقيقية أمام الطلاب ليريهم كيف يبدو من الداخل.",
+                example: null
+            },
+            {
+                slideNum: 35,
+                content: [
+                    { en: "5 Metrics", ar: "5 المقاييس" }
+                ],
+                explanation: "شريحة فاصلة تعلن بدء القسم الخامس والأخير من المحاضرة، والذي يتناول \"المقاييس\" (Metrics)، وهي لغة الأرقام والمصطلحات التي سنقرأها داخل أدوات التحليل.",
+                example: null
+            },
+            {
+                slideNum: 36,
+                content: [
+                    { en: "Metrics", ar: "المقاييس" },
+                    { en: "Metrics are key concepts in web analytics. Metrics are numeric measurements of various aspects of users' behavior, like how long they spend viewing a page or how many times users viewed a page", ar: "المقاييس هي مفاهيم رئيسية في تحليلات الويب. المقاييس هي قياسات رقمية لجوانب مختلفة من سلوك المستخدمين، مثل المدة التي يقضونها في مشاهدة صفحة أو عدد المرات التي شاهد فيها المستخدمون صفحة ما." }
+                ],
+                explanation: "هذه الشريحة تعرّف مصطلح \"المقاييس\" (Metrics). ببساطة، المقاييس هي \"أرقام\". في عالم تحليلات الويب، لا يمكننا قياس المشاعر، لكن يمكننا قياس السلوك باستخدام الأرقام. أي شيء يمكنك عده أو حسابه زمنياً يُعتبر \"مقياساً\".",
+                example: "إذا قلنا إن \"موقعك جميل ومفيد\"، فهذا رأي وليس مقياساً. ولكن إذا قلنا \"المستخدمون يبقون في الموقع لمدة 5 دقائق كاملة، وتمت مشاهدة الصفحة 1000 مرة اليوم\"، فالرقم \"5 دقائق\" والرقم \"1000 مرة\" هي مقاييس (Metrics) تدل على أن الموقع مفيد فعلاً."
+            },
+            {
+                slideNum: 37,
+                content: [
+                    { en: "session", ar: "الجلسة (الزيارة)" },
+                    { en: "new visitors", ar: "الزوار الجدد" },
+                    { en: "Page views", ar: "مشاهدات الصفحة" },
+                    { en: "Unique Page views", ar: "مشاهدات الصفحة الفريدة" },
+                    { en: "Average session duration", ar: "متوسط مدة الجلسة" },
+                    { en: "Bounce rate **", ar: "معدل الارتداد **" }
+                ],
+                explanation: "تعرض هذه الشريحة شكل سداسي يضم أهم 6 مقاييس (مصطلحات) أساسية يجب أن يعرفها أي شخص يتعامل مع تحليلات الويب. الشريحة هنا مجرد تعداد لهذه المصطلحات تمهيداً لشرحها بالتفصيل في الشريحة التالية.",
+                example: null
+            },
+            {
+                slideNum: 38,
+                content: [
+                    { en: "Visits, or sessions, in web analytics represent a single browsing session initiated by a user, encompassing all their interactions (page views, events) on a website within a specific timeframe, typically ending after 30 minutes of inactivity.", ar: "الزيارات، أو الجلسات، في تحليلات الويب تمثل جلسة تصفح واحدة يبدأها المستخدم، وتشمل جميع تفاعلاته (مشاهدات الصفحة، الأحداث) على موقع ويب خلال إطار زمني محدد، وتنتهي عادةً بعد 30 دقيقة من عدم النشاط." },
+                    { en: "New visitors visiting a website for the first time, identified by the absence of a specific tracking cookie on their device.", ar: "الزوار الجدد هم الذين يزورون موقعاً إلكترونياً لأول مرة، ويتم التعرف عليهم من خلال عدم وجود ملف تعريف ارتباط (كوكي) تتبع محدد على أجهزتهم." },
+                    { en: "Page views is a single \"page view\" is logged every time a user loads or refreshes a page.", ar: "مشاهدات الصفحة: يتم تسجيل \"مشاهدة صفحة\" واحدة في كل مرة يقوم فيها المستخدم بتحميل صفحة أو تحديثها." },
+                    { en: "Unique Pageviews count a page once per session,.", ar: "مشاهدات الصفحة الفريدة: تحسب (تسجل) الصفحة مرة واحدة لكل جلسة." },
+                    { en: "Average session duration measures the average total time users spend on a website or app in a single visit", ar: "متوسط مدة الجلسة: يقيس متوسط إجمالي الوقت الذي يقضيه المستخدمون على موقع ويب أو تطبيق في زيارة واحدة." },
+                    { en: "Bounce Rate is the percentage of visitors who enter a website and leave after viewing only one page, without interacting with the site", ar: "معدل الارتداد هو النسبة المئوية للزوار الذين يدخلون موقعاً إلكترونياً ويغادرون بعد مشاهدة صفحة واحدة فقط، دون التفاعل مع الموقع." }
+                ],
+                explanation: "هذه الشريحة تعتبر قاموساً مصغراً يشرح المقاييس الستة المذكورة سابقاً:\nالجلسة (Session): هي كل ما يفعله الزائر منذ دخوله الموقع وحتى خروجه (أو تركه للموقع بدون حركة لمدة 30 دقيقة).\nالزوار الجدد: الأشخاص الذين لم يسبق لهم زيارة موقعك إطلاقاً (نعرفهم لأن جهازهم لا يحتوي على \"كوكي\" من موقعنا).\nمشاهدات الصفحة (Page views): عدد المرات التي تم فيها فتح صفحة. (إذا قمت بعمل Refresh للصفحة 5 مرات، ستُحسب 5 مشاهدات).\nمشاهدات الصفحة الفريدة (Unique Pageviews): أذكى من المقياس السابق؛ فهي تتجاهل التحديث (Refresh). إذا فتحت الصفحة ثم قمت بتحديثها 5 مرات في نفس الجلسة، ستُحسب \"مشاهدة فريدة واحدة\" فقط.\nمتوسط مدة الجلسة: الزمن الذي قضاه الزائر داخل الموقع قبل المغادرة.\nمعدل الارتداد (Bounce Rate): مقياس خطير يخبرك بنسبة الأشخاص الذين دخلوا موقعك ثم هربوا فوراً من أول صفحة دون أن يضغطوا على أي شيء آخر. (كلما قل هذا الرقم، كان موقعك أفضل).",
+                example: "مثال شامل: دخل شخص جديد لموقعك (هذا زائر جديد). فتح الصفحة الرئيسية (تُحسب مشاهدة صفحة و مشاهدة فريدة). لم تعجبه الصفحة فقام بإغلاق الموقع فوراً خلال ثوانٍ. هنا تعتبر مدة الجلسة قصيرة جداً، ويُسجل هذا الشخص ضمن معدل الارتداد لأنه لم يتفاعل."
+            },
+            {
+                slideNum: 39,
+                content: [
+                    { en: "Enter Website", ar: "الدخول إلى الموقع" },
+                    { en: "Homepage (10 seconds)", ar: "الصفحة الرئيسية (10 ثوانٍ)" },
+                    { en: "/widgets/ (5 seconds)", ar: "صفحة الأدوات /widgets/ (5 ثوانٍ)" },
+                    { en: "/widgets/ product_page (20 seconds)", ar: "صفحة منتج الأدوات (20 ثانية)" },
+                    { en: "/widgets/ (5 seconds)", ar: "صفحة الأدوات /widgets/ (5 ثوانٍ)" },
+                    { en: "/oddities/ (10 seconds)", ar: "صفحة الغرائب /oddities/ (10 ثوانٍ)" },
+                    { en: "/oddities/ product_page (10 seconds)", ar: "صفحة منتج الغرائب (10 ثوانٍ)" },
+                    { en: "Exit Site", ar: "مغادرة الموقع" },
+                    { en: "Visit: 6 Pageviews", ar: "الزيارة: 6 مشاهدات للصفحة" },
+                    { en: "Page Depth: 6", ar: "عمق الصفحة: 6" },
+                    { en: "Visit Duration: 50 seconds", ar: "مدة الزيارة: 50 ثانية" }
+                ],
+                explanation: "تعرض هذه الشريحة مثالاً عملياً (رسم توضيحي مسار) لرحلة زائر واحد داخل متجر إلكتروني، وكيف تحسب أداة التحليل مقاييسه. بدأ الزائر بالصفحة الرئيسية (بقي 10 ثوان)، ثم ذهب لقسم الأدوات (5 ثوان)، ثم فتح منتجاً (20 ثانية)، ثم عاد لقسم الأدوات (5 ثوان)، ثم ذهب لقسم الغرائب (10 ثوان)، ثم فتح منتجاً (10 ثوان)، ثم غادر.",
+                example: "مثال واستنتاج: النتيجة النهائية لهذه \"الجلسة\": الزائر قام بفتح 6 صفحات مختلفة (لذلك المشاهدات = 6، وعمق التصفح = 6)، وإجمالي الوقت الذي قضاه في المتجر هو مجموع الثواني في كل الصفحات (10+5+20+5+10 = 50 ثانية). هذا الزائر \"لم يرتد\" لأن معدل ارتداده 0% (تصفح أكثر من صفحة)."
+            },
+            {
+                slideNum: 40,
+                content: [
+                    { en: "if i used another browser i will be a new user?", ar: "إذا استخدمت متصفحاً آخر، هل سأكون مستخدماً جديداً؟" },
+                    { en: "if i use another tablet with the same account?", ar: "إذا استخدمت جهازاً لوحياً (تابلت) آخر بنفس الحساب؟" },
+                    { en: "If i delete cookies?", ar: "إذا قمت بحذف ملفات تعريف الارتباط (الكوكيز)؟" }
+                ],
+                explanation: "تطرح هذه الشريحة أسئلة نقاشية للطلاب لاختبار فهمهم لكيفية عمل الـ \"كوكيز\" (التي درسناها في الشريحة 24). وإليك إجاباتها باختصار:\nاستخدام متصفح آخر: نعم، ستُعتبر مستخدماً جديداً، لأن الكوكيز تُحفظ داخل المتصفح نفسه (كوكيز كروم لا يراها متصفح سفاري).\nاستخدام تابلت آخر: نعم، ستُعتبر مستخدماً جديداً (بالنسبة لمعظم أدوات التحليل القياسية)، لأن الكوكيز تُحفظ في الجهاز المادي، إلا إذا كان الموقع يستخدم أنظمة تتبع متقدمة عبر تسجيل الدخول User-ID.\nحذف الكوكيز: نعم بكل تأكيد، ستُعتبر مستخدماً جديداً تماماً في زيارتك القادمة، لأنك محوت \"البطاقة\" التي كانت تُعرّف الموقع عليك.",
+                example: null
+            },
+            {
+                slideNum: 41,
+                content: [
+                    { en: "\"The only thing standing between you and outrageous success is continuous progress\"", ar: "\"الشيء الوحيد الذي يقف بينك وبين النجاح المذهل هو التقدم المستمر\"" },
+                    { en: "-Dan Waldschmidt", ar: "- دان والدشميدت" }
+                ],
+                explanation: "تختتم المحاضرة باقتباس تحفيزي يربط بين فكرة \"التحليلات\" والنجاح. الفكرة هنا هي أن التحليلات الويب ليست عصا سحرية، بل هي أداة لتحقيق \"التقدم المستمر\" (والذي تم ذكره في الشريحة 5 و 19). إذا استمريت في تحليل أخطاء موقعك وتحسينها يوماً بعد يوم، فإن هذا التقدم المستمر هو الذي سيقودك للنجاح الكبير.",
+                example: null
+            },
+            {
+                slideNum: 42,
+                content: [
+                    { en: "THANKS!", ar: "شكراً!" },
+                    { en: "Do you have any questions?", ar: "هل لديكم أي أسئلة؟" }
+                ],
+                explanation: "الشريحة الختامية المعتادة، يشكر فيها المحاضر الحضور على استماعهم ويفتح باب النقاش وطرح الأسئلة حول موضوع المحاضرة بالكامل.",
+                example: null
+            }
+        ];
+
+        // ==========================================
+        // 2. منطق توليد الشرائح وعرضها (Engine)
+        // ==========================================
+        const container = document.getElementById('slides-container');
+        let currentSlideIndex = 0;
+
+        function buildSlides() {
+            lectureData.forEach((slide, index) => {
+                let slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${index === 0 ? 'active-slide' : ''}`;
+                slideDiv.id = `slide-${index + 1}`;
+
+                // إضافة العنوان
+                let header = document.createElement('h3');
+                header.innerText = `الشريحة ${slide.slideNum}`;
+                header.style.color = 'var(--accent-color)';
+                header.style.marginBottom = '20px';
+                slideDiv.appendChild(header);
+
+                // بناء الفقرات المزدوجة (عربي/إنجليزي)
+                slide.content.forEach(pair => {
+                    let row = document.createElement('div');
+                    row.className = 'bilingual-row';
+                    row.innerHTML = `
+                        <div class="ar-text">${pair.ar}</div>
+                        <div class="en-text">${pair.en}</div>
+                    `;
+                    slideDiv.appendChild(row);
+                });
+
+                // إضافة الشرح التفصيلي
+                if (slide.explanation) {
+                    let expBox = document.createElement('div');
+                    expBox.className = 'explanation-box';
+                    expBox.innerHTML = `
+                        <h4><i class="fas fa-lightbulb"></i> الشرح التفصيلي:</h4>
+                        <p>${slide.explanation.replace(/\n/g, '<br>')}</p>
+                    `;
+                    slideDiv.appendChild(expBox);
+                }
+
+                // إضافة المثال
+                if (slide.example) {
+                    let exBox = document.createElement('div');
+                    exBox.className = 'example-box';
+                    exBox.innerHTML = `<strong>مثال:</strong> ${slide.example}`;
+                    slideDiv.appendChild(exBox);
+                }
+
+                container.appendChild(slideDiv);
+            });
+            updateCounter();
+        }
+
+        // ==========================================
+        // 3. أزرار التحكم في الشرائح
+        // ==========================================
+        function updateCounter() {
+            document.getElementById('slide-counter').innerText = `${currentSlideIndex + 1} / ${lectureData.length}`;
+        }
+
+        function showSlide(index) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active-slide');
+            });
+            document.getElementById(`slide-${index + 1}`).classList.add('active-slide');
+            updateCounter();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < lectureData.length - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // تشغيل بناء الشرائح عند تحميل الصفحة
+        window.onload = buildSlides;
+    </script>
+</body>
+
+</html>

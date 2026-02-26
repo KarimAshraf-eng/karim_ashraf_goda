@@ -1,0 +1,354 @@
+/* =========================================
+   ملف التنسيقات الأساسي (style.css)
+   يتم تطبيقه على جميع صفحات الموقع
+========================================= */
+
+/* --- تعريف المتغيرات للألوان والخطوط --- */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --accent-color: #ffbe0b;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-lg: 15px;
+    --radius-md: 10px;
+}
+
+/* --- الإعدادات الأساسية --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --- الحاوية الرئيسية للموقع --- */
+.main-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 1000px;
+    /* تم التوسيع لراحة العين */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+    min-height: 550px;
+    /* تم زيادة الطول */
+}
+
+/* --- رأس الصفحة (البانر العلوي) --- */
+.header-banner {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.header-banner h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.header-banner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- إعدادات الصفحات والأنيميشن --- */
+.page {
+    display: none;
+    padding: 0 30px 40px 30px;
+}
+
+.page.active {
+    display: block;
+    animation: slideUpFade 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- العناوين الأساسية --- */
+h2.page-title {
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    border-right: 5px solid var(--accent-color);
+    padding-right: 15px;
+}
+
+/* --- الأزرار --- */
+.btn-primary {
+    background: var(--secondary-gradient);
+    border: none;
+    padding: 12px 35px;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(0, 169, 255, 0.6);
+}
+
+.btn-back {
+    background: white;
+    color: var(--text-dark);
+    border: 2px solid #e2e8f0;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-back:hover {
+    background: #e2e8f0;
+    color: #1a202c;
+}
+
+/* --- تصميم البطاقات (للمواد والمحاضرات) --- */
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card-item {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-dark);
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    border-color: #764ba2;
+    box-shadow: var(--shadow-lg);
+}
+
+/* منع انضغاط الأيقونات */
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-gradient);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    /* السطر المسؤول عن الحفاظ على شكل الأيقونة المربع */
+}
+
+.card-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.arrow-icon {
+    margin-right: auto;
+    color: #cbd5e0;
+}
+
+/* حالات خاصة للبطاقات */
+.card-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f7fafc;
+}
+
+.card-item.disabled:hover {
+    transform: none;
+    border-color: #e2e8f0;
+    box-shadow: var(--shadow-md);
+}
+
+.active-card {
+    border-color: #764ba2;
+    background: #f8faff;
+}
+
+.gradient-icon {
+    background: var(--secondary-gradient);
+}
+
+/* --- تصميم الـ Presentation (شاشة العرض للمحاضرات) --- */
+.presentation-container {
+    background: #1a202c;
+    border-radius: var(--radius-lg);
+    padding: 5px;
+    box-shadow: var(--shadow-lg);
+}
+
+.slide-screen {
+    background: linear-gradient(to bottom right, #2d3748, #1a202c);
+    border-radius: var(--radius-md);
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #4a5568;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    animation: fadeInSlide 0.4s ease;
+    width: 100%;
+}
+
+.slide.active-slide {
+    display: block;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0.3;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slide h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.slide p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.slide-footer-deco {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 5px;
+    background: var(--secondary-gradient);
+    border-radius: 10px;
+}
+
+.presentation-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #2d3748;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+    color: white;
+}
+
+.btn-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-control:hover {
+    background: var(--secondary-gradient);
+    border-color: transparent;
+}
+
+.slide-counter-text {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* --- التجاوب مع شاشات الهواتف (Responsive) --- */
+@media (max-width: 600px) {
+    .header-banner h1 {
+        font-size: 1.5rem;
+    }
+
+    .page {
+        padding: 0 15px 30px 15px;
+    }
+
+    .grid-list {
+        grid-template-columns: 1fr;
+    }
+
+    .slide h3 {
+        font-size: 1.5rem;
+    }
+
+    .slide p {
+        font-size: 1rem;
+    }
+
+    .presentation-controls {
+        padding: 15px;
+    }
+
+    .btn-control {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}

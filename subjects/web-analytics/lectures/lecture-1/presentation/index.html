@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 1 - Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../../../css/style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="page active">
+            <a href="../../../index.html" class="btn-back"><i class="fas fa-arrow-right"></i> خروج من العرض</a>
+
+            <div class="presentation-container">
+                <div class="slide-screen">
+                    <div id="slide-1" class="slide active-slide">
+                        <i class="fas fa-search-dollar fa-3x slide-icon-1"></i>
+                        <h3>مقدمة المحاضرة الأولى</h3>
+                        <p>هنا يمكنك كتابة كل ما يخص الشريحة الأولى...</p>
+                    </div>
+                    <div id="slide-2" class="slide">
+                        <h3>الشريحة الثانية</h3>
+                        <p>المحتوى...</p>
+                    </div>
+                </div>
+
+                <div class="presentation-controls">
+                    <button class="btn-control" onclick="prevSlide()"><i class="fas fa-chevron-right"></i>
+                        السابق</button>
+                    <span id="slide-counter" class="slide-counter-text">1 / 2</span>
+                    <button class="btn-control" onclick="nextSlide()">التالي <i
+                            class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../../../js/main.js"></script>
+</body>
+
+</html>
