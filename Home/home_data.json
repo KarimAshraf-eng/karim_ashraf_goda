@@ -5,7 +5,7 @@
         "icon": "fa-solid fa-robot",
         "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=80",
         "folder_path": "../Subjects/Robotics",
-        "is_active": true
+        "is_active": false
     },
     {
         "id": 2,
@@ -13,14 +13,14 @@
         "icon": "fa-solid fa-brain",
         "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80",
         "folder_path": "../Subjects/DeepLearning",
-        "is_active": true
+        "is_active": false
     },
     {
         "id": 3,
         "name": "Web & Social Analytics",
         "icon": "fa-solid fa-share-nodes",
         "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80",
-        "folder_path": "../Subjects/WebAnalytics",
+        "folder_path": "../Subjects/DataVis/web_analytics_page.html",
         "is_active": true
     },
     {
@@ -36,7 +36,7 @@
         "name": "Data Visualization",
         "icon": "fa-solid fa-chart-pie",
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
-        "folder_path": "../Subjects/DataVis/data_vis_page.html",
+        "folder_path": "../Subjects/DataVis",
         "is_active": false
     }
 ]

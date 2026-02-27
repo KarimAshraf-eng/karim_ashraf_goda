@@ -5,7 +5,7 @@
         "icon": "fa-solid fa-person-chalkboard",
         "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80",
         "folder_path": "Lectures/lectures_page.html",
-        "is_active": true
+        "is_active": false
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "icon": "fa-solid fa-users-gear",
         "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80",
         "folder_path": "Sections/sections_page.html",
-        "is_active": true
+        "is_active": false
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "icon": "fa-solid fa-clipboard-question",
         "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80",
         "folder_path": "Question/question_page.html",
-        "is_active": true
+        "is_active": false
     },
     {
         "id": 4,
