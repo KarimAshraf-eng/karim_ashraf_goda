@@ -264,14 +264,29 @@ footer {
 }
 
 /* تحسينات خاصة بأداء التابلت والموبايل فقط */
+/* الحل النهائي لإنهاء تهنيج التابلت والموبايل */
 @media (max-width: 1024px) {
     .subject-card {
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        /* إيقاف تأثير الزجاج تماماً لأنه العدو الأول لمعالجات التابلت */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        /* استخدام لون خلفية ثابت وأنيق كبديل للزجاج */
+        background: rgba(20, 26, 38, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        /* تقليل الظل (Shadow) لأنه بيسحب موارد مع السكرول */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    /* إيقاف حركة الخلفية المضيئة أثناء استخدام التابلت لتوفير الموارد */
-    .glow {
-        animation: none;
+    .subject-card:hover {
+        /* تقليل تأثير الهوفر على التابلت */
+        transform: translateY(-5px) translateZ(0);
+        box-shadow: 0 8px 15px rgba(0, 198, 255, 0.1);
+    }
+
+    /* إخفاء الخلفية المضيئة تماماً على التابلت لتخفيف العبء على الجهاز */
+    .bg-animation {
+        display: none;
     }
 }
