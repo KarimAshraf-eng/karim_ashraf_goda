@@ -210,3 +210,41 @@ footer {
     margin-top: auto;
     z-index: 1;
 }
+
+/* تنسيق المواد غير المفعلة (المغلقة) */
+.subject-card.disabled {
+    pointer-events: none;
+    /* يمنع الضغط على الكارت نهائياً */
+    filter: grayscale(100%);
+    /* يحول الكارت بالكامل للون الرمادي */
+    opacity: 0.5;
+    /* يقلل الشفافية */
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+.subject-card.disabled .card-title {
+    color: #718096;
+}
+
+.subject-card.disabled .icon-container {
+    background: #2d3748;
+    box-shadow: none;
+    border-color: #1a202c;
+}
+
+/* شارة (قريباً) تظهر على المواد غير المفعلة */
+.coming-soon-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #a0aec0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 3;
+    border: 1px solid #4a5568;
+    letter-spacing: 1px;
+}

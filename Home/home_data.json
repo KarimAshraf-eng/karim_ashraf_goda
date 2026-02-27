@@ -1,44 +1,42 @@
 [
     {
         "id": 1,
-        "name": "أساسيات البرمجة - Programming Fundamentals",
-        "icon": "fa-solid fa-code",
-        "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&q=80",
-        "folder_path": "../Subjects/Programming"
+        "name": "Robotics",
+        "icon": "fa-solid fa-robot",
+        "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=80",
+        "folder_path": "../Subjects/Robotics",
+        "is_active": true
     },
     {
         "id": 2,
-        "name": "قواعد البيانات - Database Systems",
-        "icon": "fa-solid fa-database",
-        "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=80",
-        "folder_path": "../Subjects/Database"
+        "name": "Deep Learning & Neural Network",
+        "icon": "fa-solid fa-brain",
+        "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80",
+        "folder_path": "../Subjects/DeepLearning",
+        "is_active": true
     },
     {
         "id": 3,
-        "name": "هياكل البيانات - Data Structures",
-        "icon": "fa-solid fa-network-wired",
-        "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=500&q=80",
-        "folder_path": "../Subjects/DataStructures"
+        "name": "Web & Social Analytics",
+        "icon": "fa-solid fa-share-nodes",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80",
+        "folder_path": "../Subjects/WebAnalytics",
+        "is_active": true
     },
     {
         "id": 4,
-        "name": "شبكات الحاسب - Computer Networks",
-        "icon": "fa-solid fa-server",
-        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80",
-        "folder_path": "../Subjects/Networks"
+        "name": "Mobile Development",
+        "icon": "fa-solid fa-mobile-screen-button",
+        "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80",
+        "folder_path": "../Subjects/MobileDev",
+        "is_active": false
     },
     {
         "id": 5,
-        "name": "هندسة البرمجيات - Software Engineering",
-        "icon": "fa-solid fa-laptop-code",
-        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80",
-        "folder_path": "../Subjects/SoftwareEngineering"
-    },
-    {
-        "id": 6,
-        "name": "الرياضيات المتقطعة - Discrete Mathematics",
-        "icon": "fa-solid fa-calculator",
-        "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&q=80",
-        "folder_path": "../Subjects/DiscreteMath"
+        "name": "Data Visualization",
+        "icon": "fa-solid fa-chart-pie",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
+        "folder_path": "../Subjects/DataVis",
+        "is_active": false
     }
 ]

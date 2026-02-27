@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('subjects-container');
 
-    // إعداد الـ Observer لتشغيل الـ Animation عند ظهور العنصر في الشاشة
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
@@ -10,16 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // تأخير بسيط لكل كارت عشان يظهروا ورا بعض بشكل جمالي (Stagger effect)
                 setTimeout(() => {
                     entry.target.classList.add('show');
                 }, index * 100);
-                observer.unobserve(entry.target); // إيقاف المراقبة بعد الظهور
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // جلب البيانات من ملف JSON
     fetch('home_data.json')
         .then(response => {
             if (!response.ok) throw new Error('خطأ في التحميل');
@@ -27,11 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             data.forEach(subject => {
-                const card = document.createElement('a');
-                card.href = subject.folder_path;
-                card.className = 'subject-card';
+                // إذا كانت المادة مفعلة، نجعلها رابط <a>، وإذا لم تكن نجعلها <div> عادي
+                const card = document.createElement(subject.is_active ? 'a' : 'div');
+
+                if (subject.is_active) {
+                    card.href = subject.folder_path;
+                }
+
+                // إضافة كلاس disabled إذا كانت المادة غير مفعلة
+                card.className = `subject-card ${subject.is_active ? '' : 'disabled'}`;
 
                 card.innerHTML = `
+                    ${!subject.is_active ? '<div class="coming-soon-badge">قريباً</div>' : ''}
                     <div class="image-wrapper">
                         <img src="${subject.image}" alt="${subject.name}" class="card-image" loading="lazy">
                     </div>
@@ -44,13 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
 
                 container.appendChild(card);
-
-                // مراقبة الكارت لتشغيل الأنيميشن
                 observer.observe(card);
             });
         })
         .catch(error => {
             console.error('Error:', error);
-            container.innerHTML = '<p style="text-align:center; color:#ff4757; grid-column: 1 / -1;">عذراً، لم نتمكن من تحميل المواد حالياً. يرجى التأكد من تشغيل المشروع على سيرفر محلي.</p>';
+            container.innerHTML = '<p style="text-align:center; color:#ff4757; grid-column: 1 / -1;">عذراً، لم نتمكن من تحميل المواد حالياً.</p>';
         });
 });
