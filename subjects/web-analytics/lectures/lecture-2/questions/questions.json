@@ -1,0 +1,1202 @@
+[
+    {
+        "question_number": 1,
+        "question_en": "What is Web analytics? ",
+        "question_ar": "ما هي تحليلات الويب؟ ",
+        "options_en": [
+            "Measuring, collecting, and analyzing web data ",
+            "Designing web interfaces ",
+            "Protecting servers from hackers ",
+            "Writing content for blogs "
+        ],
+        "options_ar": [
+            "قياس وجمع وتحليل بيانات الويب ",
+            "تصميم واجهات الويب ",
+            "حماية الخوادم من المتسللين ",
+            "كتابة المحتوى للمدونات "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Web analytics is defined as measuring and analyzing data to understand and optimize web usage.",
+        "correct_explanation_ar": "تُعرف تحليلات الويب بأنها قياس وتحليل البيانات لفهم وتحسين استخدام الويب.",
+        "incorrect_explanations_en": [
+            "Web analytics is about data, not design.",
+            "It focuses on user data, not cybersecurity.",
+            "It tracks usage, not content creation."
+        ],
+        "incorrect_explanations_ar": [
+            "تحليلات الويب تتعلق بالبيانات وليس التصميم.",
+            "تركز على بيانات المستخدم وليس الأمن السيبراني.",
+            "تتتبع الاستخدام ولا تقوم بإنشاء المحتوى."
+        ]
+    },
+    {
+        "question_number": 2,
+        "question_en": "What is the first step in the Web Analytics Approach? ",
+        "question_ar": "ما هي الخطوة الأولى في منهج تحليلات الويب؟ ",
+        "options_en": [
+            "Pose a question ",
+            "Know your website ",
+            "Transform and analyze ",
+            "Continuous improvement "
+        ],
+        "options_ar": [
+            "طرح سؤال ",
+            "تعرف على موقعك ",
+            "التحويل والتحليل ",
+            "التحسين المستمر "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "The first step is to not use the tool at all and instead get to know your website.",
+        "correct_explanation_ar": "الخطوة الأولى هي عدم استخدام الأداة على الإطلاق وبدلاً من ذلك التعرف على موقعك.",
+        "incorrect_explanations_en": [
+            "Posing a question comes after knowing the website.",
+            "Transform and analyze is the third step.",
+            "Continuous improvement is the final step."
+        ],
+        "incorrect_explanations_ar": [
+            "طرح السؤال يأتي بعد التعرف على الموقع.",
+            "التحويل والتحليل هي الخطوة الثالثة.",
+            "التحسين المستمر هو الخطوة الأخيرة."
+        ]
+    },
+    {
+        "question_number": 3,
+        "question_en": "Web analytics is no good at answering which type of questions? ",
+        "question_ar": "تحليلات الويب ليست جيدة في الإجابة على أي نوع من الأسئلة؟ ",
+        "options_en": [
+            "What questions ",
+            "Where questions ",
+            "When questions ",
+            "Why questions "
+        ],
+        "options_ar": [
+            "أسئلة ماذا ",
+            "أسئلة أين ",
+            "أسئلة متى ",
+            "أسئلة لماذا "
+        ],
+        "correct_option_index": 3,
+        "correct_explanation_en": "The lecture states that web analytics is no good at answering 'why' questions.",
+        "correct_explanation_ar": "تنص المحاضرة على أن تحليلات الويب ليست جيدة في الإجابة على أسئلة 'لماذا'.",
+        "incorrect_explanations_en": [
+            "It answers 'what' users do.",
+            "It tracks 'where' users go.",
+            "It logs 'when' actions happen."
+        ],
+        "incorrect_explanations_ar": [
+            "إنها تجيب على 'ماذا' يفعل المستخدمون.",
+            "تتتبع 'أين' يذهب المستخدمون.",
+            "تسجل 'متى' تحدث الإجراءات."
+        ]
+    },
+    {
+        "question_number": 4,
+        "question_en": "What is Web scraping? ",
+        "question_ar": "ما هو استخراج بيانات الويب (Web scraping)؟ ",
+        "options_en": [
+            "Extracting content and data from a website ",
+            "Deleting a website's code ",
+            "Optimizing website speed ",
+            "Designing website graphics "
+        ],
+        "options_ar": [
+            "استخراج المحتوى والبيانات من موقع إلكتروني ",
+            "حذف كود الموقع الإلكتروني ",
+            "تحسين سرعة الموقع ",
+            "تصميم رسومات الموقع "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Web scraping is defined as the process of extracting content and data from a website.",
+        "correct_explanation_ar": "يُعرف استخراج بيانات الويب بأنه عملية استخراج المحتوى والبيانات من موقع الويب.",
+        "incorrect_explanations_en": [
+            "It extracts data, it does not delete code.",
+            "It is for data collection, not speed optimization.",
+            "It handles data, not graphic design."
+        ],
+        "incorrect_explanations_ar": [
+            "إنه يستخرج البيانات، ولا يحذف الأكواد.",
+            "يستخدم لجمع البيانات وليس تحسين السرعة.",
+            "يتعامل مع البيانات وليس التصميم الجرافيكي."
+        ]
+    },
+    {
+        "question_number": 5,
+        "question_en": "Which of the following is a method of Web scraping protection? ",
+        "question_ar": "أي مما يلي يُعد من طرق الحماية ضد استخراج بيانات الويب؟ ",
+        "options_en": [
+            "Page tagging ",
+            "CAPTCHA challenge ",
+            "Log files ",
+            "Cookies "
+        ],
+        "options_ar": [
+            "وضع العلامات على الصفحات ",
+            "تحدي الكابتشا (CAPTCHA) ",
+            "ملفات السجل ",
+            "ملفات تعريف الارتباط "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Progressive challenges like CAPTCHA are used for web scraping protection.",
+        "correct_explanation_ar": "التحديات المتدرجة مثل الكابتشا تُستخدم للحماية من استخراج البيانات.",
+        "incorrect_explanations_en": [
+            "Page tagging is for tracking users, not blocking bots.",
+            "Log files record server requests, they don't block scraping.",
+            "Cookies track users, they do not stop scraping."
+        ],
+        "incorrect_explanations_ar": [
+            "وضع العلامات هو لتتبع المستخدمين وليس لحظر الروبوتات.",
+            "ملفات السجل تسجل طلبات الخادم ولا تمنع الاستخراج.",
+            "الكوكيز تتتبع المستخدمين ولا توقف الاستخراج."
+        ]
+    },
+    {
+        "question_number": 6,
+        "question_en": "Is Web Scraping always illegal? ",
+        "question_ar": "هل استخراج بيانات الويب غير قانوني دائماً؟ ",
+        "options_en": [
+            "Yes, it is always illegal ",
+            "No, it can be Legal or Illegal ",
+            "Yes, unless you use Python ",
+            "No, it is only illegal for images "
+        ],
+        "options_ar": [
+            "نعم، هو دائماً غير قانوني ",
+            "لا، يمكن أن يكون قانونياً أو غير قانوني ",
+            "نعم، إلا إذا استخدمت بايثون ",
+            "لا، هو غير قانوني للصور فقط "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "The lecture poses it as a question with arrows pointing to both Legal and Illegal, meaning it depends.",
+        "correct_explanation_ar": "تطرح المحاضرة ذلك كسؤال مع أسهم تشير إلى 'قانوني' و'غير قانوني'، مما يعني أن الأمر يعتمد على الحالة.",
+        "incorrect_explanations_en": [
+            "It is not always illegal.",
+            "Using Python does not automatically make it legal.",
+            "It is not restricted to just images."
+        ],
+        "incorrect_explanations_ar": [
+            "ليس غير قانوني بشكل دائم.",
+            "استخدام بايثون لا يجعله قانونياً بشكل تلقائي.",
+            "لا يقتصر الأمر على الصور فقط."
+        ]
+    },
+    {
+        "question_number": 7,
+        "question_en": "What creates Log files? ",
+        "question_ar": "ما الذي يقوم بإنشاء ملفات السجل (Log files)؟ ",
+        "options_en": [
+            "The webserver ",
+            "The user's browser ",
+            "Google Analytics ",
+            "JavaScript "
+        ],
+        "options_ar": [
+            "خادم الويب (Webserver) ",
+            "متصفح المستخدم ",
+            "جوجل أناليتكس ",
+            "الجافا سكريبت "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Log files are automatically generated and stored on the webserver.",
+        "correct_explanation_ar": "يتم إنشاء ملفات السجل تلقائياً وتخزينها على خادم الويب.",
+        "incorrect_explanations_en": [
+            "The browser loads pages, it doesn't create server logs.",
+            "Google Analytics uses page tagging, not log files.",
+            "JavaScript is used for page tagging, not log files."
+        ],
+        "incorrect_explanations_ar": [
+            "المتصفح يقوم بتحميل الصفحات، ولا ينشئ سجلات الخادم.",
+            "جوجل أناليتكس يستخدم العلامات وليس السجلات.",
+            "الجافا سكريبت تستخدم لوضع العلامات وليس السجلات."
+        ]
+    },
+    {
+        "question_number": 8,
+        "question_en": "What is one limitation of Log files? ",
+        "question_ar": "ما هو أحد عيوب (قيود) ملفات السجل؟ ",
+        "options_en": [
+            "It requires JavaScript ",
+            "Cached pages may not be recorded ",
+            "It only works on Chrome ",
+            "It is too expensive "
+        ],
+        "options_ar": [
+            "تتطلب الجافا سكريبت ",
+            "قد لا يتم تسجيل الصفحات المخبأة (Cached pages) ",
+            "تعمل فقط على متصفح كروم ",
+            "مكلفة جداً "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "If a page is loaded from cache, there is no new server request, causing under-counting.",
+        "correct_explanation_ar": "إذا تم تحميل صفحة من ذاكرة التخزين المؤقت، فلن يكون هناك طلب خادم جديد، مما يسبب نقصاً في الحساب.",
+        "incorrect_explanations_en": [
+            "Log files work even if JavaScript is disabled.",
+            "Log files record all requests regardless of the browser.",
+            "Cost is not mentioned as a limitation in the lecture."
+        ],
+        "incorrect_explanations_ar": [
+            "ملفات السجل تعمل حتى لو تم تعطيل الجافا سكريبت.",
+            "ملفات السجل تسجل كل الطلبات بغض النظر عن المتصفح.",
+            "التكلفة لم تُذكر كعيب في المحاضرة."
+        ]
+    },
+    {
+        "question_number": 9,
+        "question_en": "How does Page Tagging primarily work? ",
+        "question_ar": "كيف تعمل عملية وضع العلامات على الصفحات (Page Tagging) بشكل أساسي؟ ",
+        "options_en": [
+            "Analyzing server hardware ",
+            "Adding a small piece of JavaScript code to pages ",
+            "Downloading log files manually ",
+            "Blocking users' IP addresses "
+        ],
+        "options_ar": [
+            "تحليل أجهزة الخادم ",
+            "إضافة جزء صغير من كود جافا سكريبت إلى الصفحات ",
+            "تنزيل ملفات السجل يدوياً ",
+            "حظر عناوين الـ IP للمستخدمين "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Page tagging works by adding an invisible snippet of JavaScript code to web pages.",
+        "correct_explanation_ar": "تعمل عن طريق إضافة مقتطف غير مرئي من كود جافا سكريبت إلى صفحات الويب.",
+        "incorrect_explanations_en": [
+            "It tracks software behavior, not server hardware.",
+            "Log files are a completely different method.",
+            "IP blocking is for scraping protection, not analytics."
+        ],
+        "incorrect_explanations_ar": [
+            "إنها تتتبع السلوك البرمجي وليس أجهزة الخادم.",
+            "ملفات السجل هي طريقة مختلفة تماماً.",
+            "حظر الـ IP هو للحماية وليس للتحليلات."
+        ]
+    },
+    {
+        "question_number": 10,
+        "question_en": "What is a cookie in web analytics? ",
+        "question_ar": "ما هو ملف تعريف الارتباط (Cookie) في تحليلات الويب؟ ",
+        "options_en": [
+            "A piece of data stored on the user's computer ",
+            "A database on the web server ",
+            "A web scraping extension ",
+            "A type of HTML file "
+        ],
+        "options_ar": [
+            "جزء من البيانات يتم تخزينه على كمبيوتر المستخدم ",
+            "قاعدة بيانات على خادم الويب ",
+            "إضافة لاستخراج بيانات الويب ",
+            "نوع من ملفات HTML "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "A cookie is a piece of data that a website stores on users' computers.",
+        "correct_explanation_ar": "الكوكي هو جزء من البيانات التي يقوم الموقع بتخزينها على أجهزة كمبيوتر المستخدمين.",
+        "incorrect_explanations_en": [
+            "It is stored on the client side, not the server.",
+            "It is not an extension for scraping.",
+            "It is not an HTML file, it's a tracking token."
+        ],
+        "incorrect_explanations_ar": [
+            "يتم تخزينه لدى المستخدم وليس الخادم.",
+            "ليس إضافة لاستخراج البيانات.",
+            "ليس ملف HTML بل هو رمز تتبع."
+        ]
+    },
+    {
+        "question_number": 11,
+        "question_en": "When does a visit end according to web analytics tools? ",
+        "question_ar": "متى تنتهي الزيارة وفقاً لأدوات تحليلات الويب؟ ",
+        "options_en": [
+            "When the user clicks a link ",
+            "If the user does not load a page for a certain period ",
+            "Immediately after the first click ",
+            "When the server crashes "
+        ],
+        "options_ar": [
+            "عندما ينقر المستخدم على رابط ",
+            "إذا لم يقم المستخدم بتحميل صفحة لفترة معينة ",
+            "فوراً بعد النقرة الأولى ",
+            "عندما يتعطل الخادم "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "If the user does not load a page on the website for a certain period, the visit ends.",
+        "correct_explanation_ar": "إذا لم يقم المستخدم بتحميل صفحة لفترة معينة، فإن الزيارة تنتهي.",
+        "incorrect_explanations_en": [
+            "Clicking a link continues the visit.",
+            "The first click starts or continues a session.",
+            "Server crashes are technical errors, not standard session rules."
+        ],
+        "incorrect_explanations_ar": [
+            "النقر على رابط يستمر في الزيارة.",
+            "النقرة الأولى تبدأ الجلسة أو تستمر فيها.",
+            "أعطال الخادم هي أخطاء تقنية وليست قواعد للجلسة."
+        ]
+    },
+    {
+        "question_number": 12,
+        "question_en": "What happens to page tagging if a user disables JavaScript? ",
+        "question_ar": "ماذا يحدث لوضع العلامات على الصفحات إذا قام المستخدم بتعطيل الجافا سكريبت؟ ",
+        "options_en": [
+            "It collects data faster ",
+            "The tool won't gather any data ",
+            "It switches to log files ",
+            "It uses HTML instead "
+        ],
+        "options_ar": [
+            "تقوم بجمع البيانات بشكل أسرع ",
+            "لن تجمع الأداة أي بيانات ",
+            "تتحول إلى ملفات السجل ",
+            "تستخدم HTML بدلاً منها "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Because page tagging depends on JavaScript, if disabled, the tool won't gather any data.",
+        "correct_explanation_ar": "لأنها تعتمد على الجافا سكريبت، فإذا تم تعطيلها، لن تجمع الأداة أي بيانات.",
+        "incorrect_explanations_en": [
+            "It stops working entirely, it doesn't get faster.",
+            "It cannot switch to server logs automatically.",
+            "HTML cannot perform the tracking actions of JavaScript."
+        ],
+        "incorrect_explanations_ar": [
+            "تتوقف عن العمل تماماً ولا تصبح أسرع.",
+            "لا يمكنها التحول لسجلات الخادم تلقائياً.",
+            "لا يمكن لـ HTML القيام بمهام التتبع الخاصة بالجافا سكريبت."
+        ]
+    },
+    {
+        "question_number": 13,
+        "question_en": "Why might data in analytics tools not be 100% accurate? ",
+        "question_ar": "لماذا قد لا تكون البيانات في أدوات التحليل دقيقة بنسبة 100%؟ ",
+        "options_en": [
+            "Because users can delete cookies or use incognito mode ",
+            "Because the servers are too small ",
+            "Because Google deletes data randomly ",
+            "Because analytics tools cannot process large numbers "
+        ],
+        "options_ar": [
+            "لأن المستخدمين يمكنهم حذف الكوكيز أو استخدام التصفح المتخفي ",
+            "لأن الخوادم صغيرة جداً ",
+            "لأن جوجل تحذف البيانات عشوائياً ",
+            "لأن أدوات التحليل لا تستطيع معالجة الأرقام الكبيرة "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Users refusing cookies or using privacy modes prevents tracking, reducing accuracy.",
+        "correct_explanation_ar": "رفض المستخدمين للكوكيز أو استخدام وضع الخصوصية يمنع التتبع ويقلل الدقة.",
+        "incorrect_explanations_en": [
+            "Server size is not mentioned as the cause of inaccuracy.",
+            "Google does not randomly delete your analytics data.",
+            "Tools are designed to handle 'Big Data'."
+        ],
+        "incorrect_explanations_ar": [
+            "حجم الخادم لم يُذكر كسبب لعدم الدقة.",
+            "جوجل لا تحذف بيانات تحليلاتك عشوائياً.",
+            "الأدوات مصممة للتعامل مع البيانات الضخمة."
+        ]
+    },
+    {
+        "question_number": 14,
+        "question_en": "What is the estimated difference between reality and recorded analytics data? ",
+        "question_ar": "ما هو الفارق المقدر بين الواقع والبيانات المسجلة في التحليلات؟ ",
+        "options_en": [
+            "1% ",
+            "5% ",
+            "10% ",
+            "50% "
+        ],
+        "options_ar": [
+            "1% ",
+            "5% ",
+            "10% ",
+            "50% "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "The lecture states that the difference of reality is estimated to be 10%.",
+        "correct_explanation_ar": "تذكر المحاضرة أن الفارق عن الواقع يُقدر بـ 10%.",
+        "incorrect_explanations_en": [
+            "1% is incorrect based on the lecture.",
+            "5% is incorrect based on the lecture.",
+            "50% is incorrect based on the lecture."
+        ],
+        "incorrect_explanations_ar": [
+            "1% نسبة غير صحيحة بناءً على المحاضرة.",
+            "5% نسبة غير صحيحة بناءً على المحاضرة.",
+            "50% نسبة غير صحيحة بناءً على المحاضرة."
+        ]
+    },
+    {
+        "question_number": 15,
+        "question_en": "What do Click analytics tools primarily analyze? ",
+        "question_ar": "ما الذي تحلله أدوات 'تحليلات النقرات' بشكل أساسي؟ ",
+        "options_en": [
+            "User movement between different websites ",
+            "User behavior on the page itself (mouse movement, clicks) ",
+            "Server downtime ",
+            "HTML code errors "
+        ],
+        "options_ar": [
+            "حركة المستخدم بين مواقع الويب المختلفة ",
+            "سلوك المستخدم على الصفحة نفسها (حركة الماوس، النقرات) ",
+            "فترات تعطل الخادم ",
+            "أخطاء أكواد HTML "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Click analytics focus on behavior on the page itself, like making recordings of a user's session.",
+        "correct_explanation_ar": "تركز تحليلات النقرات على السلوك داخل الصفحة نفسها، مثل تسجيل جلسة المستخدم.",
+        "incorrect_explanations_en": [
+            "They focus on a single page, not movement between sites.",
+            "Server downtime is diagnosed by Log files.",
+            "They track visual user behavior, not code debugging."
+        ],
+        "incorrect_explanations_ar": [
+            "تركز على صفحة واحدة وليس التنقل بين المواقع.",
+            "أعطال الخادم تُشخص عبر ملفات السجل.",
+            "تتتبع السلوك البصري للمستخدم وليس إصلاح الأكواد."
+        ]
+    },
+    {
+        "question_number": 16,
+        "question_en": "Which of the following is an example of a Click analytics tool? ",
+        "question_ar": "أي مما يلي يُعد مثالاً على أداة 'تحليلات النقرات'؟ ",
+        "options_en": [
+            "CrazyEgg ",
+            "Web Scraper ",
+            "AWStats ",
+            "Python "
+        ],
+        "options_ar": [
+            "CrazyEgg ",
+            "Web Scraper ",
+            "AWStats ",
+            "Python "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Tealeaf, CrazyEgg, and ClickTale are mentioned as click analytics tools.",
+        "correct_explanation_ar": "تم ذكر Tealeaf و CrazyEgg و ClickTale كأدوات لتحليلات النقرات.",
+        "incorrect_explanations_en": [
+            "Web Scraper is a Chrome extension for scraping.",
+            "AWStats is a log file analysis tool.",
+            "Python is a programming language used for scraping."
+        ],
+        "incorrect_explanations_ar": [
+            "Web Scraper إضافة لاستخراج البيانات.",
+            "AWStats أداة لتحليل ملفات السجل.",
+            "Python لغة برمجة تستخدم للاستخراج."
+        ]
+    },
+    {
+        "question_number": 17,
+        "question_en": "What is Google Analytics? ",
+        "question_ar": "ما هو جوجل أناليتكس؟ ",
+        "options_en": [
+            "A paid antivirus software ",
+            "A free website analytics service offered by Google ",
+            "A browser extension for web scraping ",
+            "A server log file format "
+        ],
+        "options_ar": [
+            "برنامج مدفوع لمكافحة الفيروسات ",
+            "خدمة مجانية لتحليلات مواقع الويب تقدمها جوجل ",
+            "إضافة متصفح لاستخراج بيانات الويب ",
+            "صيغة لملفات سجل الخادم "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Google Analytics is explicitly defined as a free website analytics service offered by Google.",
+        "correct_explanation_ar": "تم تعريف جوجل أناليتكس صراحة كخدمة مجانية لتحليلات المواقع تقدمها جوجل.",
+        "incorrect_explanations_en": [
+            "It is a free analytics tool, not paid antivirus.",
+            "It tracks usage, it is not a scraping extension.",
+            "It uses page tagging, not server log files."
+        ],
+        "incorrect_explanations_ar": [
+            "هي أداة مجانية للتحليل وليست مكافح فيروسات مدفوع.",
+            "تتتبع الاستخدام وليست إضافة للاستخراج.",
+            "تستخدم وضع العلامات وليس ملفات السجل."
+        ]
+    },
+    {
+        "question_number": 18,
+        "question_en": "What is the market share of Google Analytics? ",
+        "question_ar": "ما هي الحصة السوقية لجوجل أناليتكس؟ ",
+        "options_en": [
+            "Over 50% ",
+            "Over 82% ",
+            "Exactly 45% ",
+            "Under 10% "
+        ],
+        "options_ar": [
+            "أكثر من 50% ",
+            "أكثر من 82% ",
+            "بالضبط 45% ",
+            "أقل من 10% "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "The lecture states that Google Analytics has a market share of over 82%.",
+        "correct_explanation_ar": "تذكر المحاضرة أن جوجل أناليتكس تستحوذ على حصة سوقية تزيد عن 82%.",
+        "incorrect_explanations_en": [
+            "50% is too low; it's over 82%.",
+            "45% refers to the percentage of Fortune 500 companies using it.",
+            "10% is incorrect."
+        ],
+        "incorrect_explanations_ar": [
+            "50% نسبة منخفضة جداً؛ هي أكثر من 82%.",
+            "45% تشير إلى نسبة شركات فورتشن 500 التي تستخدمها.",
+            "10% إجابة خاطئة."
+        ]
+    },
+    {
+        "question_number": 19,
+        "question_en": "How does Google Analytics track data? ",
+        "question_ar": "كيف يتتبع جوجل أناليتكس البيانات؟ ",
+        "options_en": [
+            "By analyzing server log files ",
+            "By a unique JavaScript tracking code installed on the website ",
+            "By asking users to fill out surveys ",
+            "By scraping other websites "
+        ],
+        "options_ar": [
+            "عن طريق تحليل ملفات سجل الخادم ",
+            "بواسطة كود تتبع جافا سكريبت فريد مثبت على الموقع ",
+            "عن طريق الطلب من المستخدمين ملء استبيانات ",
+            "عن طريق استخراج بيانات المواقع الأخرى "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "It uses a unique tracking code (a snippet of JavaScript) installed on the website.",
+        "correct_explanation_ar": "يستخدم كود تتبع فريد (مقتطف من جافا سكريبت) يتم تثبيته على الموقع.",
+        "incorrect_explanations_en": [
+            "Google Analytics uses page tagging, not log files.",
+            "It tracks automatically in the background without surveys.",
+            "It analyzes your site, it does not scrape competitors."
+        ],
+        "incorrect_explanations_ar": [
+            "يستخدم وضع العلامات وليس ملفات السجل.",
+            "يتتبع تلقائياً في الخلفية بدون استبيانات.",
+            "يحلل موقعك ولا يستخرج بيانات المنافسين."
+        ]
+    },
+    {
+        "question_number": 20,
+        "question_en": "What are Metrics in web analytics? ",
+        "question_ar": "ما هي المقاييس (Metrics) في تحليلات الويب؟ ",
+        "options_en": [
+            "Visual designs of a webpage ",
+            "Numeric measurements of various aspects of users' behavior ",
+            "A type of computer virus ",
+            "The legal rules for web scraping "
+        ],
+        "options_ar": [
+            "التصميمات المرئية لصفحة الويب ",
+            "قياسات رقمية لجوانب مختلفة من سلوك المستخدمين ",
+            "نوع من فيروسات الكمبيوتر ",
+            "القواعد القانونية لاستخراج بيانات الويب "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Metrics are defined as numeric measurements of users' behavior, like time spent or views.",
+        "correct_explanation_ar": "تُعرف المقاييس بأنها قياسات رقمية لسلوك المستخدمين، مثل الوقت المستغرق أو المشاهدات.",
+        "incorrect_explanations_en": [
+            "They are numeric data, not design elements.",
+            "They are analytical tools, not viruses.",
+            "They measure behavior, they are not legal rules."
+        ],
+        "incorrect_explanations_ar": [
+            "هي بيانات رقمية وليست عناصر تصميم.",
+            "هي أدوات تحليلية وليست فيروسات.",
+            "تقيس السلوك وليست قواعد قانونية."
+        ]
+    },
+    {
+        "question_number": 21,
+        "question_en": "What does a 'Session' typically end after? ",
+        "question_ar": "متى تنتهي 'الجلسة' (Session) عادةً؟ ",
+        "options_en": [
+            "After 30 minutes of inactivity ",
+            "After viewing 5 pages ",
+            "After 1 hour of active browsing ",
+            "When the user scrolls to the bottom "
+        ],
+        "options_ar": [
+            "بعد 30 دقيقة من عدم النشاط ",
+            "بعد مشاهدة 5 صفحات ",
+            "بعد ساعة واحدة من التصفح النشط ",
+            "عندما يمرر المستخدم الصفحة للأسفل "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "A session typically ends after 30 minutes of inactivity.",
+        "correct_explanation_ar": "تنتهي الجلسة عادةً بعد 30 دقيقة من عدم النشاط.",
+        "incorrect_explanations_en": [
+            "Page count does not end a session.",
+            "Active browsing keeps the session alive.",
+            "Scrolling is an interaction, it does not end the session."
+        ],
+        "incorrect_explanations_ar": [
+            "عدد الصفحات لا ينهي الجلسة.",
+            "التصفح النشط يبقي الجلسة مستمرة.",
+            "التمرير هو تفاعل ولا ينهي الجلسة."
+        ]
+    },
+    {
+        "question_number": 22,
+        "question_en": "How are 'New visitors' identified? ",
+        "question_ar": "كيف يتم التعرف على 'الزوار الجدد'؟ ",
+        "options_en": [
+            "By asking their name ",
+            "By their screen size ",
+            "By the absence of a specific tracking cookie on their device ",
+            "By checking their log file "
+        ],
+        "options_ar": [
+            "عن طريق سؤالهم عن أسمائهم ",
+            "حسب حجم شاشتهم ",
+            "من خلال عدم وجود ملف تعريف ارتباط (كوكي) تتبع محدد على أجهزتهم ",
+            "عن طريق فحص ملف السجل الخاص بهم "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "New visitors are identified by the absence of a tracking cookie.",
+        "correct_explanation_ar": "يتم التعرف على الزوار الجدد من خلال عدم وجود كوكي تتبع.",
+        "incorrect_explanations_en": [
+            "Analytics tools do not directly ask names.",
+            "Screen size is tracked but doesn't identify new vs returning users.",
+            "Cookies are used, not server log files, to identify uniqueness."
+        ],
+        "incorrect_explanations_ar": [
+            "أدوات التحليل لا تسأل عن الأسماء مباشرة.",
+            "حجم الشاشة يُتتبع لكنه لا يفرق بين الجديد والعائد.",
+            "تستخدم الكوكيز وليس السجلات لتحديد المستخدم الفريد."
+        ]
+    },
+    {
+        "question_number": 23,
+        "question_en": "What happens if a user refreshes a page? ",
+        "question_ar": "ماذا يحدث إذا قام المستخدم بتحديث (Refresh) الصفحة؟ ",
+        "options_en": [
+            "A single 'page view' is logged ",
+            "The session ends immediately ",
+            "The cookies are deleted ",
+            "The bounce rate decreases "
+        ],
+        "options_ar": [
+            "يتم تسجيل 'مشاهدة صفحة' واحدة إضافية ",
+            "تنتهي الجلسة فوراً ",
+            "يتم حذف الكوكيز ",
+            "ينخفض معدل الارتداد "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "A page view is logged every time a user loads or refreshes a page.",
+        "correct_explanation_ar": "يتم تسجيل مشاهدة صفحة في كل مرة يقوم فيها المستخدم بتحميل أو تحديث صفحة.",
+        "incorrect_explanations_en": [
+            "Refreshing implies activity, so the session continues.",
+            "Refreshing does not delete cookies.",
+            "Refreshing counts as an interaction, but page views are the direct metric affected."
+        ],
+        "incorrect_explanations_ar": [
+            "التحديث يعني وجود نشاط لذا تستمر الجلسة.",
+            "التحديث لا يحذف الكوكيز.",
+            "التحديث يعد تفاعلاً، لكن مشاهدات الصفحة هي المقياس المتأثر مباشرة."
+        ]
+    },
+    {
+        "question_number": 24,
+        "question_en": "How do 'Unique Pageviews' differ from regular 'Page views'? ",
+        "question_ar": "كيف تختلف 'مشاهدات الصفحة الفريدة' عن 'مشاهدات الصفحة' العادية؟ ",
+        "options_en": [
+            "They count a page only once per session ",
+            "They only count new visitors ",
+            "They count every single refresh ",
+            "They ignore the homepage "
+        ],
+        "options_ar": [
+            "تحسب الصفحة مرة واحدة فقط لكل جلسة ",
+            "تحسب الزوار الجدد فقط ",
+            "تحسب كل عملية تحديث (Refresh) ",
+            "تتجاهل الصفحة الرئيسية "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Unique Pageviews count a page once per session, regardless of refreshes.",
+        "correct_explanation_ar": "مشاهدات الصفحة الفريدة تحسب الصفحة مرة واحدة لكل جلسة، بغض النظر عن التحديثات.",
+        "incorrect_explanations_en": [
+            "They apply to all visitors, not just new ones.",
+            "Regular page views count refreshes; unique views do not.",
+            "They include the homepage if visited."
+        ],
+        "incorrect_explanations_ar": [
+            "تنطبق على جميع الزوار وليس الجدد فقط.",
+            "المشاهدات العادية تحسب التحديثات؛ الفريدة لا تفعل.",
+            "تشمل الصفحة الرئيسية إذا تمت زيارتها."
+        ]
+    },
+    {
+        "question_number": 25,
+        "question_en": "What is the 'Bounce Rate'? ",
+        "question_ar": "ما هو 'معدل الارتداد' (Bounce Rate)؟ ",
+        "options_en": [
+            "Percentage of visitors who view exactly 5 pages ",
+            "Percentage of visitors who enter and leave after viewing only one page ",
+            "The speed at which a page loads ",
+            "The number of visitors from mobile devices "
+        ],
+        "options_ar": [
+            "نسبة الزوار الذين يشاهدون 5 صفحات بالضبط ",
+            "نسبة الزوار الذين يدخلون ويغادرون بعد مشاهدة صفحة واحدة فقط ",
+            "السرعة التي يتم بها تحميل الصفحة ",
+            "عدد الزوار من الأجهزة المحمولة "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "It is the percentage of visitors who leave after viewing only one page without interacting.",
+        "correct_explanation_ar": "هو نسبة الزوار الذين يغادرون بعد مشاهدة صفحة واحدة فقط دون التفاعل مع الموقع.",
+        "incorrect_explanations_en": [
+            "Viewing 5 pages implies high engagement, not bouncing.",
+            "It measures user departure, not page load speed.",
+            "It tracks behavior, not device type."
+        ],
+        "incorrect_explanations_ar": [
+            "مشاهدة 5 صفحات تعني تفاعلاً عالياً وليس ارتداداً.",
+            "يقيس مغادرة المستخدم وليس سرعة التحميل.",
+            "يتتبع السلوك وليس نوع الجهاز."
+        ]
+    },
+    {
+        "question_number": 26,
+        "question_en": "In the example provided, if a user visits Homepage (10s), /widgets/ (5s), product (20s), /widgets/ (5s), /oddities/ (10s), product (10s), what is the Visit Duration? ",
+        "question_ar": "في المثال المذكور، إذا زار المستخدم الرئيسية (10ث)، الأدوات (5ث)، منتج (20ث)، الأدوات (5ث)، الغرائب (10ث)، منتج (10ث)، فما هي مدة الزيارة؟ ",
+        "options_en": [
+            "30 seconds ",
+            "50 seconds ",
+            "60 seconds ",
+            "10 seconds "
+        ],
+        "options_ar": [
+            "30 ثانية ",
+            "50 ثانية ",
+            "60 ثانية ",
+            "10 ثوانٍ "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Summing the times (10+5+20+5+10+10) equals 50 seconds.",
+        "correct_explanation_ar": "بجمع الأوقات (10+5+20+5+10+10) يكون المجموع 50 ثانية.",
+        "incorrect_explanations_en": [
+            "30 is incorrect math.",
+            "60 is incorrect math.",
+            "10 is just the homepage time."
+        ],
+        "incorrect_explanations_ar": [
+            "30 حساب خاطئ.",
+            "60 حساب خاطئ.",
+            "10 هو وقت الصفحة الرئيسية فقط."
+        ]
+    },
+    {
+        "question_number": 27,
+        "question_en": "If you visit a site, close it, and then use another browser to visit the same site, how will analytics track you? ",
+        "question_ar": "إذا زرت موقعاً، ثم أغلقته، واستخدمت متصفحاً آخر لزيارة نفس الموقع، كيف ستتبعك التحليلات؟ ",
+        "options_en": [
+            "As a returning user ",
+            "As a new user ",
+            "It will link the two browsers automatically ",
+            "It will block your access "
+        ],
+        "options_ar": [
+            "كمستخدم عائد (متكرر) ",
+            "كمستخدم جديد ",
+            "ستقوم بربط المتصفحين تلقائياً ",
+            "ستقوم بحظر دخولك "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Cookies are browser-specific, so using a new browser means no cookie is found, making you a new user.",
+        "correct_explanation_ar": "الكوكيز خاصة بالمتصفح، لذا استخدام متصفح جديد يعني عدم وجود الكوكي، مما يجعلك مستخدماً جديداً.",
+        "incorrect_explanations_en": [
+            "It cannot recognize you without the original browser's cookie.",
+            "Browsers do not share cookies automatically.",
+            "Changing browsers does not trigger a block."
+        ],
+        "incorrect_explanations_ar": [
+            "لا يمكنها التعرف عليك بدون كوكي المتصفح الأصلي.",
+            "المتصفحات لا تتشارك الكوكيز تلقائياً.",
+            "تغيير المتصفح لا يسبب الحظر."
+        ]
+    },
+    {
+        "question_number": 28,
+        "question_en": "What happens to your tracking status if you delete your cookies? ",
+        "question_ar": "ماذا يحدث لحالة تتبعك إذا قمت بحذف الكوكيز الخاصة بك؟ ",
+        "options_en": [
+            "You are tracked as a new user on your next visit ",
+            "Your past visits are recovered ",
+            "The server log files are deleted ",
+            "The website will stop working "
+        ],
+        "options_ar": [
+            "يتم تتبعك كمستخدم جديد في زيارتك القادمة ",
+            "يتم استرجاع زياراتك السابقة ",
+            "يتم حذف ملفات سجل الخادم ",
+            "سيتوقف الموقع عن العمل "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Without the cookie to identify you, the analytics tool will see you as a completely new visitor.",
+        "correct_explanation_ar": "بدون الكوكي للتعرف عليك، سترى أداة التحليل أنك زائر جديد تماماً.",
+        "incorrect_explanations_en": [
+            "Deleting cookies breaks the link to past visits.",
+            "User cookies do not affect server log files.",
+            "Deleting cookies affects tracking, not site functionality."
+        ],
+        "incorrect_explanations_ar": [
+            "حذف الكوكيز يقطع الرابط بالزيارات السابقة.",
+            "كوكيز المستخدم لا تؤثر على ملفات الخادم.",
+            "التأثير يقع على التتبع وليس عمل الموقع."
+        ]
+    },
+    {
+        "question_number": 29,
+        "question_en": "In the Web Analytics Process, what comes immediately after 'Measure'? ",
+        "question_ar": "في عملية تحليلات الويب، ما الذي يأتي مباشرة بعد 'القياس' (Measure)؟ ",
+        "options_en": [
+            "Track ",
+            "Analyze ",
+            "Take Informed Decision ",
+            "Continuous Improvement "
+        ],
+        "options_ar": [
+            "التتبع ",
+            "التحليل ",
+            "اتخاذ قرار مستنير ",
+            "التحسين المستمر "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "According to the Process slide, 'Analyze' follows 'Measure'.",
+        "correct_explanation_ar": "وفقاً لشريحة العملية، 'التحليل' يتبع 'القياس'.",
+        "incorrect_explanations_en": [
+            "Track is the step before Measure.",
+            "Decisions are made after Analysis.",
+            "Improvement is the final step."
+        ],
+        "incorrect_explanations_ar": [
+            "التتبع يسبق القياس.",
+            "القرارات تتخذ بعد التحليل.",
+            "التحسين هو الخطوة الأخيرة."
+        ]
+    },
+    {
+        "question_number": 30,
+        "question_en": "What is the primary purpose of 'Data visualization' in web analytics? ",
+        "question_ar": "ما هو الغرض الأساسي من 'التمثيل البصري للبيانات' في تحليلات الويب؟ ",
+        "options_en": [
+            "To present summarized data effectively ",
+            "To write JavaScript code ",
+            "To block scrapers ",
+            "To speed up the server "
+        ],
+        "options_ar": [
+            "لعرض البيانات الملخصة بفعالية ",
+            "لكتابة كود جافا سكريبت ",
+            "لحظر أدوات الاستخراج ",
+            "لتسريع الخادم "
+        ],
+        "correct_option_index": 0,
+        "correct_explanation_en": "Data visualization is part of the 'Presentation' phase to make data understandable.",
+        "correct_explanation_ar": "التمثيل البصري هو جزء من مرحلة 'العرض' لجعل البيانات مفهومة.",
+        "incorrect_explanations_en": [
+            "Visualization is for display, not coding.",
+            "It doesn't block scrapers, that's security.",
+            "It has nothing to do with server speed."
+        ],
+        "incorrect_explanations_ar": [
+            "التمثيل للعرض وليس للبرمجة.",
+            "لا يحظر أدوات الاستخراج، هذا دور الأمان.",
+            "لا علاقة له بسرعة الخادم."
+        ]
+    },
+    {
+        "question_number": 31,
+        "question_en": "Which of these is NOT an example of a 'Why' question? ",
+        "question_ar": "أي من هؤلاء لا يعتبر مثالاً على أسئلة 'لماذا'؟ ",
+        "options_en": [
+            "Why aren't users clicking on this button? ",
+            "Why do so many users go to this page? ",
+            "Where do users go after viewing the Our Services page? ",
+            "Both A and B "
+        ],
+        "options_ar": [
+            "لماذا لا ينقر المستخدمون على هذا الزر؟ ",
+            "لماذا يذهب الكثير من المستخدمين إلى هذه الصفحة؟ ",
+            "إلى أين يذهب المستخدمون بعد مشاهدة صفحة خدماتنا؟ ",
+            "كلا من أ و ب "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "This is a 'Where' question, not a 'Why' question.",
+        "correct_explanation_ar": "هذا سؤال 'أين' وليس سؤال 'لماذا'.",
+        "incorrect_explanations_en": [
+            "Option A explicitly starts with Why.",
+            "Option B explicitly starts with Why.",
+            "Both A and B are Why questions."
+        ],
+        "incorrect_explanations_ar": [
+            "الخيار أ يبدأ بكلمة لماذا.",
+            "الخيار ب يبدأ بكلمة لماذا.",
+            "كلا من أ و ب هي أسئلة لماذا."
+        ]
+    },
+    {
+        "question_number": 32,
+        "question_en": "To answer complex questions, what might you need to create? ",
+        "question_ar": "للإجابة على الأسئلة المعقدة، ماذا قد تحتاج إلى إنشائه؟ ",
+        "options_en": [
+            "A new web browser ",
+            "A report, chart, or slides to tell a story ",
+            "A CAPTCHA challenge ",
+            "A Web Scraper "
+        ],
+        "options_ar": [
+            "متصفح ويب جديد ",
+            "تقرير أو رسم بياني أو شرائح لسرد قصة ",
+            "تحدي كابتشا ",
+            "أداة استخراج الويب "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "For complex analyses, you may write a report or create a chart to tell a meaningful story.",
+        "correct_explanation_ar": "للتحليلات المعقدة، قد تكتب تقريراً أو رسماً بيانياً لسرد قصة ذات معنى.",
+        "incorrect_explanations_en": [
+            "You don't build browsers to answer analytics questions.",
+            "CAPTCHA is for security, not analysis presentation.",
+            "Web Scraper collects data, it doesn't present the final analysis."
+        ],
+        "incorrect_explanations_ar": [
+            "أنت لا تبني متصفحاً للإجابة على أسئلة التحليل.",
+            "الكابتشا للأمان وليس لعرض التحليل.",
+            "أداة الاستخراج تجمع البيانات ولا تعرض التحليل النهائي."
+        ]
+    },
+    {
+        "question_number": 33,
+        "question_en": "Why is 'Big Data' from Log files hard to use directly? ",
+        "question_ar": "لماذا يصعب استخدام 'البيانات الضخمة' المستخرجة من ملفات السجل مباشرة؟ ",
+        "options_en": [
+            "It is too small ",
+            "It is difficult to read and impossible to digest in raw format ",
+            "It only shows images ",
+            "It requires Python to view "
+        ],
+        "options_ar": [
+            "لأنها صغيرة جداً ",
+            "يصعب قراءتها ومن المستحيل استيعابها بصيغتها الخام ",
+            "تعرض الصور فقط ",
+            "تتطلب بايثون لعرضها "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "The lecture states raw log files are difficult to read and impossible to digest.",
+        "correct_explanation_ar": "تذكر المحاضرة أن ملفات السجل الخام يصعب قراءتها واستيعابها.",
+        "incorrect_explanations_en": [
+            "It is called 'Big Data', not small.",
+            "It logs all requests, not just images.",
+            "It requires tools like AWStats, not specifically Python."
+        ],
+        "incorrect_explanations_ar": [
+            "تسمى 'بيانات ضخمة' وليست صغيرة.",
+            "تسجل كل الطلبات وليس الصور فقط.",
+            "تتطلب أدوات مثل AWStats وليس بالضرورة بايثون."
+        ]
+    },
+    {
+        "question_number": 34,
+        "question_en": "Which tracking method captures detailed user interactions on the page? ",
+        "question_ar": "أي طريقة تتبع تلتقط تفاعلات المستخدم التفصيلية على الصفحة؟ ",
+        "options_en": [
+            "Log files ",
+            "Page tagging ",
+            "IP blocking ",
+            "CAPTCHA "
+        ],
+        "options_ar": [
+            "ملفات السجل ",
+            "وضع العلامات على الصفحات ",
+            "حظر الـ IP ",
+            "الكابتشا "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Page tagging is preferred for modern analytics due to capturing detailed interactions.",
+        "correct_explanation_ar": "يُفضل وضع العلامات في التحليلات الحديثة لقدرته على التقاط التفاعلات التفصيلية.",
+        "incorrect_explanations_en": [
+            "Log files have limited insight into on-page behavior.",
+            "IP blocking is a security measure.",
+            "CAPTCHA prevents bot access, it doesn't track interaction details."
+        ],
+        "incorrect_explanations_ar": [
+            "ملفات السجل لها رؤية محدودة للسلوك داخل الصفحة.",
+            "حظر الـ IP هو إجراء أمني.",
+            "الكابتشا تمنع الروبوتات ولا تتتبع تفاصيل التفاعل."
+        ]
+    },
+    {
+        "question_number": 35,
+        "question_en": "What does a tracking cookie remember about a user? ",
+        "question_ar": "ما الذي يتذكره كوكي التتبع عن المستخدم؟ ",
+        "options_en": [
+            "Their social security number ",
+            "User preferences and what they did on the last visit ",
+            "Their bank account password ",
+            "The exact weight of their computer "
+        ],
+        "options_ar": [
+            "رقم الضمان الاجتماعي الخاص بهم ",
+            "تفضيلات المستخدم وما فعله في الزيارة الأخيرة ",
+            "كلمة مرور حسابهم البنكي ",
+            "الوزن الدقيق لجهاز الكمبيوتر الخاص بهم "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Cookies keep track of user preferences and their actions from the last visit.",
+        "correct_explanation_ar": "تتتبع الكوكيز تفضيلات المستخدم وأفعاله في الزيارة السابقة.",
+        "incorrect_explanations_en": [
+            "Analytics cookies do not track highly sensitive personal IDs.",
+            "They do not steal bank passwords.",
+            "They track digital behavior, not physical hardware weight."
+        ],
+        "incorrect_explanations_ar": [
+            "لا تتتبع كوكيز التحليل أرقام الهوية الحساسة.",
+            "لا تسرق كلمات مرور البنوك.",
+            "تتتبع السلوك الرقمي وليس الوزن المادي للجهاز."
+        ]
+    },
+    {
+        "question_number": 36,
+        "question_en": "Which of these is NOT a Chrome extension for Web Scraping mentioned in the lecture? ",
+        "question_ar": "أي من هذه ليس إضافة لمتصفح كروم لاستخراج بيانات الويب المذكورة في المحاضرة؟ ",
+        "options_en": [
+            "Web scraper ",
+            "Agenty ",
+            "AWStats ",
+            "Simple scraper "
+        ],
+        "options_ar": [
+            "Web scraper ",
+            "Agenty ",
+            "AWStats ",
+            "Simple scraper "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "AWStats is a log file analysis tool, not a web scraping extension.",
+        "correct_explanation_ar": "AWStats هي أداة لتحليل ملفات السجل، وليست إضافة لاستخراج البيانات.",
+        "incorrect_explanations_en": [
+            "Web scraper is explicitly listed as an extension.",
+            "Agenty is explicitly listed as an extension.",
+            "Simple scraper is explicitly listed as an extension."
+        ],
+        "incorrect_explanations_ar": [
+            "Web scraper مذكورة صراحة كإضافة.",
+            "Agenty مذكورة صراحة كإضافة.",
+            "Simple scraper مذكورة صراحة كإضافة."
+        ]
+    },
+    {
+        "question_number": 37,
+        "question_en": "How many US top retailers use Google Analytics? ",
+        "question_ar": "كم عدد كبار بائعي التجزئة في الولايات المتحدة الذين يستخدمون جوجل أناليتكس؟ ",
+        "options_en": [
+            "10% ",
+            "45% ",
+            "64% ",
+            "82% "
+        ],
+        "options_ar": [
+            "10% ",
+            "45% ",
+            "64% ",
+            "82% "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "It's used by 64% of the top 500 US retailers.",
+        "correct_explanation_ar": "يتم استخدامها من قبل 64% من أفضل 500 بائع تجزئة في أمريكا.",
+        "incorrect_explanations_en": [
+            "10% is not mentioned in this context.",
+            "45% refers to Fortune 500 companies.",
+            "82% is the overall market share."
+        ],
+        "incorrect_explanations_ar": [
+            "10% غير مذكورة في هذا السياق.",
+            "45% تشير لشركات فورتشن 500.",
+            "82% هي الحصة السوقية الإجمالية."
+        ]
+    },
+    {
+        "question_number": 38,
+        "question_en": "If a user visits your site using an Incognito window, what happens? ",
+        "question_ar": "إذا زار مستخدم موقعك باستخدام نافذة تصفح متخفي (Incognito)، ماذا يحدث؟ ",
+        "options_en": [
+            "You gather double the data ",
+            "You won't be able to gather any data about them ",
+            "They are blocked from entering ",
+            "Their IP address is published "
+        ],
+        "options_ar": [
+            "تجمع بيانات مضاعفة ",
+            "لن تتمكن من جمع أي بيانات عنهم ",
+            "يتم منعهم من الدخول ",
+            "يتم نشر عنوان الـ IP الخاص بهم "
+        ],
+        "correct_option_index": 1,
+        "correct_explanation_en": "Privacy modes prevent analytics tools from gathering data.",
+        "correct_explanation_ar": "أوضاع الخصوصية تمنع أدوات التحليل من جمع البيانات.",
+        "incorrect_explanations_en": [
+            "It prevents data collection, it doesn't double it.",
+            "It hides data, but doesn't block the user from visiting.",
+            "It protects privacy, it does not publish IPs."
+        ],
+        "incorrect_explanations_ar": [
+            "تمنع جمع البيانات ولا تضاعفها.",
+            "تخفي البيانات لكنها لا تمنع المستخدم من الزيارة.",
+            "تحمي الخصوصية ولا تنشر العناوين."
+        ]
+    },
+    {
+        "question_number": 39,
+        "question_en": "What is the final message of the lecture? ",
+        "question_ar": "ما هي الرسالة الختامية للمحاضرة؟ ",
+        "options_en": [
+            "Google Analytics is too expensive ",
+            "Web scraping is the only way to succeed ",
+            "Continuous progress is the key to success ",
+            "Log files are better than Page Tagging "
+        ],
+        "options_ar": [
+            "جوجل أناليتكس مكلف جداً ",
+            "استخراج البيانات هو الطريق الوحيد للنجاح ",
+            "التقدم المستمر هو مفتاح النجاح ",
+            "ملفات السجل أفضل من وضع العلامات "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "The final quote emphasizes that continuous progress leads to success.",
+        "correct_explanation_ar": "الاقتباس الأخير يؤكد أن التقدم المستمر يؤدي إلى النجاح.",
+        "incorrect_explanations_en": [
+            "Google Analytics is free.",
+            "Scraping is just a tool, not the core message.",
+            "The lecture concluded that Page Tagging is preferred."
+        ],
+        "incorrect_explanations_ar": [
+            "جوجل أناليتكس مجاني.",
+            "الاستخراج مجرد أداة وليس الرسالة الأساسية.",
+            "خلصت المحاضرة إلى أن وضع العلامات هو المُفضل."
+        ]
+    },
+    {
+        "question_number": 40,
+        "question_en": "According to the example, how many page views did the user generate? ",
+        "question_ar": "وفقاً للمثال، كم عدد مشاهدات الصفحة التي حققها المستخدم؟ ",
+        "options_en": [
+            "1 ",
+            "3 ",
+            "6 ",
+            "10 "
+        ],
+        "options_ar": [
+            "1 ",
+            "3 ",
+            "6 ",
+            "10 "
+        ],
+        "correct_option_index": 2,
+        "correct_explanation_en": "The flow chart explicitly states 'Visit: 6 Pageviews'.",
+        "correct_explanation_ar": "المخطط الانسيابي ينص صراحة على 'الزيارة: 6 مشاهدات للصفحة'.",
+        "incorrect_explanations_en": [
+            "The user visited multiple pages, not just 1.",
+            "The user visited more than 3 pages.",
+            "10 is the time spent on some pages, not the view count."
+        ],
+        "incorrect_explanations_ar": [
+            "المستخدم زار عدة صفحات وليس واحدة.",
+            "المستخدم زار أكثر من 3 صفحات.",
+            "10 هو الوقت المستغرق في بعض الصفحات وليس عدد المشاهدات."
+        ]
+    }
+]
