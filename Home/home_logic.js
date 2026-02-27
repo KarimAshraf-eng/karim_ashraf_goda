@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    fetch('home_data.json')
+    fetch('home_data.json?v=1')
         .then(response => {
             if (!response.ok) throw new Error('خطأ في التحميل');
             return response.json();
