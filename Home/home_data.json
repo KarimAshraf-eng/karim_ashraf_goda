@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "أساسيات البرمجة - Programming Fundamentals",
+        "icon": "fa-solid fa-code",
+        "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&q=80",
+        "folder_path": "../Subjects/Programming"
+    },
+    {
+        "id": 2,
+        "name": "قواعد البيانات - Database Systems",
+        "icon": "fa-solid fa-database",
+        "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=80",
+        "folder_path": "../Subjects/Database"
+    },
+    {
+        "id": 3,
+        "name": "هياكل البيانات - Data Structures",
+        "icon": "fa-solid fa-network-wired",
+        "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=500&q=80",
+        "folder_path": "../Subjects/DataStructures"
+    },
+    {
+        "id": 4,
+        "name": "شبكات الحاسب - Computer Networks",
+        "icon": "fa-solid fa-server",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80",
+        "folder_path": "../Subjects/Networks"
+    },
+    {
+        "id": 5,
+        "name": "هندسة البرمجيات - Software Engineering",
+        "icon": "fa-solid fa-laptop-code",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80",
+        "folder_path": "../Subjects/SoftwareEngineering"
+    },
+    {
+        "id": 6,
+        "name": "الرياضيات المتقطعة - Discrete Mathematics",
+        "icon": "fa-solid fa-calculator",
+        "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&q=80",
+        "folder_path": "../Subjects/DiscreteMath"
+    }
+]
