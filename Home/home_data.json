@@ -37,6 +37,6 @@
         "icon": "fa-solid fa-chart-pie",
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
         "folder_path": "../Subjects/DataVis/data_vis_page.html",
-        "is_active": true
+        "is_active": false
     }
 ]
