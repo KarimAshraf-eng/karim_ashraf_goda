@@ -8,7 +8,6 @@
 
 body {
     background-color: #0b0f19;
-    /* لون خلفية داكن جداً */
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -17,7 +16,7 @@ body {
     position: relative;
 }
 
-/* تأثيرات الخلفية المضيئة */
+/* تأثيرات الخلفية المضيئة مع تسريع الأداء (GPU Acceleration) */
 .bg-animation {
     position: fixed;
     top: 0;
@@ -26,6 +25,8 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .glow {
@@ -36,6 +37,8 @@ body {
     border-radius: 50%;
     filter: blur(60px);
     animation: float 10s infinite ease-in-out alternate;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .glow-1 {
@@ -73,9 +76,7 @@ body {
     font-weight: 800;
     background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
     -webkit-background-clip: text;
-    /* السطر القديم */
     background-clip: text;
-    /* السطر الجديد اللي هيحل التحذير */
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
@@ -103,7 +104,7 @@ main {
     gap: 2.5rem;
 }
 
-/* تنسيق كارت المادة (Glassmorphism) */
+/* تنسيق كارت المادة مع تسريع الأداء */
 .subject-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -118,17 +119,17 @@ main {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     opacity: 0;
-    transform: translateY(30px);
+    /* تسريع الأداء أثناء الـ Scroll */
+    will-change: transform, opacity;
+    transform: translateY(30px) translateZ(0);
 }
 
-/* تأثير الـ Hover */
 .subject-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-10px) scale(1.02) translateZ(0);
     box-shadow: 0 15px 30px rgba(0, 198, 255, 0.15);
     border-color: rgba(0, 198, 255, 0.3);
 }
 
-/* صورة الكارت وتأثيرها */
 .image-wrapper {
     overflow: hidden;
     height: 180px;
@@ -145,14 +146,12 @@ main {
     transform: scale(1.1);
 }
 
-/* محتوى الكارت */
 .card-content {
     padding: 1.5rem;
     text-align: center;
     position: relative;
 }
 
-/* الدائرة الخاصة بالأيقونة */
 .icon-container {
     width: 60px;
     height: 60px;
@@ -189,7 +188,7 @@ main {
     color: #00c6ff;
 }
 
-/* أنيميشن الدخول (يتم التحكم فيه بالـ JS) */
+/* أنيميشن الدخول */
 .subject-card.show {
     animation: fadeInUp 0.6s forwards ease-out;
 }
@@ -197,28 +196,15 @@ main {
 @keyframes fadeInUp {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
     }
-}
-
-/* ذيل الصفحة */
-footer {
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: #718096;
-    margin-top: auto;
-    z-index: 1;
 }
 
 /* تنسيق المواد غير المفعلة (المغلقة) */
 .subject-card.disabled {
     pointer-events: none;
-    /* يمنع الضغط على الكارت نهائياً */
     filter: grayscale(100%);
-    /* يحول الكارت بالكامل للون الرمادي */
     opacity: 0.5;
-    /* يقلل الشفافية */
     box-shadow: none;
     border-color: rgba(255, 255, 255, 0.02);
 }
@@ -233,7 +219,6 @@ footer {
     border-color: #1a202c;
 }
 
-/* شارة (قريباً) تظهر على المواد غير المفعلة */
 .coming-soon-badge {
     position: absolute;
     top: 15px;
@@ -247,4 +232,13 @@ footer {
     z-index: 3;
     border: 1px solid #4a5568;
     letter-spacing: 1px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #718096;
+    margin-top: auto;
+    z-index: 1;
 }
