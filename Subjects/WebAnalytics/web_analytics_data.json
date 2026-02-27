@@ -30,5 +30,37 @@
         "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&q=80",
         "folder_path": "Quezes/quezes_page.html",
         "is_active": false
+    },
+    {
+        "id": 5,
+        "name": "المحاضرات - Lectures",
+        "icon": "fa-solid fa-person-chalkboard",
+        "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80",
+        "folder_path": "Lectures/lectures_page.html",
+        "is_active": false
+    },
+    {
+        "id": 6,
+        "name": "السكاشن - Sections",
+        "icon": "fa-solid fa-users-gear",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80",
+        "folder_path": "Sections/sections_page.html",
+        "is_active": false
+    },
+    {
+        "id": 7,
+        "name": "الأسئلة والشيتات - Questions",
+        "icon": "fa-solid fa-clipboard-question",
+        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80",
+        "folder_path": "Question/question_page.html",
+        "is_active": false
+    },
+    {
+        "id": 8,
+        "name": "الكويزات - Quizzes",
+        "icon": "fa-solid fa-list-check",
+        "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&q=80",
+        "folder_path": "Quezes/quezes_page.html",
+        "is_active": false
     }
 ]

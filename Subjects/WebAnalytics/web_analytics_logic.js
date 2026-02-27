@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    fetch('web_analytics_data.json?v=1')
+    fetch('web_analytics_data.json?v=2')
         .then(response => {
             if (!response.ok) throw new Error('خطأ في تحميل بيانات أقسام المادة');
             return response.json();
