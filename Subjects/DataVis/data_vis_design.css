@@ -58,8 +58,9 @@ body {
     position: absolute;
     width: 400px;
     height: 400px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
-    filter: blur(60px);
+    /* تم حذف filter: blur(60px); من هنا لأن الـ gradient يقوم بالواجب */
     animation: float 10s infinite ease-in-out alternate;
     will-change: transform;
     transform: translateZ(0);
@@ -260,4 +261,17 @@ footer {
     color: #718096;
     margin-top: auto;
     z-index: 1;
+}
+
+/* تحسينات خاصة بأداء التابلت والموبايل فقط */
+@media (max-width: 1024px) {
+    .subject-card {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    /* إيقاف حركة الخلفية المضيئة أثناء استخدام التابلت لتوفير الموارد */
+    .glow {
+        animation: none;
+    }
 }
