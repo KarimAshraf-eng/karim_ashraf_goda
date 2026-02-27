@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "المحاضرة الأولى - Lecture 1",
+        "icon": "fa-solid fa-file-lines",
+        "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80",
+        "folder_path": "Lecture 1/index.html",
+        "is_active": true,
+        "custom_class": "lecture-row"
+    },
+    {
+        "id": 2,
+        "name": "المحاضرة الثانية - Lecture 2",
+        "icon": "fa-solid fa-file-lines",
+        "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80",
+        "folder_path": "Lecture 2/index.html",
+        "is_active": true,
+        "custom_class": "lecture-row"
+    },
+    {
+        "id": 3,
+        "name": "أسئلة وشيتات المحاضرات",
+        "icon": "fa-solid fa-clipboard-question",
+        "image": "",
+        "folder_path": "Questions/index.html",
+        "is_active": true,
+        "custom_class": "questions-banner"
+    }
+]
