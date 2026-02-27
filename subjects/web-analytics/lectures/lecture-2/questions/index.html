@@ -484,95 +484,93 @@
         }
 
         // ==========================================
-        // 3. نظام "الضغط المطول والتحريك" المطور (خالٍ من التقطيع ومثالي للموبايل)
+        // 6. نظام "الضغط المطول والتحريك" (بدون تقطيع، ومثالي للموبايل)
         // ==========================================
         const bubble = document.getElementById('translation-bubble');
         let pressTimer;
         let isPressed = false;
-        let activeElement = null;
-        let startY = 0; // لحساب مسافة تمرير الشاشة
+        let isTouchDevice = false; // متغير ذكي للتفريق بين الماوس واللمس
 
-        // إزالة التقطيع (Lag) عن طريق التحكم المباشر وتجاهل الانيميشن في الـ JS
-        bubble.style.transition = "opacity 0.15s ease";
+        // تسريع حركة الفقاعة باستخدام كارت الشاشة لمنع التقطيع (Lag)
         bubble.style.willChange = "top, left, opacity";
 
         function updateBubblePosition(clientX, clientY) {
             bubble.style.left = clientX + 'px';
-            bubble.style.top = (clientY - 30) + 'px';
+            bubble.style.top = (clientY - 35) + 'px'; // إبعادها عن الإصبع قليلاً لرؤيتها
+        }
+
+        function showBubble(text) {
+            bubble.innerText = text;
+            bubble.classList.add('show');
+            // اهتزاز خفيف للموبايل عند ظهور الترجمة
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function hideBubble() {
+            isPressed = false;
+            clearTimeout(pressTimer);
+            bubble.classList.remove('show');
         }
 
         function attachLongPressEvents() {
             const translatables = document.querySelectorAll('.translatable');
 
             translatables.forEach(el => {
-                // منع القائمة المزعجة (Copy/Share) عند الضغط المطول على الهاتف
+                // منع متصفح الهاتف من فتح قائمة (Copy/Share) نهائياً
                 el.addEventListener('contextmenu', e => {
-                    if (isPressed) e.preventDefault();
+                    e.preventDefault();
                 });
 
-                const startPress = (e) => {
-                    // تجاهل الضغط بالزر الأيمن للماوس
-                    if (e.type === 'mousedown' && e.button !== 0) return;
-
+                // --- 1. أحداث اللمس (للموبايل) ---
+                el.addEventListener('touchstart', (e) => {
+                    isTouchDevice = true; // إخبار الكود أننا نستخدم هاتفاً
                     isPressed = true;
-                    activeElement = el;
-
-                    let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                    let clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-                    // حفظ نقطة البداية لمعرفة ما إذا كان المستخدم يقوم بـ Scroll
-                    if (e.touches) startY = clientY;
-
-                    updateBubblePosition(clientX, clientY);
+                    let touch = e.touches[0];
+                    updateBubblePosition(touch.clientX, touch.clientY);
 
                     pressTimer = setTimeout(() => {
-                        if (isPressed && el.dataset.ar) {
-                            bubble.innerText = el.dataset.ar;
-                            bubble.classList.add('show');
-                            // اهتزاز خفيف للهاتف عند ظهور الترجمة (إذا كان مدعوماً)
-                            if (navigator.vibrate) navigator.vibrate(50);
-                        }
-                    }, 350); // تقليل المدة قليلاً لاستجابة أسرع
-                };
+                        if (isPressed && el.dataset.ar) showBubble(el.dataset.ar);
+                    }, 300); // 300 ملي ثانية (سريعة جداً)
+                }, { passive: true });
 
-                const endPress = () => {
-                    isPressed = false;
-                    activeElement = null;
-                    clearTimeout(pressTimer);
-                    bubble.classList.remove('show');
-                };
+                // --- 2. أحداث الماوس (للكمبيوتر) ---
+                el.addEventListener('mousedown', (e) => {
+                    if (isTouchDevice) return; // لو استخدمنا اللمس، تجاهل الماوس تماماً
+                    if (e.button !== 0) return; // فقط الكليك اليسار
 
-                el.addEventListener('mousedown', startPress);
-                el.addEventListener('touchstart', startPress, { passive: true });
+                    isPressed = true;
+                    updateBubblePosition(e.clientX, e.clientY);
 
-                el.addEventListener('mouseup', endPress);
-                el.addEventListener('mouseleave', endPress);
-                el.addEventListener('touchend', endPress);
-                el.addEventListener('touchcancel', endPress);
+                    pressTimer = setTimeout(() => {
+                        if (isPressed && el.dataset.ar) showBubble(el.dataset.ar);
+                    }, 300);
+                });
+
+                // --- 3. أحداث إيقاف الترجمة ---
+                el.addEventListener('touchend', hideBubble);
+                el.addEventListener('touchcancel', hideBubble);
+                el.addEventListener('mouseup', hideBubble);
+                el.addEventListener('mouseleave', hideBubble);
             });
         }
 
-        // تحريك الماوس للكمبيوتر
+        // تحريك الفقاعة بسلاسة مع حركة الماوس
         document.addEventListener('mousemove', (e) => {
-            if (isPressed && activeElement && bubble.classList.contains('show')) {
+            if (isPressed && !isTouchDevice && bubble.classList.contains('show')) {
                 updateBubblePosition(e.clientX, e.clientY);
             }
         });
 
-        // تحريك الإصبع للموبايل
+        // إخفاء الفقاعة إذا قام المستخدم بـ "تمرير الشاشة" (Scroll) بالموبايل
+        let startY = 0;
+        document.addEventListener('touchstart', e => startY = e.touches[0].clientY, { passive: true });
         document.addEventListener('touchmove', (e) => {
             if (!isPressed) return;
-
             let currentY = e.touches[0].clientY;
-
-            // إذا حرك المستخدم إصبعه كثيراً (يقوم بـ Scroll)، نلغي الترجمة فوراً
+            // إذا حرك إصبعه لأعلى أو أسفل مسافة تزيد عن 15 بيكسل، اخفِ الفقاعة
             if (Math.abs(currentY - startY) > 15) {
-                clearTimeout(pressTimer);
-                bubble.classList.remove('show');
-                isPressed = false;
-            }
-            // إذا كان الإصبع يتحرك حركة خفيفة والترجمة ظاهرة، نحرك الفقاعة معه
-            else if (bubble.classList.contains('show')) {
+                hideBubble();
+            } else if (bubble.classList.contains('show')) {
                 updateBubblePosition(e.touches[0].clientX, currentY);
             }
         }, { passive: true });
