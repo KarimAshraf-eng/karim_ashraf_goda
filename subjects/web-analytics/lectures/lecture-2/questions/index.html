@@ -484,27 +484,44 @@
         }
 
         // ==========================================
-        // 6. نظام "الضغط المطول والتحريك" 
+        // 3. نظام "الضغط المطول والتحريك" المطور (خالٍ من التقطيع ومثالي للموبايل)
         // ==========================================
         const bubble = document.getElementById('translation-bubble');
         let pressTimer;
         let isPressed = false;
         let activeElement = null;
+        let startY = 0; // لحساب مسافة تمرير الشاشة
+
+        // إزالة التقطيع (Lag) عن طريق التحكم المباشر وتجاهل الانيميشن في الـ JS
+        bubble.style.transition = "opacity 0.15s ease";
+        bubble.style.willChange = "top, left, opacity";
 
         function updateBubblePosition(clientX, clientY) {
             bubble.style.left = clientX + 'px';
-            bubble.style.top = (clientY - 20) + 'px';
+            bubble.style.top = (clientY - 30) + 'px';
         }
 
         function attachLongPressEvents() {
             const translatables = document.querySelectorAll('.translatable');
 
             translatables.forEach(el => {
+                // منع القائمة المزعجة (Copy/Share) عند الضغط المطول على الهاتف
+                el.addEventListener('contextmenu', e => {
+                    if (isPressed) e.preventDefault();
+                });
+
                 const startPress = (e) => {
+                    // تجاهل الضغط بالزر الأيمن للماوس
+                    if (e.type === 'mousedown' && e.button !== 0) return;
+
                     isPressed = true;
                     activeElement = el;
+
                     let clientX = e.touches ? e.touches[0].clientX : e.clientX;
                     let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+                    // حفظ نقطة البداية لمعرفة ما إذا كان المستخدم يقوم بـ Scroll
+                    if (e.touches) startY = clientY;
 
                     updateBubblePosition(clientX, clientY);
 
@@ -512,8 +529,10 @@
                         if (isPressed && el.dataset.ar) {
                             bubble.innerText = el.dataset.ar;
                             bubble.classList.add('show');
+                            // اهتزاز خفيف للهاتف عند ظهور الترجمة (إذا كان مدعوماً)
+                            if (navigator.vibrate) navigator.vibrate(50);
                         }
-                    }, 400);
+                    }, 350); // تقليل المدة قليلاً لاستجابة أسرع
                 };
 
                 const endPress = () => {
@@ -533,15 +552,28 @@
             });
         }
 
+        // تحريك الماوس للكمبيوتر
         document.addEventListener('mousemove', (e) => {
             if (isPressed && activeElement && bubble.classList.contains('show')) {
                 updateBubblePosition(e.clientX, e.clientY);
             }
         });
 
+        // تحريك الإصبع للموبايل
         document.addEventListener('touchmove', (e) => {
-            if (isPressed && activeElement && bubble.classList.contains('show')) {
-                updateBubblePosition(e.touches[0].clientX, e.touches[0].clientY);
+            if (!isPressed) return;
+
+            let currentY = e.touches[0].clientY;
+
+            // إذا حرك المستخدم إصبعه كثيراً (يقوم بـ Scroll)، نلغي الترجمة فوراً
+            if (Math.abs(currentY - startY) > 15) {
+                clearTimeout(pressTimer);
+                bubble.classList.remove('show');
+                isPressed = false;
+            }
+            // إذا كان الإصبع يتحرك حركة خفيفة والترجمة ظاهرة، نحرك الفقاعة معه
+            else if (bubble.classList.contains('show')) {
+                updateBubblePosition(e.touches[0].clientX, currentY);
             }
         }, { passive: true });
 

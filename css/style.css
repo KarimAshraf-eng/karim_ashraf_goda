@@ -1,9 +1,7 @@
 /* =========================================
-   ملف التنسيقات الأساسي (style.css)
-   يتم تطبيقه على جميع صفحات الموقع
+   ملف التنسيقات الأساسي (style.css) المحدث
 ========================================= */
 
-/* --- تعريف المتغيرات للألوان والخطوط --- */
 :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --secondary-gradient: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
@@ -18,7 +16,6 @@
     --radius-md: 10px;
 }
 
-/* --- الإعدادات الأساسية --- */
 * {
     margin: 0;
     padding: 0;
@@ -31,26 +28,25 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* تم التعديل للهواتف */
     padding: 20px;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* --- الحاوية الرئيسية للموقع --- */
 .main-container {
     background: var(--card-bg);
     width: 100%;
     max-width: 1000px;
-    /* تم التوسيع لراحة العين */
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
     position: relative;
     min-height: 550px;
-    /* تم زيادة الطول */
+    margin-top: 2vh;
+    /* مسافة علوية بسيطة */
 }
 
-/* --- رأس الصفحة (البانر العلوي) --- */
 .header-banner {
     background: var(--primary-gradient);
     color: white;
@@ -72,7 +68,6 @@ body {
     opacity: 0.9;
 }
 
-/* --- إعدادات الصفحات والأنيميشن --- */
 .page {
     display: none;
     padding: 0 30px 40px 30px;
@@ -80,13 +75,13 @@ body {
 
 .page.active {
     display: block;
-    animation: slideUpFade 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    animation: slideUpFade 0.4s ease forwards;
 }
 
 @keyframes slideUpFade {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
 
     to {
@@ -95,7 +90,6 @@ body {
     }
 }
 
-/* --- العناوين الأساسية --- */
 h2.page-title {
     color: var(--text-dark);
     margin-bottom: 25px;
@@ -104,7 +98,6 @@ h2.page-title {
     padding-right: 15px;
 }
 
-/* --- الأزرار --- */
 .btn-primary {
     background: var(--secondary-gradient);
     border: none;
@@ -115,7 +108,6 @@ h2.page-title {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
-    box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
@@ -141,10 +133,8 @@ h2.page-title {
 
 .btn-back:hover {
     background: #e2e8f0;
-    color: #1a202c;
 }
 
-/* --- تصميم البطاقات (للمواد والمحاضرات) --- */
 .grid-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -166,12 +156,11 @@ h2.page-title {
 }
 
 .card-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: #764ba2;
     box-shadow: var(--shadow-lg);
 }
 
-/* منع انضغاط الأيقونات */
 .card-icon {
     width: 50px;
     height: 50px;
@@ -183,7 +172,6 @@ h2.page-title {
     color: white;
     font-size: 1.3rem;
     flex-shrink: 0;
-    /* السطر المسؤول عن الحفاظ على شكل الأيقونة المربع */
 }
 
 .card-text {
@@ -196,7 +184,6 @@ h2.page-title {
     color: #cbd5e0;
 }
 
-/* حالات خاصة للبطاقات */
 .card-item.disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -218,111 +205,39 @@ h2.page-title {
     background: var(--secondary-gradient);
 }
 
-/* --- تصميم الـ Presentation (شاشة العرض للمحاضرات) --- */
-.presentation-container {
-    background: #1a202c;
-    border-radius: var(--radius-lg);
-    padding: 5px;
-    box-shadow: var(--shadow-lg);
+/* تحسينات لمنع ظهور قائمة النسخ في الهاتف عند الضغط المطول */
+.translatable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
-.slide-screen {
-    background: linear-gradient(to bottom right, #2d3748, #1a202c);
-    border-radius: var(--radius-md);
-    min-height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 40px;
-    text-align: center;
-    position: relative;
-    border: 2px solid #4a5568;
-    overflow: hidden;
-}
-
-.slide {
-    display: none;
-    animation: fadeInSlide 0.4s ease;
-    width: 100%;
-}
-
-.slide.active-slide {
-    display: block;
-}
-
-@keyframes fadeInSlide {
-    from {
-        opacity: 0.3;
-        transform: scale(0.98);
+/* =========================================
+   التجاوب مع شاشات الهواتف (Mobile Overhaul)
+========================================= */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        align-items: stretch;
+        background: white;
     }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
+    /* إلغاء الخلفية الرمادية */
+    .main-container {
+        max-width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 0;
+        border: none;
     }
-}
 
-.slide h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--accent-color);
-}
+    .header-banner {
+        border-radius: 0;
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
 
-.slide p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #e2e8f0;
-}
-
-.slide-footer-deco {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 5px;
-    background: var(--secondary-gradient);
-    border-radius: 10px;
-}
-
-.presentation-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #2d3748;
-    border-bottom-left-radius: var(--radius-lg);
-    border-bottom-right-radius: var(--radius-lg);
-    color: white;
-}
-
-.btn-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-control:hover {
-    background: var(--secondary-gradient);
-    border-color: transparent;
-}
-
-.slide-counter-text {
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-/* --- التجاوب مع شاشات الهواتف (Responsive) --- */
-@media (max-width: 600px) {
     .header-banner h1 {
         font-size: 1.5rem;
     }
@@ -333,22 +248,71 @@ h2.page-title {
 
     .grid-list {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .slide h3 {
-        font-size: 1.5rem;
+    .card-item {
+        padding: 15px;
     }
 
-    .slide p {
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .card-text {
         font-size: 1rem;
     }
 
-    .presentation-controls {
+    /* تحسينات الـ Presentation للموبايل */
+    .slide-screen {
+        padding: 20px 15px !important;
+        min-height: auto;
+    }
+
+    .bilingual-row {
+        flex-direction: column;
+        gap: 15px;
+        border-right: none !important;
+        border-left: 4px solid #4facfe !important;
+    }
+
+    .en-text,
+    .ar-text {
+        width: 100% !important;
+        text-align: right !important;
+    }
+
+    .en-text {
+        direction: ltr;
+        text-align: left !important;
+        margin-top: 10px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        padding-top: 10px;
+    }
+
+    /* تحسينات الـ Quiz للموبايل */
+    .question-card {
         padding: 15px;
+    }
+
+    .question-text {
+        font-size: 1.15rem;
+    }
+
+    .option-btn {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+
+    .quiz-controls {
+        flex-direction: row;
+        padding: 10px;
     }
 
     .btn-control {
         padding: 8px 15px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }
