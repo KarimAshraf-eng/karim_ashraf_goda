@@ -105,8 +105,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
+/* تم تغيير المحاذاة لليمين بدلاً من الضبط الكلي لمنع المسافات الغريبة */
 .intro-text {
     font-size: 1.25rem;
     color: #cbd5e1;
@@ -114,7 +116,7 @@ body {
     padding: 1.5rem;
     border-radius: 12px;
     border-right: 4px solid #00c6ff;
-    text-align: justify;
+    text-align: right;
 }
 
 /* حاوية المحتوى الرئيسي */
@@ -167,19 +169,22 @@ body {
     background: rgba(0, 198, 255, 0.1);
     padding: 12px;
     border-radius: 12px;
+    flex-shrink: 0;
 }
 
 .section-header h2 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
+    line-height: 1.4;
 }
 
 /* تنسيق النصوص والإحصائيات */
+/* تم تغيير المحاذاة هنا أيضاً لليمين */
 .section-body p {
     font-size: 1.15rem;
     margin-bottom: 1rem;
-    text-align: justify;
+    text-align: right;
 }
 
 .highlight-number {
@@ -189,6 +194,8 @@ body {
     background: rgba(255, 71, 87, 0.1);
     padding: 2px 8px;
     border-radius: 6px;
+    display: inline-block;
+    direction: ltr;
 }
 
 /* القوائم */
@@ -248,15 +255,17 @@ body {
 .concept-card h3 {
     font-size: 1.3rem;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.4;
 }
 
 .concept-card h3 i {
     color: #a0aec0;
     font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
 .objectives-list {
@@ -268,13 +277,15 @@ body {
     font-size: 1.15rem;
     margin-bottom: 0.8rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
 }
 
 .objectives-list li i {
     color: #2ed573;
     font-size: 1.2rem;
+    margin-top: 5px;
+    flex-shrink: 0;
 }
 
 .syllabus-box {
@@ -299,20 +310,90 @@ footer {
     z-index: 1;
 }
 
-/* منع التهنيج للموبايل */
+/* ========================================= */
+/* إعدادات التابلت (إلغاء التهنيج) */
+/* ========================================= */
 @media (max-width: 1024px) {
     .content-section {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         background: rgba(20, 26, 38, 0.98);
-        padding: 1.5rem;
-    }
-
-    .main-header {
-        padding-top: 5rem;
     }
 
     .bg-animation {
         display: none;
+    }
+}
+
+/* ========================================= */
+/* إعدادات الموبايل (فك الضغط وتظبيط المسافات) */
+/* ========================================= */
+@media (max-width: 768px) {
+    .main-header {
+        padding-top: 4rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        padding: 1rem;
+        line-height: 1.6;
+    }
+
+    .content-container {
+        padding: 0 1rem 3rem;
+    }
+
+    .content-section {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+    }
+
+    /* جعل الأيقونة فوق العنوان بدلاً من جانبه لتوفير مساحة */
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .section-icon {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .section-body p,
+    .stats-list li,
+    .objectives-list li {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .highlight-number {
+        font-size: 1.1rem;
+    }
+
+    .concept-card {
+        padding: 1.2rem 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .concept-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .conclusion-box {
+        padding: 1rem;
+        font-size: 1.05rem;
     }
 }
