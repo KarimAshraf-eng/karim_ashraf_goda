@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // تحديث الرقم لـ v=2 عشان يقرأ المسارات والـ Classes الجديدة
-    fetch('lectures_data.json?v=3')
+    fetch('lectures_data.json?v=4')
         .then(response => {
             if (!response.ok) throw new Error('خطأ في تحميل بيانات المحاضرات');
             return response.json();
