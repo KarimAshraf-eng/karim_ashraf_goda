@@ -14,8 +14,8 @@
         "name_ar": "المحاضرة التفاعلية",
         "icon": "fa-solid fa-person-chalkboard",
         "description": "محتوى الشريحة الأصلي مع إمكانية عرض الترجمة، والأمثلة التوضيحية.",
-        "folder_path": "Lecture/index.html",
-        "is_active": false
+        "folder_path": "Lecture/lecture_page.html",
+        "is_active": true
     },
     {
         "id": 3,

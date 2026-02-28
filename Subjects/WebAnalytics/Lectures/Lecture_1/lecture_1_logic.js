@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // سحب البيانات مع رقم الإصدار لمنع الكاش
-    fetch('lecture_1_data.json?v=1')
+    fetch('lecture_1_data.json?v=2')
         .then(response => {
             if (!response.ok) throw new Error('خطأ في تحميل بيانات أقسام المحاضرة');
             return response.json();
