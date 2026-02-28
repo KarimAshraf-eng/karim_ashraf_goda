@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - Lecture 1</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="overview_design.css?v=1">
+</head>
+
+<body>
+
+    <div class="bg-animation">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <a href="../index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-right"></i> رجوع
+    </a>
+
+    <header class="main-header">
+        <h1 class="gradient-text">نظرة عامة (Overview)</h1>
+        <p class="intro-text">تقدم هذه المحاضرة التأسيسية مدخلاً شاملاً لمجال تحليلات الويب ووسائل التواصل الاجتماعي
+            (Web and Social Media Analytics). وينقسم محتوى المحاضرة إلى ثلاثة محاور رئيسية: مقدمة عامة، المواد التعليمية
+            والمختبرات، وأهداف التعلم.</p>
+    </header>
+
+    <main class="content-container">
+
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-database section-icon"></i>
+                <h2>1. أهمية وحجم البيانات (Data Importance and Volume)</h2>
+            </div>
+            <div class="section-body">
+                <p>تبدأ المحاضرة بتسليط الضوء على حقيقة أن البيانات (Data) موجودة في كل مكان حولنا. ولتوضيح هذا الحجم
+                    الهائل، تم استعراض الإحصائيات التالية:</p>
+                <ul class="stats-list">
+                    <li>يبلغ إجمالي عدد سكان العالم <span class="highlight-number">7.8 مليار</span> نسمة.</li>
+                    <li>بحلول عام 2024، وصل عدد مستخدمي الإنترنت إلى <span class="highlight-number">5.3 مليار</span>
+                        مستخدم، بينما بلغ عدد مستخدمي وسائل التواصل الاجتماعي حوالي <span class="highlight-number">5.04
+                            مليار</span> مستخدم.</li>
+                    <li>يُنتج العالم يومياً ما يقدر بـ <span class="highlight-number">2.5 كوينتيليون</span> بايت من
+                        البيانات (وهو رقم 1 متبوعاً بـ 18 صفراً).</li>
+                    <li>تفاعلات يومية هائلة تشمل: <span class="highlight-number">3 مليارات</span> دقيقة مكالمات سكايب،
+                        مشاركة <span class="highlight-number">5 مليارات</span> مقطع فيديو وصورة عبر سناب شات، وإرسال
+                        <span class="highlight-number">333.2 مليار</span> رسالة بريد إلكتروني.</li>
+                    <li>يتم إنفاق <span class="highlight-number">مليون دولار</span> أمريكي كل دقيقة عبر الإنترنت.</li>
+                </ul>
+                <p class="conclusion-box">
+                    <i class="fa-solid fa-droplet text-blue"></i>
+                    نظراً لهذا الحجم، تعتبر البيانات بمثابة <strong>"النفط الجديد" (The new oil)</strong>. وتقوم أي شركة
+                    لها تواجد على الإنترنت بجمع بيانات قيمة عن العملاء، عادات المستخدمين، الزيارات عبر الإنترنت،
+                    والتركيبة السكانية. هذه البيانات حيوية للأعمال، وتُعد أداة فعالة لحل المشكلات، بل ويمكن أن تكون
+                    منقذة للأرواح.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-chart-line section-icon"></i>
+                <h2>2. المفاهيم الأساسية للتحليلات (Core Analytics Concepts)</h2>
+            </div>
+            <div class="section-body">
+                <div class="concept-card">
+                    <h3><i class="fa-solid fa-magnifying-glass-chart"></i> تحليل البيانات (Data Analytics)</h3>
+                    <p>في بيئة الأعمال سريعة التغير، يساعد تحليل البيانات في التنبؤ بالخطوات المستقبلية؛ حيث يوفر صورة
+                        واضحة ومبنية على أسس سليمة لموقع الشركة الحالي، وماضيها، والاتجاه الذي يجب أن تسلكه مستقبلاً.
+                    </p>
+                </div>
+                <div class="concept-card">
+                    <h3><i class="fa-solid fa-globe"></i> تحليلات الويب (Web Analytics)</h3>
+                    <p>هي عملية قياس، جمع، تحليل، وإعداد التقارير لبيانات الإنترنت بهدف فهم وتحسين استخدام شبكة الويب.
+                        وتُجمع من مصادر مثل: المواقع الإلكترونية، التجارة الإلكترونية، الأخبار، المدونات، بوابات الويب،
+                        المنتديات، صفحات الهبوط، ومنصات بث الفيديو.</p>
+                </div>
+                <div class="concept-card">
+                    <h3><i class="fa-solid fa-hashtag"></i> تحليلات وسائل التواصل الاجتماعي</h3>
+                    <p>تتمثل في جمع البيانات من الشبكات الاجتماعية وتحليل المقاييس لفهم الرؤى التي تساعد في اتخاذ
+                        القرارات التجارية. من أبرز المنصات المستهدفة: إكس (تويتر)، فيسبوك، إنستغرام، تيك توك، سناب شات،
+                        ريديت، وبينتيريست.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-bullseye section-icon"></i>
+                <h2>3. أهداف التعلم (Learning Objectives)</h2>
+            </div>
+            <div class="section-body">
+                <p>بنهاية هذا المقرر، يُتوقع من الطالب تحقيق الأهداف التالية:</p>
+                <ul class="objectives-list">
+                    <li><i class="fa-solid fa-circle-check"></i> فهم المفاهيم الأساسية في مقاييس (Metrics) الويب ووسائل
+                        التواصل الاجتماعي.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> القدرة على تطبيق أدوات تحليلات الويب ووسائل التواصل
+                        الاجتماعي.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> التعرف على سلوك المستخدم (User behavior) وكيفية وصوله
+                        للموقع واستخدامه للمحتوى.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> تعلم كيفية إجراء تقسيم العملاء (Customer segmentation).
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i> فهم الطبقات السبع لتحليلات وسائل التواصل الاجتماعي.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-calendar-days section-icon"></i>
+                <h2>4. خطة المقرر والمواد التعليمية</h2>
+            </div>
+            <div class="section-body">
+                <div class="syllabus-box">
+                    <h4><i class="fa-solid fa-book-bookmark"></i> المواد والأدوات:</h4>
+                    <p>يعتمد المقرر على العروض التقديمية، المحاضرات، الجانب العملي باستخدام لغة بايثون (Python)، ومرجعين
+                        أساسيين هما كتاب "الطبقات السبع لتحليلات وسائل التواصل الاجتماعي" وكتاب "تحليلات الويب العملية
+                        لتجربة المستخدم".</p>
+                </div>
+                <div class="syllabus-box">
+                    <h4><i class="fa-solid fa-timeline"></i> الجدول الزمني:</h4>
+                    <p>يتوزع المقرر على 14 أسبوعاً، يبدأ بمقدمة، ثم طرق جمع البيانات، وتحليل الأهداف والتحويلات، يليه
+                        التطبيق العملي على أداة تحليلات جوجل. تمتد الدراسة لتشمل تحليل الزيارات ومسار الزوار. بعد امتحان
+                        منتصف الفصل (Midterm Exam) في الأسبوع التاسع، يركز المقرر على نظرة عامة على تحليلات المنصات
+                        الاجتماعية وعمليات التنقيب في البيانات. ويختتم المقرر بالامتحان العملي/الشفوي ثم النهائي.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; FCI-Platform 2026</p>
+    </footer>
+
+    <script src="overview_logic.js?v=1"></script>
+</body>
+
+</html>
