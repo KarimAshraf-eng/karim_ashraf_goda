@@ -4,7 +4,7 @@
         "number": "01",
         "name": "المحاضرة الأولى - Lecture 1",
         "icon": "fa-solid fa-file-lines",
-        "folder_path": "Lecture 1/index.html",
+        "folder_path": "Lecture_1/lecture_1_page.html",
         "is_active": true,
         "custom_class": "modern-card"
     },
@@ -13,7 +13,7 @@
         "number": "02",
         "name": "المحاضرة الثانية - Lecture 2",
         "icon": "fa-solid fa-file-lines",
-        "folder_path": "Lecture 2/index.html",
+        "folder_path": "Lecture_2/index.html",
         "is_active": true,
         "custom_class": "modern-card"
     },

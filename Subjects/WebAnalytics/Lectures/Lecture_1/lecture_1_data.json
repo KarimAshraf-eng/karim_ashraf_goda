@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name_en": "Overview",
+        "name_ar": "نظرة عامة",
+        "icon": "fa-solid fa-eye",
+        "description": "شرح مبسط بالعربية لأهداف المحاضرة وما ستتعلمه فيها.",
+        "folder_path": "Overview/index.html",
+        "is_active": true
+    },
+    {
+        "id": 2,
+        "name_en": "Lecture",
+        "name_ar": "المحاضرة التفاعلية",
+        "icon": "fa-solid fa-person-chalkboard",
+        "description": "محتوى الشريحة الأصلي مع إمكانية عرض الترجمة، والأمثلة التوضيحية.",
+        "folder_path": "Lecture/index.html",
+        "is_active": true
+    },
+    {
+        "id": 3,
+        "name_en": "Summary",
+        "name_ar": "الملخص",
+        "icon": "fa-solid fa-list-check",
+        "description": "خلاصة محتويات المحاضرة باللغة الإنجليزية مع خاصية الترجمة الذكية.",
+        "folder_path": "Summary/index.html",
+        "is_active": true
+    },
+    {
+        "id": 4,
+        "name_en": "MSQ Questions",
+        "name_ar": "تدريب أسئلة",
+        "icon": "fa-solid fa-spell-check",
+        "description": "أسئلة اختيار من متعدد (MSQ) للتدريب مع ترجمة لفهم السؤال.",
+        "folder_path": "MSQ_Questions/index.html",
+        "is_active": true
+    },
+    {
+        "id": 5,
+        "name_en": "Glossary",
+        "name_ar": "بنك المصطلحات",
+        "icon": "fa-solid fa-book-open",
+        "description": "أهم 5 إلى 10 كلمات مفتاحية في المحاضرة وموضع أسئلة الامتحان.",
+        "folder_path": "Glossary/index.html",
+        "is_active": true
+    }
+]
