@@ -109,7 +109,7 @@ body {
     color: #a0aec0;
 }
 
-/* تغيير الحاوية لتكون قائمة طولية بدلاً من شبكة مربعة */
+/* الحاوية الرئيسية */
 main {
     flex: 1;
     max-width: 900px;
@@ -125,18 +125,16 @@ main {
     gap: 1.5rem;
 }
 
-/* الخصائص المشتركة للكروت */
+/* الخصائص الأساسية للكروت */
 .subject-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     display: flex;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
     position: relative;
     will-change: transform, opacity;
@@ -154,120 +152,154 @@ main {
     }
 }
 
-/* 1. تصميم صفوف المحاضرات (Lecture Row) */
-.lecture-row {
-    flex-direction: row;
-    height: 120px;
+/* 1. تصميم المحاضرات المبتكر (بدون صور) */
+.modern-card {
+    padding: 2rem;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.lecture-row:hover {
-    transform: translateX(-10px) translateZ(0);
-    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.1);
-    border-color: rgba(0, 198, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
+.modern-card:hover {
+    transform: scale(1.02) translateZ(0);
+    border-color: rgba(0, 198, 255, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 15px 35px rgba(0, 198, 255, 0.1);
 }
 
-.lecture-row .image-wrapper {
-    height: 100%;
-    width: 180px;
-    flex-shrink: 0;
+/* العلامة المائية (الرقم الشفاف في الخلفية) */
+.watermark {
+    position: absolute;
+    left: 20px;
+    bottom: -20px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
 }
 
-.lecture-row .card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.modern-card:hover .watermark {
+    color: rgba(0, 198, 255, 0.08);
+    transform: translateY(-10px) scale(1.05);
 }
 
-.lecture-row .card-content {
-    flex: 1;
+/* محتوى الكارت */
+.modern-card .card-content {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 0 20px;
+    gap: 25px;
+    z-index: 1;
+    width: 100%;
 }
 
-.lecture-row .icon-container {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    border-radius: 12px;
+.modern-card .icon-container {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 198, 255, 0.1);
+    border: 1px solid rgba(0, 198, 255, 0.2);
+    border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
-.lecture-row .card-icon {
-    font-size: 1.2rem;
+.modern-card:hover .icon-container {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+    border-color: transparent;
+}
+
+.modern-card .card-icon {
+    font-size: 1.8rem;
+    color: #00c6ff;
+    transition: color 0.3s ease;
+}
+
+.modern-card:hover .card-icon {
     color: white;
 }
 
-.lecture-row .card-title {
-    font-size: 1.4rem;
+.modern-card .card-title {
+    font-size: 1.5rem;
     font-weight: 700;
     color: #e2e8f0;
+    flex: 1;
 }
 
-.lecture-row:hover .card-title {
+.modern-card:hover .card-title {
+    color: #ffffff;
+}
+
+/* سهم الدخول */
+.enter-arrow {
+    font-size: 1.5rem;
+    color: #4a5568;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.modern-card:hover .enter-arrow {
     color: #00c6ff;
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* 2. تصميم بانر الأسئلة الفريد (Questions Banner) */
+/* 2. تصميم بانر الأسئلة (بدون صور) */
 .questions-banner {
-    margin-top: 2rem;
-    flex-direction: row;
-    align-items: center;
+    margin-top: 1rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 71, 87, 0.05) 0%, rgba(255, 107, 129, 0.02) 100%);
+    border: 1px solid rgba(255, 71, 87, 0.2);
     justify-content: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(255, 107, 129, 0.05) 100%);
-    border: 2px dashed rgba(255, 71, 87, 0.4);
     text-align: center;
 }
 
 .questions-banner:hover {
-    transform: translateY(-8px) scale(1.02) translateZ(0);
-    box-shadow: 0 15px 30px rgba(255, 71, 87, 0.2);
-    border-color: rgba(255, 71, 87, 0.8);
-    border-style: solid;
-    background: linear-gradient(135deg, rgba(255, 71, 87, 0.15) 0%, rgba(255, 107, 129, 0.1) 100%);
+    transform: translateY(-5px) translateZ(0);
+    border-color: rgba(255, 71, 87, 0.6);
+    box-shadow: 0 15px 30px rgba(255, 71, 87, 0.15);
+    background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(255, 107, 129, 0.05) 100%);
 }
 
-.questions-banner .image-wrapper {
-    display: none;
-}
-
-/* إخفاء الصورة للتركيز على الأيقونة والنص */
 .questions-banner .card-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
+    gap: 15px;
+    z-index: 1;
 }
 
 .questions-banner .icon-container {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 71, 87, 0.1);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.5);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px dashed rgba(255, 71, 87, 0.5);
+    transition: all 0.5s ease;
 }
 
 .questions-banner:hover .icon-container {
-    transform: scale(1.1) rotate(15deg);
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    border-style: solid;
+    box-shadow: 0 0 25px rgba(255, 71, 87, 0.5);
+    transform: rotate(15deg) scale(1.1);
 }
 
 .questions-banner .card-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #ff4757;
+    transition: color 0.3s ease;
+}
+
+.questions-banner:hover .card-icon {
     color: white;
 }
 
@@ -275,12 +307,10 @@ main {
     font-size: 1.8rem;
     font-weight: 800;
     color: #ff6b81;
-    transition: color 0.3s ease;
 }
 
 .questions-banner:hover .card-title {
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 71, 87, 0.8);
 }
 
 /* الكروت غير المفعلة */
@@ -293,8 +323,8 @@ main {
 
 .coming-soon-badge {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 20px;
+    right: 20px;
     background: rgba(0, 0, 0, 0.8);
     color: #a0aec0;
     padding: 6px 14px;
@@ -302,6 +332,7 @@ main {
     font-size: 0.85rem;
     font-weight: bold;
     z-index: 3;
+    border: 1px solid #4a5568;
 }
 
 footer {
@@ -319,42 +350,27 @@ footer {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         background: rgba(20, 26, 38, 0.98);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .lecture-row {
+    .modern-card {
         flex-direction: column;
-        height: auto;
-        padding: 0;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
-    .lecture-row .image-wrapper {
-        width: 100%;
-        height: 140px;
+    .modern-card .card-content {
+        gap: 15px;
     }
 
-    .lecture-row .card-content {
-        padding: 1.5rem;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
+    .watermark {
+        font-size: 6rem;
+        bottom: -10px;
+        right: 10px;
+        left: auto;
     }
 
-    .lecture-row .icon-container {
-        margin-top: -40px;
-        border: 3px solid #0b0f19;
-        border-radius: 50%;
-    }
-
-    .questions-banner {
-        flex-direction: column;
-        padding: 1.5rem;
-    }
-
-    .questions-banner .card-content {
-        flex-direction: column;
-        text-align: center;
+    .enter-arrow {
+        display: none;
     }
 
     .bg-animation {
