@@ -2,24 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
 }
 
 body {
     background-color: #0b0f19;
     color: #e2e8f0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
-    font-family: 'Outfit', 'Tajawal', sans-serif;
-    /* دمج الخطوط */
-    direction: ltr;
-    /* التوجيه الأساسي للشريحة من اليسار لليمين لأن المحتوى إنجليزي */
+    position: relative;
+    line-height: 1.8;
 }
 
 /* زر الرجوع */
 .back-btn {
-    position: fixed;
+    position: absolute;
     top: 20px;
-    left: 20px;
+    right: 20px;
     color: #a0aec0;
     text-decoration: none;
     font-size: 1.1rem;
@@ -27,12 +28,12 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 100;
+    z-index: 10;
+    transition: color 0.3s ease;
     background: rgba(255, 255, 255, 0.05);
     padding: 10px 20px;
     border-radius: 30px;
     backdrop-filter: blur(5px);
-    direction: rtl;
 }
 
 .back-btn:hover {
@@ -48,6 +49,7 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    overflow: hidden;
     will-change: transform;
     transform: translateZ(0);
 }
@@ -65,13 +67,13 @@ body {
 .glow-1 {
     top: -100px;
     right: -100px;
-    background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .glow-2 {
     bottom: -100px;
     left: -100px;
-    background: radial-gradient(circle, rgba(0, 114, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(0, 114, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     animation-delay: -5s;
 }
 
@@ -85,120 +87,19 @@ body {
     }
 }
 
-/* حاوية الشرائح */
-.slides-container {
-    max-width: 900px;
-    margin: 4rem auto;
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-/* التصميم العام للشريحة */
-.slide-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 3rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(30px) translateZ(0);
-    transition: all 0.6s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+/* الرأس والمقدمة */
+.main-header {
+    text-align: center;
+    padding: 6rem 1rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
     position: relative;
+    z-index: 1;
 }
 
-.slide-card.show {
-    opacity: 1;
-    transform: translateY(0) translateZ(0);
-}
-
-.slide-title {
-    font-size: 2rem;
-    color: #00c6ff;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid rgba(0, 198, 255, 0.2);
-    padding-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* النصوص القابلة للترجمة */
-.translatable {
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.translatable:hover {
-    color: #00c6ff;
-}
-
-.slide-note {
-    margin-top: 3rem;
-    font-size: 1rem;
-    color: #2ed573;
-    text-align: center;
-    font-family: 'Tajawal', sans-serif;
-    direction: rtl;
-}
-
-/* تصميم فقاعة الترجمة الذكية */
-.translation-bubble {
-    position: fixed;
-    background: rgba(0, 198, 255, 0.95);
-    color: #0b0f19;
-    font-family: 'Tajawal', sans-serif;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    direction: rtl;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4);
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0;
-    transform: translate(-50%, 10px) scale(0.9);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    max-width: 300px;
-    border: 2px solid #ffffff;
-}
-
-.translation-bubble.active {
-    opacity: 1;
-    transform: translate(-50%, -15px) scale(1);
-}
-
-/* سهم الفقاعة */
-.translation-bubble::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 10px;
-    border-style: solid;
-    border-color: rgba(0, 198, 255, 0.95) transparent transparent transparent;
-}
-
-/* 1. تصميم شريحة الغلاف والمراكز */
-.title-slide,
-.center-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-}
-
-.title-slide h1 {
-    font-size: 3.5rem;
+.gradient-text {
+    font-size: 3rem;
+    font-weight: 800;
     background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -207,399 +108,218 @@ body {
     line-height: 1.2;
 }
 
-.title-slide h3 {
-    font-size: 1.8rem;
-    color: #a0aec0;
-    font-weight: 400;
-}
-
-/* 2. تصميم الفهرس */
-.toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.toc-item {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: 16px;
-    border-top: 4px solid #00c6ff;
-    text-align: center;
-}
-
-.toc-num {
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(0, 198, 255, 0.2);
-    margin-bottom: 1rem;
-}
-
-.toc-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* 3. تصميم الفواصل */
-.section-header-slide {
-    text-align: center;
-    padding: 5rem 2rem;
-    background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-}
-
-.section-header-slide .big-num {
-    font-size: 6rem;
-    font-weight: 900;
-    color: rgba(0, 198, 255, 0.15);
-    margin-bottom: -30px;
-}
-
-.section-header-slide h2 {
-    font-size: 3rem;
-    color: #ffffff;
-    position: relative;
-    z-index: 1;
-}
-
-/* تنسيقات المحتوى العام (قوائم، فقرات) */
-.custom-list {
-    list-style: none;
-    padding: 0;
-}
-
-.custom-list li {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-left: 2rem;
-    line-height: 1.6;
-}
-
-.custom-list li::before {
-    content: "»";
-    color: #00c6ff;
-    position: absolute;
-    left: 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.paragraph {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.highlight-text {
-    color: #00c6ff;
-    font-weight: 700;
-    font-size: 1.5rem;
-    border-left: 4px solid #00c6ff;
-    padding-left: 1rem;
-}
-
-/* إحصائيات ضخمة */
-.huge-stat {
-    margin-bottom: 2rem;
-}
-
-.stat-icon {
-    font-size: 3rem;
-    color: #00c6ff;
-    margin-bottom: 1rem;
-}
-
-.huge-stat p {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.huge-stat.highlight p {
-    color: #ff4757;
-    font-size: 1.8rem;
-}
-
-.stat-box {
-    background: rgba(0, 198, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    border-left: 4px solid #00c6ff;
-}
-
-.stat-box p {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.icon-list {
-    list-style: none;
-}
-
-.icon-list li {
+.intro-text {
     font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    color: #2ed573;
+    background: rgba(46, 213, 115, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px dashed #2ed573;
+}
+
+/* حاوية الشرائح */
+.slides-container {
+    flex: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* تصميم كارت الشريحة */
+.slide-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px) translateZ(0);
+    transition: all 0.6s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slide-card.show {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+}
+
+.slide-card:hover {
+    border-color: rgba(0, 198, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 198, 255, 0.1);
+}
+
+/* رأس الشريحة */
+.slide-header {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 198, 255, 0.03);
 }
 
-.icon-list li i {
-    font-size: 1.5rem;
-    color: #2ed573;
-    width: 30px;
-    text-align: center;
-}
-
-/* تقسيم الشاشة (يسار ويمين) */
-.split-slide {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.split-content {
-    flex: 1;
-    min-width: 300px;
-}
-
-.split-visual {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-}
-
-.data-types {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.type-box {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border-radius: 8px;
-    flex: 1;
-}
-
-.type-box h3 {
+.slide-number {
+    font-size: 2rem;
+    font-weight: 900;
     color: #00c6ff;
-    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    font-family: sans-serif;
 }
 
-.type-box ul {
-    padding-left: 1.5rem;
-}
-
-.stat-highlight {
+.slide-header h2 {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff4757;
-    background: rgba(255, 71, 87, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* مخططات وتفرعات */
-.visual-diagram {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-style: italic;
-    color: #a0aec0;
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-}
-
-.tree-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.tree-branch {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border-top: 3px solid #2ed573;
-}
-
-.tree-branch h3 {
-    margin-bottom: 1rem;
-    color: #2ed573;
-}
-
-.tree-branch ul {
-    list-style: none;
-}
-
-.tree-branch li {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-/* مراحل التحليل */
-.stages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.stage-card {
-    background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 114, 255, 0.1) 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
     font-weight: 700;
-    font-size: 1.2rem;
-    border: 1px solid rgba(0, 198, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* مقارنات ومواد */
-.comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.comp-box {
-    background: rgba(255, 255, 255, 0.03);
+/* محتوى النص الإنجليزي (قابل للترجمة) */
+.english-text {
     padding: 2rem;
-    border-radius: 16px;
+    direction: ltr;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.comp-box h3 {
-    font-size: 1.6rem;
-    color: #00c6ff;
-    margin-bottom: 1rem;
-}
-
-.comp-box p {
-    font-size: 1.2rem;
+.english-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    font-family: sans-serif;
+    font-weight: 500;
     line-height: 1.6;
 }
 
-.materials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* الكلاس السحري للجمل القابلة للترجمة */
+.translatable {
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px dotted #4a5568;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+    display: inline;
+    color: #cbd5e1;
+    /* الخصائص دي بتمنع الموبايل يفتح قائمة النسخ أو يعلم على الكلام أثناء الضغطة الطويلة */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.translatable:hover,
+.translatable.active {
+    color: #00c6ff;
+    border-bottom-color: #00c6ff;
+}
+
+/* الشرح والأمثلة */
+.slide-details {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
-.material-item {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 16px;
+.explanation-box,
+.example-box {
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-right: 4px solid;
 }
 
-.mat-icon {
-    font-size: 3rem;
-    color: #ff6b81;
-    margin-bottom: 1rem;
+.explanation-box {
+    background: rgba(0, 198, 255, 0.05);
+    border-right-color: #00c6ff;
 }
 
-.material-item ul {
-    list-style: none;
-    margin-top: 1rem;
-    text-align: left;
-    padding: 0;
+.example-box {
+    background: rgba(255, 195, 18, 0.05);
+    border-right-color: #ffc312;
 }
 
-.material-item li {
-    font-size: 1rem;
-    color: #cbd5e1;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 0.5rem;
-}
-
-/* أهداف وجدول */
-.objective-list {
-    list-style: none;
-}
-
-.objective-list li {
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
+.slide-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
+    align-items: center;
+    gap: 8px;
+}
+
+.explanation-box h4 {
+    color: #00c6ff;
+}
+
+.example-box h4 {
+    color: #ffc312;
+}
+
+.slide-details p {
+    font-size: 1.1rem;
+    text-align: right;
+    color: #e2e8f0;
+    line-height: 1.8;
+}
+
+/* تصميم فقاعة الترجمة الطائرة (Tooltip) */
+.translation-bubble {
+    position: fixed;
+    /* لتطفو فوق كل شيء بغض النظر عن الـ scroll */
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    direction: rtl;
+    box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 10px) scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+    /* عشان متمنعش الضغط على اللي تحتها */
+    max-width: 90vw;
     line-height: 1.5;
 }
 
-.objective-list li i {
-    color: #00c6ff;
-    margin-top: 5px;
-    font-size: 1.4rem;
-    flex-shrink: 0;
+/* السهم الصغير تحت الفقاعة */
+.translation-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #0072ff transparent transparent transparent;
 }
 
-.table-responsive {
-    overflow-x: auto;
+/* حالة إظهار الفقاعة */
+.translation-bubble.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    min-width: 600px;
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #718096;
+    margin-top: auto;
+    z-index: 1;
 }
 
-th,
-td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 1.1rem;
-}
-
-th {
-    background: rgba(0, 198, 255, 0.1);
-    color: #00c6ff;
-    font-weight: 700;
-}
-
-tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.exam-row {
-    background: rgba(255, 71, 87, 0.05);
-    font-weight: 700;
-    color: #ff6b81;
-}
-
-.text-gold {
-    color: #ffd32a;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.question-text {
-    font-size: 2.5rem;
-    color: #00c6ff;
-    margin-bottom: 2rem;
-}
-
-.email-box {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 20px;
-    border-radius: 30px;
-    letter-spacing: 1px;
-}
-
-/* ========================================= */
-/* التابلت (إلغاء التهنيج) */
+/* التابلت والموبايل */
 @media (max-width: 1024px) {
     .slide-card {
         backdrop-filter: none;
@@ -610,75 +330,44 @@ tr:hover td {
     .bg-animation {
         display: none;
     }
-
-    .tree-grid,
-    .comparison-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
-/* ========================================= */
-/* الموبايل (فك الضغط وتظبيط المسافات) */
 @media (max-width: 768px) {
+    .main-header {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+
+    .gradient-text {
+        font-size: 2.2rem;
+    }
+
     .slides-container {
-        margin: 5rem auto 2rem;
-        padding: 0 0.5rem;
-        gap: 1.5rem;
+        padding: 0 1rem 3rem;
     }
 
-    .slide-card {
+    .slide-header {
+        padding: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .english-text {
         padding: 1.5rem;
-        border-radius: 12px;
     }
 
-    .title-slide h1 {
-        font-size: 2.2rem;
+    .english-text p {
+        font-size: 1.2rem;
     }
 
-    .title-slide h3 {
-        font-size: 1.3rem;
+    .slide-details {
+        padding: 1.5rem;
     }
 
-    .slide-title {
-        font-size: 1.5rem;
-    }
-
-    .custom-list li,
-    .paragraph,
-    .objective-list li,
-    .icon-list li {
-        font-size: 1.1rem;
-        line-height: 1.5;
-    }
-
-    .huge-stat p {
-        font-size: 1.5rem;
-    }
-
-    .huge-stat.highlight p {
-        font-size: 1.3rem;
-    }
-
-    .section-header-slide .big-num {
-        font-size: 4rem;
-    }
-
-    .section-header-slide h2 {
-        font-size: 2rem;
-    }
-
-    .text-gold {
-        font-size: 2.2rem;
-    }
-
-    .question-text {
-        font-size: 1.8rem;
-    }
-
-    .back-btn {
-        top: 10px;
-        left: 10px;
-        font-size: 0.9rem;
-        padding: 8px 15px;
+    .explanation-box,
+    .example-box {
+        padding: 1.2rem;
+        font-size: 1.05rem;
     }
 }

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. نظام ظهور الشرائح عند التمرير (Scroll Reveal)
-    const slides = document.querySelectorAll('.slide-card');
+    // 1. أنيميشن ظهور الشرائح عند السكرول
+    const cards = document.querySelectorAll('.slide-card');
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
     const observer = new IntersectionObserver((entries) => {
@@ -11,55 +11,89 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
+    cards.forEach(card => observer.observe(card));
 
-    slides.forEach(slide => observer.observe(slide));
-
-    // 2. نظام فقاعة الترجمة الذكية (Long Press)
-    const bubble = document.getElementById('translation-bubble');
+    // ==========================================
+    // 2. السحر البرمجي لفقاعة الترجمة التفاعلية
+    // ==========================================
     const translatables = document.querySelectorAll('.translatable');
+    const tooltip = document.getElementById('translation-tooltip');
     let pressTimer;
+    let isPressing = false;
 
     // دالة إظهار الفقاعة
-    const showBubble = (e, element) => {
-        const arabicText = element.getAttribute('data-ar');
-        if (!arabicText) return;
+    const showTooltip = (el, clientX, clientY) => {
+        isPressing = true;
+        const arText = el.getAttribute('data-ar');
+        tooltip.innerText = arText;
+        el.classList.add('active'); // تغيير لون الكلمة لتمييزها
 
-        bubble.innerText = arabicText;
-        bubble.classList.add('active');
+        // حساب مكان الفقاعة (فوق مكان الضغطة بـ 60 بكسل حتى لا يغطيها الإصبع)
+        const tooltipX = clientX;
+        const tooltipY = clientY - 60;
 
-        // حساب مكان الحدث (سواء كان لمس من الموبايل أو ماوس من اللابتوب)
-        let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        tooltip.style.left = `${tooltipX}px`;
+        tooltip.style.top = `${tooltipY}px`;
+        tooltip.classList.add('visible');
 
-        // تحديد موقع الفقاعة فوق مكان الضغطة بـ 20 بكسل
-        bubble.style.left = `${clientX}px`;
-        bubble.style.top = `${clientY - 20}px`;
+        // هزاز خفيف للموبايل لتأكيد نجاح الضغطة الطويلة (تعمل على الأجهزة الداعمة)
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
     };
 
-    // دالة إخفاء الفقاعة وإلغاء المؤقت
-    const hideBubble = () => {
-        clearTimeout(pressTimer);
-        bubble.classList.remove('active');
+    // دالة إخفاء الفقاعة
+    const hideTooltip = (el) => {
+        isPressing = false;
+        tooltip.classList.remove('visible');
+        if (el) el.classList.remove('active');
     };
 
     translatables.forEach(el => {
-        // أحداث اللمس (للموبايل والتابلت)
+        // --- أحداث الموبايل (Touch Events) ---
         el.addEventListener('touchstart', (e) => {
-            pressTimer = window.setTimeout(() => showBubble(e, el), 400); // 400 ملي ثانية تعتبر ضغطة طويلة
+            // نمنع أي حدث افتراضي لو أمكن
+            const touch = e.touches[0];
+            // تعيين مؤقت (400 ملي ثانية) يعتبر كضغطة طويلة
+            pressTimer = setTimeout(() => {
+                showTooltip(el, touch.clientX, touch.clientY);
+            }, 400);
         }, { passive: true });
 
-        el.addEventListener('touchend', hideBubble);
-        el.addEventListener('touchmove', hideBubble); // لو سحب إصبعه يلغي الترجمة
-
-        // أحداث الماوس (للابتوب)
-        el.addEventListener('mousedown', (e) => {
-            pressTimer = window.setTimeout(() => showBubble(e, el), 400);
+        // إذا رفع إصبعه قبل اكتمال المؤقت، يتم الإلغاء. وإذا كانت الفقاعة ظاهرة، تختفي.
+        el.addEventListener('touchend', () => {
+            clearTimeout(pressTimer);
+            if (isPressing) {
+                setTimeout(() => hideTooltip(el), 1000); // تظل ظاهرة لثانية بعد رفع الإصبع لتسهيل القراءة
+            }
         });
 
-        el.addEventListener('mouseup', hideBubble);
-        el.addEventListener('mouseleave', hideBubble);
+        // إذا قام بالتمرير (Scroll) بإصبعه على الكلمة، يتم الإلغاء
+        el.addEventListener('touchmove', () => {
+            clearTimeout(pressTimer);
+            hideTooltip(el);
+        });
 
-        // منع ظهور قائمة الـ Copy/Paste الافتراضية للمتصفح عند الضغط المطول لتسهيل رؤية الترجمة
+        // --- أحداث اللابتوب (Mouse Events) ---
+        el.addEventListener('mousedown', (e) => {
+            pressTimer = setTimeout(() => {
+                showTooltip(el, e.clientX, e.clientY);
+            }, 400);
+        });
+
+        el.addEventListener('mouseup', () => {
+            clearTimeout(pressTimer);
+            if (isPressing) {
+                setTimeout(() => hideTooltip(el), 1000);
+            }
+        });
+
+        el.addEventListener('mouseleave', () => {
+            clearTimeout(pressTimer);
+            hideTooltip(el);
+        });
+
+        // تعطيل القائمة المزعجة الخاصة بكليك يمين أو الضغطة الطويلة
         el.addEventListener('contextmenu', (e) => {
             e.preventDefault();
         });
