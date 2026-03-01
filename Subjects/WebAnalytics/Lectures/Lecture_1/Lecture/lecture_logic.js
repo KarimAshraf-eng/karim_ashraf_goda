@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         activeEl = el;
         activeEl.classList.add('active-text');
 
+        // تحديد إحداثيات اللمس أو الماوس
         const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
         const y = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
 
@@ -23,13 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll('.translatable').forEach(el => {
-        // دعم الماوس (لابتوب)
+        // الكمبيوتر
         el.addEventListener('mouseenter', (e) => handleShow(e, el));
         el.addEventListener('mouseleave', handleHide);
 
-        // دعم اللمس (تابلت وموبايل) - ضغطة واحدة تظهر، ورفع اليد يخفي
+        // الموبايل والتابلت
         el.addEventListener('touchstart', (e) => {
-            // e.preventDefault(); // مفعل فقط لو احتجت منع السكرول أثناء الترجمة
             handleShow(e, el);
         }, { passive: true });
 

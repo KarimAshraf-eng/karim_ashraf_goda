@@ -8,11 +8,11 @@
 body {
     background: #0b0f19;
     color: #fff;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+    /* السماح بالتمرير الأفقي بدلاً من ضغط المحتوى */
+    overflow-x: auto;
+    min-width: 1100px;
 }
 
-/* طبقة خلفية خفيفة بدون Blur لمنع التهنيج */
 .bg-layer {
     position: fixed;
     top: 0;
@@ -24,29 +24,33 @@ body {
 }
 
 .presentation {
-    width: 100%;
-    max-width: 1100px;
+    width: 1100px;
+    /* عرض ثابت يمنع التحلل الطولي */
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 80px;
 }
 
 .slide-box {
     background: #111827;
     border: 1px solid #1f2937;
     border-radius: 12px;
-    padding: 50px;
-    width: 100%;
-    min-height: 500px;
+    padding: 60px;
+    width: 1000px;
+    /* تثبيت عرض الشريحة */
+    height: 562px;
+    /* تثبيت ارتفاع الشريحة (نسبة 16:9) */
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* الشريحة الأولى */
+/* الشريحة الأولى: محاذاة أفقية دائمة */
 .first-slide {
     display: flex;
+    flex-direction: row !important;
+    /* إجبار الصف الأفقي حتى في الموبايل */
     align-items: center;
     justify-content: space-between;
     direction: ltr;
@@ -72,7 +76,6 @@ body {
     font-weight: 600;
 }
 
-/* رسمة الـ PC بـ CSS */
 .pc-art {
     width: 350px;
     height: 250px;
@@ -97,7 +100,6 @@ body {
     left: 10%;
     width: 80%;
     height: 50px;
-    background: linear-gradient(to top, rgba(0, 198, 255, 0.3), transparent);
     border-top: 3px solid #00c6ff;
 }
 
@@ -109,7 +111,7 @@ body {
     margin-top: -5px;
 }
 
-/* الشريحة الثانية (TOC) - التصميم اللي إنت عاوزه */
+/* الشريحة الثانية: محاذاة أفقية دائمة */
 .toc-title {
     text-align: center;
     color: #f59e0b;
@@ -127,6 +129,8 @@ body {
 
 .map-row {
     display: flex;
+    flex-direction: row !important;
+    /* إجبار الصف الأفقي */
     justify-content: space-around;
     width: 100%;
 }
@@ -140,7 +144,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 300px;
+    width: 320px;
 }
 
 .node-visual {
@@ -150,22 +154,22 @@ body {
 }
 
 .circle {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     background: #3b82f6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    position: relative;
     z-index: 2;
+    position: relative;
 }
 
 .line {
-    width: 120px;
+    width: 130px;
     height: 12px;
     background: #1e3a8a;
     border-radius: 6px;
@@ -173,29 +177,30 @@ body {
 }
 
 .node.left .line {
-    margin-left: -15px;
+    margin-left: -20px;
 }
 
 .node.right .line {
-    margin-right: -15px;
+    margin-right: -20px;
 }
 
 .node-content h3 {
     color: #f59e0b;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 5px;
 }
 
 .node-content p {
     color: #9ca3af;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
-/* الترجمة */
+/* الترجمة والفقاعة */
 .translatable {
     cursor: pointer;
     user-select: none;
     transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .active-text {
@@ -207,57 +212,19 @@ body {
     position: fixed;
     background: #00c6ff;
     color: #000;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.4rem;
     font-weight: 800;
-    z-index: 1000;
+    z-index: 10000;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transition: transform 0.2s, opacity 0.2s;
-    transform: translate(-50%, -130%);
+    transform: translate(-50%, -135%);
 }
 
 .bubble.visible {
     visibility: visible;
     opacity: 1;
-}
-
-/* تحسين الموبايل والتابلت بذكاء */
-@media (max-width: 768px) {
-    .slide-box {
-        padding: 30px 15px;
-        min-height: auto;
-    }
-
-    .first-slide {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .first-slide .text-side {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .first-slide h1 {
-        font-size: 2.2rem;
-    }
-
-    .pc-art {
-        width: 100%;
-    }
-
-    .toc-map {
-        transform: scale(0.85);
-        margin-left: -5%;
-    }
-
-    /* تصغير بسيط ليبقى العرض ممتازاً */
-    .map-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
 }
