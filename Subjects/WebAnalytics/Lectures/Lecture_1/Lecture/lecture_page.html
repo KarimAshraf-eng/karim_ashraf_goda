@@ -3,80 +3,81 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1024">
-    <title>Lecture 1 - Slides</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="lecture_design.css?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 1 - Interactive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lecture_design.css?v=6">
 </head>
 
 <body>
-    <div class="bg-animation" id="bg-layer">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-    </div>
+    <div class="bg-layer"></div>
 
-    <main class="slides-container">
+    <main class="presentation">
 
-        <article class="slide-card presentation-slide">
-            <div class="slide-inner">
+        <div class="slide-box">
+            <div class="slide-inner first-slide">
                 <div class="text-side">
-                    <h1 class="main-title translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي">
-                        Web and Social Media Analytics
-                    </h1>
-                    <p class="sub-title translatable" data-ar="مقدمة">Introduction</p>
+                    <h1 class="translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي">Web and Social Media
+                        Analytics</h1>
+                    <p class="translatable" data-ar="مقدمة">Introduction</p>
                 </div>
-                <div class="visual-side">
-                    <div class="illustration-box">
-                        <div class="pc-screen">
-                            <div class="screen-graph"></div>
+                <div class="image-side">
+                    <div class="pc-art">
+                        <div class="screen-box">
+                            <div class="chart-wave"></div>
                         </div>
-                        <div class="user-figure"></div>
+                        <div class="stand"></div>
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
 
-        <article class="slide-card presentation-slide">
+        <div class="slide-box">
             <h2 class="toc-title translatable" data-ar="جدول المحتويات">Table of contents</h2>
-            <div class="toc-grid">
-                <div class="toc-node">
-                    <div class="node-header"><span class="node-num">01</span>
-                        <div class="node-line"></div>
+
+            <div class="toc-map">
+                <div class="map-row">
+                    <div class="node left">
+                        <div class="node-visual"><span class="circle">01</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="node-content">
+                            <h3 class="translatable" data-ar="مقدمة">Introduction</h3>
+                            <p class="translatable" data-ar="مقدمة موجزة عن المادة">A brief introduction about the
+                                subject</p>
+                        </div>
                     </div>
-                    <div class="node-body">
-                        <h3 class="translatable" data-ar="مقدمة">Introduction</h3>
-                        <p class="translatable" data-ar="مقدمة موجزة عن المادة">A brief introduction about the subject
-                        </p>
+                    <div class="node right">
+                        <div class="node-visual">
+                            <div class="line"></div><span class="circle">02</span>
+                        </div>
+                        <div class="node-content">
+                            <h3 class="translatable" data-ar="المواد والمعامل">Materials and Labs</h3>
+                            <p class="translatable" data-ar="الكتب والباوربوينت والمعامل">Books, power point, and Labs
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="toc-node">
-                    <div class="node-header">
-                        <div class="node-line"></div><span class="node-num">02</span>
-                    </div>
-                    <div class="node-body">
-                        <h3 class="translatable" data-ar="المواد والمعامل">Materials and Labs</h3>
-                        <p class="translatable" data-ar="الكتب، الباوربوينت، والمعامل">Books, power point, and Labs</p>
-                    </div>
-                </div>
-                <div class="toc-node centered">
-                    <div class="node-header"><span class="node-num">03</span>
-                        <div class="node-line"></div>
-                    </div>
-                    <div class="node-body">
-                        <h3 class="translatable" data-ar="أهداف التعلم">Learning Objectives</h3>
-                        <p class="translatable" data-ar="ما ستتعلمه في نهاية الدورة">What you will learn at the end of
-                            this course</p>
+                <div class="map-row center">
+                    <div class="node">
+                        <div class="node-visual"><span class="circle">03</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="node-content">
+                            <h3 class="translatable" data-ar="أهداف التعلم">Learning Objectives</h3>
+                            <p class="translatable" data-ar="ما ستتعلمه بنهاية الدورة">What you will learn at the end of
+                                this course</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
 
     </main>
 
-    <div id="translation-tooltip" class="translation-bubble"></div>
+    <div id="tooltip" class="bubble"></div>
 
-    <script src="lecture_logic.js?v=2"></script>
+    <script src="lecture_logic.js?v=6"></script>
 </body>
 
 </html>

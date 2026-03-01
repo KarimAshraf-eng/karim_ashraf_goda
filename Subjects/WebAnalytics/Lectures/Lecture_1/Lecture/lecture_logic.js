@@ -1,58 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tooltip = document.getElementById('translation-tooltip');
-    const translatables = document.querySelectorAll('.translatable');
-    let activeElement = null;
+    const bubble = document.getElementById('tooltip');
+    let activeEl = null;
 
-    function showTranslation(el, x, y) {
-        // إزالة التحديد القديم لو وجد
-        if (activeElement) activeElement.classList.remove('active-selection');
+    function handleShow(e, el) {
+        if (activeEl) activeEl.classList.remove('active-text');
+        activeEl = el;
+        activeEl.classList.add('active-text');
 
-        activeElement = el;
-        activeElement.classList.add('active-selection');
+        const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        const y = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
 
-        tooltip.innerText = el.getAttribute('data-ar');
-        tooltip.style.left = `${x}px`;
-        tooltip.style.top = `${y}px`;
-        tooltip.classList.add('visible');
+        bubble.innerText = el.getAttribute('data-ar');
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
+        bubble.classList.add('visible');
     }
 
-    function hideTranslation() {
-        if (activeElement) {
-            activeElement.classList.remove('active-selection');
-            activeElement = null;
-        }
-        tooltip.classList.remove('visible');
+    function handleHide() {
+        if (activeEl) activeEl.classList.remove('active-text');
+        activeEl = null;
+        bubble.classList.remove('visible');
     }
 
-    translatables.forEach(el => {
-        // للكمبيوتر: بمجرد الوقوف بالماوس يتم التحديد (Hover)
-        el.addEventListener('mouseenter', (e) => {
-            showTranslation(el, e.clientX, e.clientY);
-        });
+    document.querySelectorAll('.translatable').forEach(el => {
+        // دعم الماوس (لابتوب)
+        el.addEventListener('mouseenter', (e) => handleShow(e, el));
+        el.addEventListener('mouseleave', handleHide);
 
-        el.addEventListener('mouseleave', hideTranslation);
-
-        // للموبايل والتابلت: الضغطة الطويلة تظهر الترجمة، ورفع اليد يخفيها فوراً
+        // دعم اللمس (تابلت وموبايل) - ضغطة واحدة تظهر، ورفع اليد يخفي
         el.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            // منع السلوك الافتراضي للمتصفح (تحديد النص الأصلي)
-            // e.preventDefault(); 
-            showTranslation(el, touch.clientX, touch.clientY);
+            // e.preventDefault(); // مفعل فقط لو احتجت منع السكرول أثناء الترجمة
+            handleShow(e, el);
         }, { passive: true });
 
-        el.addEventListener('touchend', (e) => {
-            // إخفاء الترجمة فور رفع اليد لجعل التجربة سلسة
-            hideTranslation();
-        });
-
-        // إذا تم تحريك الإصبع (سكرول) يتم الإخفاء
-        el.addEventListener('touchmove', hideTranslation);
+        el.addEventListener('touchend', handleHide);
     });
-
-    // إخفاء الترجمة عند الضغط في أي مكان فارغ (للأمان)
-    document.addEventListener('touchstart', (e) => {
-        if (!e.target.classList.contains('translatable')) {
-            hideTranslation();
-        }
-    }, { passive: true });
 });

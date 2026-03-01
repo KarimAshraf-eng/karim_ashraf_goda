@@ -6,162 +6,258 @@
 }
 
 body {
-    background-color: #0b0f19;
+    background: #0b0f19;
     color: #fff;
-    min-height: 100vh;
-    overflow-x: auto;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* إلغاء الـ Blur تماماً للتابلت والموبايل لمنع التهنيج */
-@media (pointer: coarse) {
-
-    .slide-card,
-    .bg-animation,
-    .translation-bubble {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: #101624 !important;
-        /* لون ثابت بدلاً من الشفافية */
-    }
-
-    .glow {
-        display: none;
-    }
-
-    /* إخفاء الإضاءة المتحركة لتسريع الأداء */
+/* طبقة خلفية خفيفة بدون Blur لمنع التهنيج */
+.bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #162031 0%, #0b0f19 100%);
+    z-index: -1;
 }
 
-/* حاوية الشريحة تحافظ على العرض (1024px) كأنها لابتوب */
-.slides-container {
-    width: 1024px;
+.presentation {
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 50px 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 60px;
 }
 
-.slide-card {
-    width: 1000px;
-    aspect-ratio: 16 / 9;
-    border: 2px solid #1e293b;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.03);
+.slide-box {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 50px;
+    width: 100%;
+    min-height: 500px;
     position: relative;
-    padding: 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* إزالة الخطوط المقطعة تحت الجمل */
-.translatable {
-    cursor: pointer;
-    border-bottom: none !important;
-    /* حذف الخط المقطع */
-    display: inline-block;
-    transition: color 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-}
-
-.translatable.active-selection {
-    color: #00c6ff;
-    background: rgba(0, 198, 255, 0.1);
-    border-radius: 5px;
-}
-
-/* تنسيق الشريحة الأولى (نص يمين ورسم شمال) */
-.slide-inner {
+/* الشريحة الأولى */
+.first-slide {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    direction: ltr;
     height: 100%;
-    direction: ltr;
 }
 
-.text-side {
+.first-slide .text-side {
     flex: 1;
+    text-align: left;
 }
 
-.main-title {
-    font-size: 4rem;
-    color: #00c6ff;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.sub-title {
-    font-size: 2.5rem;
-    color: #ff4757;
-}
-
-/* تنسيق شريحة الـ TOC (الشريحة الثانية) */
-.slide-toc {
-    direction: ltr;
-    text-align: center;
-}
-
-.toc-title {
+.first-slide h1 {
     font-size: 3.5rem;
-    color: #f39c12;
-    margin-bottom: 60px;
+    color: #00c6ff;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.1;
 }
 
-.toc-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+.first-slide p {
+    font-size: 2rem;
+    color: #ff4757;
+    font-weight: 600;
 }
 
-.centered {
-    grid-column: 1 / span 2;
+/* رسمة الـ PC بـ CSS */
+.pc-art {
+    width: 350px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.node-num {
-    background: #00c6ff;
+.screen-box {
+    width: 320px;
+    height: 200px;
+    border: 8px solid #374151;
+    border-radius: 10px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-wave {
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    width: 80%;
+    height: 50px;
+    background: linear-gradient(to top, rgba(0, 198, 255, 0.3), transparent);
+    border-top: 3px solid #00c6ff;
+}
+
+.stand {
+    width: 80px;
+    height: 40px;
+    background: #374151;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    margin-top: -5px;
+}
+
+/* الشريحة الثانية (TOC) - التصميم اللي إنت عاوزه */
+.toc-title {
+    text-align: center;
+    color: #f59e0b;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    font-weight: 800;
+}
+
+.toc-map {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    direction: ltr;
+}
+
+.map-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.map-row.center {
+    justify-content: center;
+}
+
+.node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+}
+
+.node-visual {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.circle {
     width: 60px;
     height: 60px;
+    background: #3b82f6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 800;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
-.node-line {
-    height: 10px;
-    width: 150px;
-    background: #1e293b;
-    border-radius: 5px;
+.line {
+    width: 120px;
+    height: 12px;
+    background: #1e3a8a;
+    border-radius: 6px;
+    z-index: 1;
 }
 
-.node-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+.node.left .line {
+    margin-left: -15px;
 }
 
-/* فقاعة الترجمة */
-.translation-bubble {
+.node.right .line {
+    margin-right: -15px;
+}
+
+.node-content h3 {
+    color: #f59e0b;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.node-content p {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+/* الترجمة */
+.translatable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.active-text {
+    background: rgba(0, 198, 255, 0.2);
+    border-radius: 4px;
+}
+
+.bubble {
     position: fixed;
     background: #00c6ff;
     color: #000;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    z-index: 10000;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    z-index: 1000;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -120%);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, opacity 0.2s;
+    transform: translate(-50%, -130%);
 }
 
-.translation-bubble.visible {
+.bubble.visible {
     visibility: visible;
     opacity: 1;
+}
+
+/* تحسين الموبايل والتابلت بذكاء */
+@media (max-width: 768px) {
+    .slide-box {
+        padding: 30px 15px;
+        min-height: auto;
+    }
+
+    .first-slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .first-slide .text-side {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .first-slide h1 {
+        font-size: 2.2rem;
+    }
+
+    .pc-art {
+        width: 100%;
+    }
+
+    .toc-map {
+        transform: scale(0.85);
+        margin-left: -5%;
+    }
+
+    /* تصغير بسيط ليبقى العرض ممتازاً */
+    .map-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
 }
