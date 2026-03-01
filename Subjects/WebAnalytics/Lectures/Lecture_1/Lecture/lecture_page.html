@@ -7,7 +7,7 @@
     <title>Web Analytics - Lecture 1</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="lecture_design.css?v=10">
+    <link rel="stylesheet" href="lecture_design.css?v=14">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
 
     <main class="presentation">
         <article class="slide-box">
+            <div class="slide-counter">1 / 22</div>
             <div class="slide-inner first-slide">
                 <div class="text-side">
                     <h1 class="translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي">Web and Social Media
@@ -33,6 +34,7 @@
         </article>
 
         <article class="slide-box">
+            <div class="slide-counter">2 / 22</div>
             <h2 class="toc-title translatable" data-ar="جدول المحتويات">Table of contents</h2>
             <div class="toc-map">
                 <div class="map-row">
@@ -72,11 +74,121 @@
                 </div>
             </div>
         </article>
+
+        <article class="slide-box">
+            <div class="slide-counter">3 / 22</div>
+            <div class="slide-inner intro-slide">
+                <div class="image-side">
+                    <div class="megaphone-art">
+                        <div class="mega-handle"></div>
+                        <div class="mega-cone">
+                            <div class="mega-end"></div>
+                        </div>
+                        <div class="mega-sound"><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+                <div class="text-side center-content">
+                    <div class="number-block">01</div>
+                    <h2 class="intro-title translatable" data-ar="مقدمة">Introduction</h2>
+                </div>
+            </div>
+        </article>
+
+        <article class="slide-box">
+            <div class="slide-counter">4 / 22</div>
+            <div class="slide-inner stats-slide">
+                <div class="browser-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot blue"></span>
+                </div>
+                <div class="stats-content">
+                    <h2 class="translatable" data-ar="في عام 2024">In 2024</h2>
+                    <h2 class="translatable"
+                        data-ar="عدد مستخدمي الإنترنت هو 5.3 مليار ومستخدمي وسائل التواصل الاجتماعي هو 5.04 مليار!!">
+                        No. of internet users are 5.3 billions<br>
+                        and social media users are 5.04<br>
+                        billions!!
+                    </h2>
+                    <p class="bottom-stat translatable" data-ar="إجمالي عدد سكان العالم هو 7.8 مليار">
+                        Total population of the world are 7.8 billions
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article class="slide-box slide-expandable">
+            <div class="slide-counter">5 / 22</div>
+            <div class="slide-inner data-slide">
+                <div class="text-side">
+                    <h1 class="orange-title translatable" data-ar="البيانات في كل مكان">Data is everywhere</h1>
+                    <div class="paragraphs-list">
+                        <p class="translatable"
+                            data-ar="أي نشاط تجاري يمتلك موقعاً إلكترونياً أو تواجداً على وسائل التواصل الاجتماعي يقوم بجمع البيانات.">
+                            Any business that has a website or a social media presence is collecting data.</p>
+                        <p class="translatable"
+                            data-ar="تجمع الشركات بيانات حول العملاء، وعادات المستخدمين، وحركة المرور على الويب (زيارات الموقع)، والبيانات الديموغرافية (التركيبة السكانية مثل العمر والجنس)، وغيرها الكثير.">
+                            Businesses collect data about customers, user habits, web traffic, demographics, and more.
+                        </p>
+                        <p class="translatable"
+                            data-ar="كل هذه البيانات مليئة بالفرص والإمكانات إذا استطعت تعلّم كيفية العثور عليها (واستخراجها).">
+                            All of that data is filled with potential if you can learn how to find it.</p>
+                    </div>
+                </div>
+                <div class="image-side">
+                    <div class="data-art-container">
+                        <div class="laptop-art">
+                            <div class="laptop-screen">
+                                <div class="mock-window"></div>
+                            </div>
+                            <div class="laptop-base"></div>
+                            <div class="floating-folder"><i class="fa-solid fa-folder-open"></i></div>
+                            <div class="floating-search"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn btn-blue" data-target="panel-explain"><i
+                        class="fa-solid fa-book-open-reader"></i> الشرح المبسط</button>
+                <button class="action-btn btn-orange" data-target="panel-example"><i class="fa-solid fa-lightbulb"></i>
+                    مثال توضيحي</button>
+            </div>
+
+            <div class="info-panel panel-blue" id="panel-explain">
+                <h3><i class="fa-solid fa-book-open-reader"></i> الشرح الاحترافي</h3>
+                <p>تهدف هذه الشريحة إلى إيصال فكرة أن "البيانات هي نفط العصر الحديث". كل نقرة، أو إعجاب، أو زيارة لصفحة
+                    على الإنترنت تترك "بصمة رقمية". الشركات لم تعد تعتمد على التخمين لمعرفة ما يريده الجمهور؛ بل تعتمد
+                    على هذه البصمات (البيانات) المتاحة بكثرة حولنا. التحدي الحقيقي اليوم ليس في كيفية جمع البيانات، بل
+                    في كيفية البحث عنها، وفهمها، وتحويلها إلى قرارات ذكية ومربحة.</p>
+            </div>
+
+            <div class="info-panel panel-orange" id="panel-example">
+                <h3><i class="fa-solid fa-lightbulb"></i> مثال عملي للتوضيح</h3>
+                <p>تخيل مقهى محلي (كافيه) يمتلك صفحة على إنستجرام وموقعاً إلكترونياً بسيطاً:</p>
+                <ul class="example-list">
+                    <li><strong>عادات المستخدمين:</strong> يلاحظ المقهى من خلال بيانات إنستجرام أن صور "القهوة الباردة"
+                        تحصل على تفاعل (إعجابات ومشاركات) أكثر بكثير من "القهوة الساخنة".</li>
+                    <li><strong>البيانات الديموغرافية:</strong> تُظهر إحصائيات الصفحة أن 70% من المتابعين تتراوح أعمارهم
+                        بين 18 و 25 عاماً.</li>
+                    <li><strong>حركة المرور على الويب:</strong> يوضح الموقع الإلكتروني أن معظم الزيارات تتم بين الساعة 1
+                        ظهراً و 4 عصراً لصفحة "الأسعار".</li>
+                </ul>
+                <div class="conclusion-box">
+                    <strong><i class="fa-solid fa-bolt"></i> الاستفادة من البيانات:</strong> بدلاً من نشر إعلانات
+                    عشوائية، سيقوم صاحب المقهى بعمل إعلان ممول يستهدف الشباب (18-25 عاماً)، يروّج فيه لخصم على "القهوة
+                    الباردة"، ويقوم بتشغيل الإعلان تحديداً في الفترة من 1 إلى 4 عصراً! هنا تحولت البيانات الخام إلى
+                    مبيعات حقيقية.
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <div id="tooltip" class="bubble"></div>
 
-    <script src="lecture_logic.js?v=10"></script>
+    <script src="lecture_logic.js?v=14"></script>
 </body>
 
 </html>
