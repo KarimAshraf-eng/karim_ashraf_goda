@@ -1,35 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // منع قائمة كليك يمين
+    // منع قائمة كليك يمين نهائياً
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // --- منطق الأزرار التفاعلية (الشرح والمثال) ---
+    // الأزرار التفاعلية
     const actionBtns = document.querySelectorAll('.action-btn');
     actionBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
-            e.stopPropagation(); // منع تفعيل أي أحداث أخرى
+            e.stopPropagation();
             const targetId = this.getAttribute('data-target');
             const parentSlide = this.closest('.slide-box');
 
-            // إغلاق كل اللوحات في نفس الشريحة
             parentSlide.querySelectorAll('.info-panel').forEach(panel => {
-                if (panel.id !== targetId) {
-                    panel.classList.remove('show-panel');
-                }
+                if (panel.id !== targetId) panel.classList.remove('show-panel');
             });
 
-            // إزالة التفعيل من الأزرار الأخرى
             parentSlide.querySelectorAll('.action-btn').forEach(b => {
                 if (b !== this) b.classList.remove('active-btn');
             });
 
-            // تبديل حالة اللوحة والزر الحالي
             const targetPanel = document.getElementById(targetId);
             targetPanel.classList.toggle('show-panel');
             this.classList.toggle('active-btn');
         });
     });
 
-    // --- منطق الترجمة (كما هو) ---
+    // الترجمة
     const bubble = document.getElementById('tooltip');
     let activeEl = null;
     let pressTimer;

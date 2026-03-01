@@ -38,19 +38,24 @@ body {
     gap: 80px;
 }
 
-/* تم تعديل height ليكون min-height لتسمح للوحة بالظهور بدون تقطيع */
 .slide-box {
     background: #111827;
     border: 1px solid #1f2937;
     border-radius: 20px;
     padding: 60px;
     width: 1000px;
-    min-height: 562px;
+    height: 562px;
     position: relative;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.slide-expandable {
+    height: auto;
+    min-height: 562px;
+    justify-content: flex-start;
 }
 
 .slide-counter {
@@ -399,15 +404,14 @@ body {
     margin-top: 50px;
 }
 
-/* ========================================= */
-/* الشريحة 5 (البيانات في كل مكان) */
-/* ========================================= */
+/* الشريحة 5 */
 .data-slide {
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
     direction: ltr;
     align-items: center;
+    height: 442px;
 }
 
 .data-slide .text-side {
@@ -430,7 +434,6 @@ body {
     line-height: 1.6;
 }
 
-/* رسمة اللابتوب */
 .data-art-container {
     flex: 0.8;
     display: flex;
@@ -494,14 +497,12 @@ body {
     z-index: 5;
 }
 
-/* ========================================= */
-/* الأزرار التفاعلية واللوحات (Panels) */
-/* ========================================= */
+/* الأزرار التفاعلية واللوحات */
 .action-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
     direction: rtl;
@@ -520,6 +521,14 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+
+    /* الأكواد السحرية لإلغاء المربع الوهمي عند الضغط */
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.action-btn:focus {
+    outline: none;
 }
 
 .action-btn:hover {
