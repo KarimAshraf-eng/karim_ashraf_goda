@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1100">
-    <title>Lecture 1 - Fixed Layout</title>
+    <title>Web Analytics - Lecture 1</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="lecture_design.css?v=7">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="lecture_design.css?v=9">
 </head>
 
 <body>
     <div class="bg-layer"></div>
 
     <main class="presentation">
-        <div class="slide-box">
+        <article class="slide-box">
             <div class="slide-inner first-slide">
                 <div class="text-side">
                     <h1 class="translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي">Web and Social Media
@@ -29,15 +30,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="slide-box">
+        <article class="slide-box">
             <h2 class="toc-title translatable" data-ar="جدول المحتويات">Table of contents</h2>
             <div class="toc-map">
                 <div class="map-row">
                     <div class="node left">
-                        <div class="node-visual"><span class="circle">01</span>
-                            <div class="line"></div>
+                        <div class="node-visual">
+                            <div class="line"></div><span class="circle">01</span>
                         </div>
                         <div class="node-content">
                             <h3 class="translatable" data-ar="مقدمة">Introduction</h3>
@@ -51,15 +52,16 @@
                         </div>
                         <div class="node-content">
                             <h3 class="translatable" data-ar="المواد والمعامل">Materials and Labs</h3>
-                            <p class="translatable" data-ar="الكتب والباوربوينت والمعامل">Books, power point, and Labs
+                            <p class="translatable" data-ar="الكتب، الباوربوينت، والمعامل">Books, power point, and Labs
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="map-row center">
                     <div class="node">
-                        <div class="node-visual"><span class="circle">03</span>
+                        <div class="node-visual">
                             <div class="line"></div>
+                            <span class="circle mid-circle">03</span>
                         </div>
                         <div class="node-content">
                             <h3 class="translatable" data-ar="أهداف التعلم">Learning Objectives</h3>
@@ -69,11 +71,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     </main>
 
     <div id="tooltip" class="bubble"></div>
-    <script src="lecture_logic.js?v=7"></script>
+
+    <script src="lecture_logic.js?v=9"></script>
 </body>
 
 </html>

@@ -1,20 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bubble = document.getElementById('tooltip');
     let activeEl = null;
+    let pressTimer;
 
     function handleShow(e, el) {
         if (activeEl) activeEl.classList.remove('active-text');
         activeEl = el;
         activeEl.classList.add('active-text');
 
-        // تحديد إحداثيات اللمس أو الماوس
-        const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-        const y = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+        // حساب المركز الدقيق للجملة لضمان التوسيط المطلق للفقاعة
+        const rect = el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const topY = rect.top;
 
         bubble.innerText = el.getAttribute('data-ar');
-        bubble.style.left = `${x}px`;
-        bubble.style.top = `${y}px`;
+        bubble.style.left = `${centerX}px`;
+        bubble.style.top = `${topY}px`;
         bubble.classList.add('visible');
+
+        if (navigator.vibrate) navigator.vibrate(50);
     }
 
     function handleHide() {
@@ -24,15 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll('.translatable').forEach(el => {
-        // الكمبيوتر
-        el.addEventListener('mouseenter', (e) => handleShow(e, el));
-        el.addEventListener('mouseleave', handleHide);
-
-        // الموبايل والتابلت
+        // دعم الموبايل والتابلت (الضغط المطول)
         el.addEventListener('touchstart', (e) => {
-            handleShow(e, el);
+            const touch = e.touches[0];
+            pressTimer = setTimeout(() => handleShow(touch, el), 500);
         }, { passive: true });
 
-        el.addEventListener('touchend', handleHide);
+        // دعم اللابتوب (الضغط المطول بالماوس)
+        el.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            pressTimer = setTimeout(() => handleShow(e, el), 500);
+        });
+
+        // إلغاء التفعيل عند رفع اليد قبل الوقت المحدد
+        const cancel = () => clearTimeout(pressTimer);
+        el.addEventListener('mouseup', cancel);
+        el.addEventListener('touchend', cancel);
+        el.addEventListener('touchmove', cancel);
+    });
+
+    // إغلاق الفقاعة عند السكرول أو النقر في الخارج
+    window.addEventListener('scroll', handleHide);
+    document.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('translatable')) handleHide();
     });
 });
