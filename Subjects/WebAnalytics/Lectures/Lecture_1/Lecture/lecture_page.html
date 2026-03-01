@@ -3,100 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture 1 - Interactive Slides</title>
-    <link rel="stylesheet" href="lecture_design.css?v=1">
+    <meta name="viewport" content="width=1024">
+    <title>Lecture 1 - Slides</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="lecture_design.css?v=2">
 </head>
 
 <body>
-
-    <div class="bg-animation">
+    <div class="bg-animation" id="bg-layer">
         <div class="glow glow-1"></div>
         <div class="glow glow-2"></div>
     </div>
 
-    <main class="presentation-container">
+    <main class="slides-container">
 
-        <div class="slide-wrapper slide-animate">
-            <div class="text-column">
-                <h1 class="main-title">
-                    <span class="translatable" data-ar="تحليلات الويب">Web and</span><br>
-                    <span class="translatable" data-ar="وسائل التواصل الاجتماعي">Social Media</span><br>
-                    <span class="translatable" data-ar="تحليلات">Analytics</span>
-                </h1>
-                <p class="sub-title"><span class="translatable" data-ar="مقدمة">Introduction</span></p>
-            </div>
-            <div class="image-column">
-                <div class="analytics-illustration">
-                    <div class="monitor">
-                        <div class="graph-line"></div>
+        <article class="slide-card presentation-slide">
+            <div class="slide-inner">
+                <div class="text-side">
+                    <h1 class="main-title translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي">
+                        Web and Social Media Analytics
+                    </h1>
+                    <p class="sub-title translatable" data-ar="مقدمة">Introduction</p>
+                </div>
+                <div class="visual-side">
+                    <div class="illustration-box">
+                        <div class="pc-screen">
+                            <div class="screen-graph"></div>
+                        </div>
+                        <div class="user-figure"></div>
                     </div>
-                    <div class="monitor-base"></div>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="slide-wrapper slide-animate slide-toc">
-            <h2 class="toc-main-title">
-                <span class="translatable" data-ar="جدول المحتويات">Table of contents</span>
-            </h2>
-
-            <div class="toc-layout">
-                <div class="toc-top-row">
-
-                    <div class="toc-item">
-                        <div class="toc-graphic left-align">
-                            <div class="toc-circle">01</div>
-                            <div class="toc-bar"></div>
-                        </div>
-                        <div class="toc-text">
-                            <h3 class="toc-subtitle"><span class="translatable" data-ar="مقدمة">Introduction</span></h3>
-                            <p class="toc-desc"><span class="translatable" data-ar="مقدمة موجزة عن المادة">A brief
-                                    introduction about<br>the subject</span></p>
-                        </div>
+        <article class="slide-card presentation-slide">
+            <h2 class="toc-title translatable" data-ar="جدول المحتويات">Table of contents</h2>
+            <div class="toc-grid">
+                <div class="toc-node">
+                    <div class="node-header"><span class="node-num">01</span>
+                        <div class="node-line"></div>
                     </div>
-
-                    <div class="toc-item">
-                        <div class="toc-graphic right-align">
-                            <div class="toc-bar"></div>
-                            <div class="toc-circle">02</div>
-                        </div>
-                        <div class="toc-text">
-                            <h3 class="toc-subtitle"><span class="translatable"
-                                    data-ar="المواد الدراسية والمعامل">Materials and Labs</span></h3>
-                            <p class="toc-desc"><span class="translatable"
-                                    data-ar="الكتب، عروض الباوربوينت، والمعامل">Books, power point, and<br>Labs</span>
-                            </p>
-                        </div>
+                    <div class="node-body">
+                        <h3 class="translatable" data-ar="مقدمة">Introduction</h3>
+                        <p class="translatable" data-ar="مقدمة موجزة عن المادة">A brief introduction about the subject
+                        </p>
                     </div>
-
                 </div>
-
-                <div class="toc-bottom-row">
-
-                    <div class="toc-item">
-                        <div class="toc-graphic left-align">
-                            <div class="toc-circle">03</div>
-                            <div class="toc-bar"></div>
-                        </div>
-                        <div class="toc-text">
-                            <h3 class="toc-subtitle"><span class="translatable" data-ar="أهداف التعلم">Learning
-                                    Objectives</span></h3>
-                            <p class="toc-desc"><span class="translatable"
-                                    data-ar="ما سوف تتعلمه في نهاية هذه الدورة">What you will learn at<br>the end of
-                                    this course</span></p>
-                        </div>
+                <div class="toc-node">
+                    <div class="node-header">
+                        <div class="node-line"></div><span class="node-num">02</span>
                     </div>
-
+                    <div class="node-body">
+                        <h3 class="translatable" data-ar="المواد والمعامل">Materials and Labs</h3>
+                        <p class="translatable" data-ar="الكتب، الباوربوينت، والمعامل">Books, power point, and Labs</p>
+                    </div>
+                </div>
+                <div class="toc-node centered">
+                    <div class="node-header"><span class="node-num">03</span>
+                        <div class="node-line"></div>
+                    </div>
+                    <div class="node-body">
+                        <h3 class="translatable" data-ar="أهداف التعلم">Learning Objectives</h3>
+                        <p class="translatable" data-ar="ما ستتعلمه في نهاية الدورة">What you will learn at the end of
+                            this course</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </article>
 
     </main>
 
     <div id="translation-tooltip" class="translation-bubble"></div>
 
-    <script src="lecture_logic.js?v=1"></script>
+    <script src="lecture_logic.js?v=2"></script>
 </body>
 
 </html>

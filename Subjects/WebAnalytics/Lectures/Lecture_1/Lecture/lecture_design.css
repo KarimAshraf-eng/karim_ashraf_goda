@@ -1,404 +1,167 @@
-/* ========================================= */
-/* إعدادات عامة وتأثيرات الخلفية */
-/* ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Tajawal', sans-serif;
 }
 
 body {
     background-color: #0b0f19;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: #fff;
     min-height: 100vh;
-    padding: 40px 20px;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
+/* إلغاء الـ Blur تماماً للتابلت والموبايل لمنع التهنيج */
+@media (pointer: coarse) {
 
-.glow {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 198, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
-    border-radius: 50%;
-    filter: blur(50px);
-    animation: float 8s infinite ease-in-out alternate;
-}
-
-.glow-1 {
-    top: -50px;
-    left: -50px;
-}
-
-.glow-2 {
-    bottom: -50px;
-    right: -50px;
-    animation-delay: -4s;
-    background: radial-gradient(circle, rgba(255, 152, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px) scale(1);
+    .slide-card,
+    .bg-animation,
+    .translation-bubble {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #101624 !important;
+        /* لون ثابت بدلاً من الشفافية */
     }
 
-    100% {
-        transform: translateY(20px) scale(1.1);
+    .glow {
+        display: none;
     }
+
+    /* إخفاء الإضاءة المتحركة لتسريع الأداء */
 }
 
-.presentation-container {
+/* حاوية الشريحة تحافظ على العرض (1024px) كأنها لابتوب */
+.slides-container {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    width: 100%;
-    max-width: 1000px;
-    z-index: 1;
+    gap: 100px;
 }
 
-/* ========================================= */
-/* التصميم الأساسي لكروت الشرائح (Glassmorphism) */
-/* ========================================= */
-.slide-wrapper {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    width: 100%;
+.slide-card {
+    width: 1000px;
     aspect-ratio: 16 / 9;
-    padding: 40px 60px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 2px solid #1e293b;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03);
     position: relative;
-    /* إعدادات حركة الدخول */
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 60px;
 }
 
-.slide-wrapper.show {
-    opacity: 1;
-    transform: translateY(0);
+/* إزالة الخطوط المقطعة تحت الجمل */
+.translatable {
+    cursor: pointer;
+    border-bottom: none !important;
+    /* حذف الخط المقطع */
+    display: inline-block;
+    transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
-/* ========================================= */
-/* الشريحة 1: المقدمة */
-/* ========================================= */
-.slide-wrapper:not(.slide-toc) {
+.translatable.active-selection {
+    color: #00c6ff;
+    background: rgba(0, 198, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* تنسيق الشريحة الأولى (نص يمين ورسم شمال) */
+.slide-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.text-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+    height: 100%;
     direction: ltr;
 }
 
+.text-side {
+    flex: 1;
+}
+
 .main-title {
-    color: #00c6ff;
     font-size: 4rem;
-    font-weight: 900;
-    line-height: 1.1;
+    color: #00c6ff;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .sub-title {
+    font-size: 2.5rem;
     color: #ff4757;
-    font-size: 2rem;
-    font-weight: 600;
 }
 
-.image-column {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* رسم الشاشة للبيانات */
-.analytics-illustration {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    max-width: 400px;
-}
-
-.monitor {
-    width: 320px;
-    height: 180px;
-    border: 6px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    background-color: #0d1117;
-    position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-}
-
-.graph-line {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 280px;
-    height: 80px;
-    background: transparent;
-    border-bottom: 3px solid #00c6ff;
-}
-
-.graph-line:before,
-.graph-line:after {
-    content: '';
-    position: absolute;
-    background-color: #ff4757;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-}
-
-.graph-line:before {
-    bottom: 30px;
-    left: 60px;
-    box-shadow: 0 0 10px #ff4757;
-}
-
-.graph-line:after {
-    bottom: 50px;
-    right: 60px;
-    box-shadow: 0 0 10px #ff4757;
-}
-
-.monitor-base {
-    width: 100px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-top: -5px;
-}
-
-/* ========================================= */
-/* الشريحة 2: جدول المحتويات (مطابق للصورة) */
-/* ========================================= */
+/* تنسيق شريحة الـ TOC (الشريحة الثانية) */
 .slide-toc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     direction: ltr;
+    text-align: center;
 }
 
-.toc-main-title {
-    color: #ff9800;
+.toc-title {
     font-size: 3.5rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(255, 152, 0, 0.3);
+    color: #f39c12;
+    margin-bottom: 60px;
 }
 
-.toc-layout {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+.toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
 }
 
-.toc-top-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.toc-bottom-row {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.toc-item {
+.centered {
+    grid-column: 1 / span 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 15px;
 }
 
-/* تصميم الرسمة (الدائرة والخط) */
-.toc-graphic {
-    display: flex;
-    align-items: center;
-}
-
-.toc-circle {
-    width: 65px;
-    height: 65px;
-    background: #2196f3;
-    color: white;
+.node-num {
+    background: #00c6ff;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
-    font-weight: 800;
-    z-index: 2;
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.toc-bar {
-    height: 20px;
+.node-line {
+    height: 10px;
     width: 150px;
-    background: #0f2c4d;
-    border-radius: 10px;
-    z-index: 1;
+    background: #1e293b;
+    border-radius: 5px;
 }
 
-/* تداخل الخط مع الدائرة بناءً على الاتجاه */
-.toc-graphic.left-align .toc-bar {
-    margin-left: -20px;
-}
-
-.toc-graphic.right-align .toc-bar {
-    margin-right: -20px;
-}
-
-/* نصوص الشريحة الثانية */
-.toc-text {
+.node-header {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.toc-subtitle {
-    color: #ff9800;
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
-.toc-desc {
-    color: #a0aec0;
-    font-size: 1.1rem;
-    line-height: 1.4;
-}
-
-/* ========================================= */
-/* إعدادات الكلمات القابلة للترجمة والفقاعة */
-/* ========================================= */
-.translatable {
-    cursor: pointer;
-    position: relative;
-    border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
-    transition: all 0.3s;
-    /* أهم سطور لمنع الموبايل من التحديد أو فتح قائمة النسخ */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.translatable:hover,
-.translatable.active {
-    color: #00c6ff;
-    border-bottom-color: #00c6ff;
-}
-
-.toc-subtitle .translatable:hover,
-.toc-main-title .translatable:hover {
-    color: white;
-    border-bottom-color: white;
-}
-
+/* فقاعة الترجمة */
 .translation-bubble {
     position: fixed;
-    background: rgba(20, 26, 38, 0.95);
-    border: 1px solid #00c6ff;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: center;
-    direction: rtl;
-    box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
-    z-index: 9999;
-    opacity: 0;
+    background: #00c6ff;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    z-index: 10000;
     visibility: hidden;
-    transform: translate(-50%, 10px) scale(0.9);
-    transition: all 0.3s ease;
+    opacity: 0;
     pointer-events: none;
-    max-width: 85vw;
-}
-
-.translation-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 8px 8px 0;
-    border-style: solid;
-    border-color: #00c6ff transparent transparent transparent;
+    transform: translate(-50%, -120%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .translation-bubble.visible {
-    opacity: 1;
     visibility: visible;
-    transform: translate(-50%, 0) scale(1);
-}
-
-/* ========================================= */
-/* تجاوب الشاشات (Mobile & Tablet) */
-/* ========================================= */
-@media (max-width: 900px) {
-    .slide-wrapper {
-        aspect-ratio: auto;
-        padding: 40px 20px;
-    }
-
-    .slide-wrapper:not(.slide-toc) {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .text-column {
-        align-items: center;
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    .main-title {
-        font-size: 3rem;
-    }
-
-    .toc-main-title {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-
-    .toc-top-row {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .toc-bar {
-        width: 100px;
-    }
+    opacity: 1;
 }
