@@ -1,48 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. أنيميشن ظهور الشرائح عند السكرول
-    const cards = document.querySelectorAll('.slide-card');
-    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-
+    // 1. تفعيل حركة ظهور الشرائح الواحدة تلو الأخرى
+    const slides = document.querySelectorAll('.slide-animate');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                setTimeout(() => { entry.target.classList.add('show'); }, index * 100);
+                setTimeout(() => {
+                    entry.target.classList.add('show');
+                }, index * 200); // تأخير متدرج لتأثير جمالي
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-    cards.forEach(card => observer.observe(card));
+    }, { threshold: 0.1 }); // تعمل عندما يظهر 10% من الشريحة
+
+    slides.forEach(slide => observer.observe(slide));
 
     // ==========================================
-    // 2. السحر البرمجي لفقاعة الترجمة التفاعلية
+    // 2. نظام فقاعة الترجمة الذكي
     // ==========================================
     const translatables = document.querySelectorAll('.translatable');
     const tooltip = document.getElementById('translation-tooltip');
     let pressTimer;
     let isPressing = false;
 
-    // دالة إظهار الفقاعة
     const showTooltip = (el, clientX, clientY) => {
         isPressing = true;
-        const arText = el.getAttribute('data-ar');
-        tooltip.innerText = arText;
-        el.classList.add('active'); // تغيير لون الكلمة لتمييزها
-
-        // حساب مكان الفقاعة (فوق مكان الضغطة بـ 60 بكسل حتى لا يغطيها الإصبع)
-        const tooltipX = clientX;
-        const tooltipY = clientY - 60;
-
-        tooltip.style.left = `${tooltipX}px`;
-        tooltip.style.top = `${tooltipY}px`;
+        tooltip.innerText = el.getAttribute('data-ar');
+        el.classList.add('active');
+        // رفع الفقاعة 70 بكسل فوق الإصبع حتى لا تُحجب
+        tooltip.style.left = `${clientX}px`;
+        tooltip.style.top = `${clientY - 70}px`;
         tooltip.classList.add('visible');
 
-        // هزاز خفيف للموبايل لتأكيد نجاح الضغطة الطويلة (تعمل على الأجهزة الداعمة)
-        if (navigator.vibrate) {
-            navigator.vibrate(50);
-        }
+        // اهتزاز الهاتف لتأكيد العملية
+        if (navigator.vibrate) navigator.vibrate(40);
     };
 
-    // دالة إخفاء الفقاعة
     const hideTooltip = (el) => {
         isPressing = false;
         tooltip.classList.remove('visible');
@@ -50,52 +42,37 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     translatables.forEach(el => {
-        // --- أحداث الموبايل (Touch Events) ---
+        // منع القائمة المنسدلة الافتراضية (كليك يمين أو تحديد الموبايل)
+        el.addEventListener('contextmenu', e => e.preventDefault());
+
+        // --- للموبايل (Touch) ---
         el.addEventListener('touchstart', (e) => {
-            // نمنع أي حدث افتراضي لو أمكن
             const touch = e.touches[0];
-            // تعيين مؤقت (400 ملي ثانية) يعتبر كضغطة طويلة
-            pressTimer = setTimeout(() => {
-                showTooltip(el, touch.clientX, touch.clientY);
-            }, 400);
+            pressTimer = setTimeout(() => showTooltip(el, touch.clientX, touch.clientY), 350);
         }, { passive: true });
 
-        // إذا رفع إصبعه قبل اكتمال المؤقت، يتم الإلغاء. وإذا كانت الفقاعة ظاهرة، تختفي.
         el.addEventListener('touchend', () => {
             clearTimeout(pressTimer);
-            if (isPressing) {
-                setTimeout(() => hideTooltip(el), 1000); // تظل ظاهرة لثانية بعد رفع الإصبع لتسهيل القراءة
-            }
+            if (isPressing) setTimeout(() => hideTooltip(el), 1500); // تبقى لثانية ونصف للقراءة
         });
 
-        // إذا قام بالتمرير (Scroll) بإصبعه على الكلمة، يتم الإلغاء
         el.addEventListener('touchmove', () => {
             clearTimeout(pressTimer);
             hideTooltip(el);
         });
 
-        // --- أحداث اللابتوب (Mouse Events) ---
+        // --- للكمبيوتر (Mouse) ---
         el.addEventListener('mousedown', (e) => {
-            pressTimer = setTimeout(() => {
-                showTooltip(el, e.clientX, e.clientY);
-            }, 400);
+            if (e.button !== 0) return;
+            pressTimer = setTimeout(() => showTooltip(el, e.clientX, e.clientY), 350);
         });
-
         el.addEventListener('mouseup', () => {
             clearTimeout(pressTimer);
-            if (isPressing) {
-                setTimeout(() => hideTooltip(el), 1000);
-            }
+            if (isPressing) setTimeout(() => hideTooltip(el), 1500);
         });
-
         el.addEventListener('mouseleave', () => {
             clearTimeout(pressTimer);
             hideTooltip(el);
-        });
-
-        // تعطيل القائمة المزعجة الخاصة بكليك يمين أو الضغطة الطويلة
-        el.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
         });
     });
 });

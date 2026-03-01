@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture 1 - Interactive Slide</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="stylesheet" href="lecture_design.css?v=2">
+    <title>Lecture 1 - Interactive Slides</title>
+    <link rel="stylesheet" href="lecture_design.css?v=1">
 </head>
 
 <body>
@@ -19,134 +15,86 @@
         <div class="glow glow-2"></div>
     </div>
 
-    <a href="../index.html" class="back-btn">
-        <i class="fa-solid fa-arrow-right"></i> لوحة التحكم
-    </a>
+    <main class="presentation-container">
 
-    <header class="main-header">
-        <h1 class="gradient-text">المحاضرة التفاعلية</h1>
-        <p class="intro-text">اضغط مطولاً على أي جملة باللغة الإنجليزية لرؤية ترجمتها.</p>
-    </header>
+        <div class="slide-wrapper slide-animate">
+            <div class="text-column">
+                <h1 class="main-title">
+                    <span class="translatable" data-ar="تحليلات الويب">Web and</span><br>
+                    <span class="translatable" data-ar="وسائل التواصل الاجتماعي">Social Media</span><br>
+                    <span class="translatable" data-ar="تحليلات">Analytics</span>
+                </h1>
+                <p class="sub-title"><span class="translatable" data-ar="مقدمة">Introduction</span></p>
+            </div>
+            <div class="image-column">
+                <div class="analytics-illustration">
+                    <div class="monitor">
+                        <div class="graph-line"></div>
+                    </div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+        </div>
 
-    <main class="slides-container">
+        <div class="slide-wrapper slide-animate slide-toc">
+            <h2 class="toc-main-title">
+                <span class="translatable" data-ar="جدول المحتويات">Table of contents</span>
+            </h2>
 
-        <article class="slide-card">
-            <div class="slide-header">
-                <span class="slide-number">01</span>
-                <h2><i class="fa-solid fa-chalkboard"></i> الشريحة الافتتاحية</h2>
-            </div>
-            <div class="slide-content english-text">
-                <p class="translatable" data-ar="تحليلات الويب ووسائل التواصل الاجتماعي.">Web and Social Media Analytics
-                </p>
-                <p class="translatable" data-ar="مقدمة.">Introduction</p>
-            </div>
-            <div class="slide-details">
-                <div class="explanation-box">
-                    <h4><i class="fa-solid fa-book-open-reader"></i> الشرح التفصيلي:</h4>
-                    <p>تمثل هذه الشريحة الغلاف أو الواجهة الافتتاحية للمحاضرة. توضح الشريحة أن المادة العلمية تدور حول
-                        "تحليلات الويب ووسائل التواصل الاجتماعي"، وأن هذا العرض التقديمي مخصص ليكون "مقدمة" عامة للتعريف
-                        بالمادة ومحتوياتها الأساسية.</p>
-                </div>
-                <div class="example-box">
-                    <h4><i class="fa-solid fa-lightbulb"></i> مثال توضيحي:</h4>
-                    <p>تخيل أنك تفتح كتاباً جامعياً جديداً؛ هذه الشريحة هي ببساطة صفحة الغلاف التي تخبرك باسم الكتاب
-                        وتؤكد لك أنك ستبدأ بقراءة الفصل الأول.</p>
-                </div>
-            </div>
-        </article>
+            <div class="toc-layout">
+                <div class="toc-top-row">
 
-        <article class="slide-card">
-            <div class="slide-header">
-                <span class="slide-number">02</span>
-                <h2><i class="fa-solid fa-list"></i> جدول المحتويات</h2>
-            </div>
-            <div class="slide-content english-text">
-                <p class="translatable" data-ar="جدول المحتويات.">Table of contents</p>
-                <p class="translatable" data-ar="مقدمة موجزة عن المادة.">A brief introduction about the subject</p>
-                <p class="translatable" data-ar="المواد والمعامل (الجانب العملي).">Materials and Labs</p>
-                <p class="translatable" data-ar="الكتب، العروض التقديمية، والمعامل.">Books, power point, and Labs</p>
-                <p class="translatable" data-ar="أهداف التعلم.">Learning Objectives</p>
-                <p class="translatable" data-ar="ما ستتعلمه في نهاية هذه الدورة.">What you will learn at the end of this
-                    course</p>
-            </div>
-            <div class="slide-details">
-                <div class="explanation-box">
-                    <h4><i class="fa-solid fa-book-open-reader"></i> الشرح التفصيلي:</h4>
-                    <p>تعرض هذه الشريحة خطة سير المحاضرة والمواضيع التي سيتم مناقشتها. تنقسم المحاضرة إلى ثلاثة أجزاء
-                        رئيسية: نبذة عامة، المصادر التعليمية والجانب العملي، والأهداف التعليمية.</p>
-                </div>
-                <div class="example-box">
-                    <h4><i class="fa-solid fa-lightbulb"></i> مثال توضيحي:</h4>
-                    <p>مثل "خريطة الطريق" التي يعطيها لك المرشد السياحي قبل بدء الرحلة، تخبرك هذه الشريحة بالمحطات
-                        الثلاث التي ستتوقفون عندها.</p>
-                </div>
-            </div>
-        </article>
+                    <div class="toc-item">
+                        <div class="toc-graphic left-align">
+                            <div class="toc-circle">01</div>
+                            <div class="toc-bar"></div>
+                        </div>
+                        <div class="toc-text">
+                            <h3 class="toc-subtitle"><span class="translatable" data-ar="مقدمة">Introduction</span></h3>
+                            <p class="toc-desc"><span class="translatable" data-ar="مقدمة موجزة عن المادة">A brief
+                                    introduction about<br>the subject</span></p>
+                        </div>
+                    </div>
 
-        <article class="slide-card">
-            <div class="slide-header">
-                <span class="slide-number">03</span>
-                <h2><i class="fa-solid fa-globe"></i> إحصائيات عالمية</h2>
-            </div>
-            <div class="slide-content english-text">
-                <p class="translatable"
-                    data-ar="في عام 2024، بلغ عدد مستخدمي الإنترنت 5.3 مليار، ومستخدمي وسائل التواصل الاجتماعي 5.04 مليار!!">
-                    In 2024 No. of internet users are 5.3 billions and social media users are 5.04 billions!!</p>
-                <p class="translatable" data-ar="إجمالي عدد سكان العالم هو 7.8 مليار نسمة.">Total population of the
-                    world are 7.8 billions</p>
-            </div>
-            <div class="slide-details">
-                <div class="explanation-box">
-                    <h4><i class="fa-solid fa-book-open-reader"></i> الشرح التفصيلي:</h4>
-                    <p>تهدف هذه الشريحة إلى إبراز الأهمية القصوى لمجال تحليل الويب من خلال لغة الأرقام. توضح أنه من أصل
-                        7.8 مليار شخص يعيشون على كوكب الأرض، هناك 5.3 مليار شخص يتصلون بالإنترنت.</p>
-                </div>
-                <div class="example-box">
-                    <h4><i class="fa-solid fa-lightbulb"></i> مثال توضيحي:</h4>
-                    <p>إذا كان لديك متجر صغير في شارع جانبي، فإن زبائنك محدودون. لكن الأرقام هنا تخبرك أن الإنترنت يشبه
-                        سوقاً عالمياً يمر به أكثر من 5 مليار زبون يومياً.</p>
-                </div>
-            </div>
-        </article>
+                    <div class="toc-item">
+                        <div class="toc-graphic right-align">
+                            <div class="toc-bar"></div>
+                            <div class="toc-circle">02</div>
+                        </div>
+                        <div class="toc-text">
+                            <h3 class="toc-subtitle"><span class="translatable"
+                                    data-ar="المواد الدراسية والمعامل">Materials and Labs</span></h3>
+                            <p class="toc-desc"><span class="translatable"
+                                    data-ar="الكتب، عروض الباوربوينت، والمعامل">Books, power point, and<br>Labs</span>
+                            </p>
+                        </div>
+                    </div>
 
-        <article class="slide-card">
-            <div class="slide-header">
-                <span class="slide-number">04</span>
-                <h2><i class="fa-solid fa-database"></i> انتشار البيانات</h2>
-            </div>
-            <div class="slide-content english-text">
-                <p class="translatable" data-ar="البيانات في كل مكان.">Data is everywhere</p>
-                <p class="translatable"
-                    data-ar="أي عمل تجاري يمتلك موقعاً إلكترونياً أو حضوراً على وسائل التواصل الاجتماعي يقوم بجمع البيانات.">
-                    Any business that has a website or a social media presence is collecting data.</p>
-                <p class="translatable"
-                    data-ar="تجمع الشركات بيانات حول العملاء، وعادات المستخدمين، وحركة مرور الويب، والتركيبة السكانية، والمزيد.">
-                    Businesses collect data about customers, user habits, web traffic, demographics, and more.</p>
-                <p class="translatable"
-                    data-ar="كل هذه البيانات مليئة بالإمكانات إذا تمكنت من تعلم كيفية العثور عليها.">All of that data is
-                    filled with potential if you can learn how to find it.</p>
-            </div>
-            <div class="slide-details">
-                <div class="explanation-box">
-                    <h4><i class="fa-solid fa-book-open-reader"></i> الشرح التفصيلي:</h4>
-                    <p>تشرح الشريحة كيف أن البيانات أصبحت محيطة بنا من كل جانب. بمجرد أن تنشئ الشركة موقعاً، فإنها تبدأ
-                        تلقائياً في جمع معلومات قيمة تمثل كنزاً حقيقياً يمنح الشركة فرصاً هائلة للنمو.</p>
                 </div>
-                <div class="example-box">
-                    <h4><i class="fa-solid fa-lightbulb"></i> مثال توضيحي:</h4>
-                    <p>عندما تفتح صفحة لبيع الملابس، فإن فيسبوك يخبرك أن 70% من زوارك من النساء المهتمات بالموضة ويدخلون
-                        الصفحة مساءً. هذه المعلومات تساعدك في تحديد نوع الملابس ووقت نشر الإعلانات.</p>
+
+                <div class="toc-bottom-row">
+
+                    <div class="toc-item">
+                        <div class="toc-graphic left-align">
+                            <div class="toc-circle">03</div>
+                            <div class="toc-bar"></div>
+                        </div>
+                        <div class="toc-text">
+                            <h3 class="toc-subtitle"><span class="translatable" data-ar="أهداف التعلم">Learning
+                                    Objectives</span></h3>
+                            <p class="toc-desc"><span class="translatable"
+                                    data-ar="ما سوف تتعلمه في نهاية هذه الدورة">What you will learn at<br>the end of
+                                    this course</span></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </article>
+        </div>
 
     </main>
 
     <div id="translation-tooltip" class="translation-bubble"></div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; FCI-Platform 2026</p>
-    </footer>
 
     <script src="lecture_logic.js?v=1"></script>
 </body>
