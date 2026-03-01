@@ -1,4 +1,4 @@
-/* إعدادات التوسيط المطلق */
+/* إعدادات التوسيط والمظهر العام */
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +9,9 @@
 body {
     background: #0b0f19;
     color: #fff;
-    overflow-x: auto;
     min-width: 1100px;
     display: flex;
     justify-content: center;
-    /* توسيط المحتوى أفقياً للابتوب */
 }
 
 .bg-layer {
@@ -43,13 +41,13 @@ body {
     width: 1000px;
     height: 562px;
     position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* الشريحة الأولى */
+/* الشريحة 1 */
 .first-slide {
     display: flex;
     flex-direction: row !important;
@@ -59,22 +57,17 @@ body {
     height: 100%;
 }
 
-.first-slide .text-side {
-    flex: 1;
-    text-align: left;
-}
-
-.first-slide h1 {
-    font-size: 3.5rem;
+.main-title {
     color: #00c6ff;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.1;
+    margin-bottom: 20px;
 }
 
-.first-slide p {
-    font-size: 2.2rem;
+.sub-title {
     color: #ff4757;
+    font-size: 2.2rem;
     font-weight: 600;
 }
 
@@ -114,7 +107,7 @@ body {
     margin-top: -2px;
 }
 
-/* الشريحة الثانية (TOC) */
+/* الشريحة 2 (TOC) */
 .toc-title {
     text-align: center;
     color: #f59e0b;
@@ -132,7 +125,6 @@ body {
 
 .map-row {
     display: flex;
-    flex-direction: row !important;
     justify-content: space-between;
     width: 100%;
     padding: 0 60px;
@@ -155,45 +147,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    width: 220px;
     height: 70px;
     margin-bottom: 10px;
 }
 
+/* الحل النهائي لتوسيط الرقم داخل الدائرة */
 .circle {
     width: 65px;
     height: 65px;
     background: #3b82f6;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
+    /* التوسيط المطلق باستخدام الجريد */
     font-size: 1.8rem;
     font-weight: 800;
     color: #fff;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
     z-index: 2;
     position: relative;
-    line-height: 0;
+    line-height: 1;
     padding: 0;
-}
-
-/* وضع الدوائر 01 و 02 على أطراف الشريط */
-.node.left .circle {
-    position: absolute;
-    left: 0;
-}
-
-.node.right .circle {
-    position: absolute;
-    right: 0;
-}
-
-/* وضع الدائرة 03 في منتصف الشريط بالضبط */
-.mid-circle {
-    position: absolute;
-    left: 50% !important;
-    transform: translateX(-50%);
+    padding-top: 4px;
+    /* موازنة بصرية للأرقام على الموبايل */
 }
 
 .line {
@@ -204,11 +181,26 @@ body {
     z-index: 1;
 }
 
+.node.left .circle {
+    position: absolute;
+    left: 0;
+}
+
+.node.right .circle {
+    position: absolute;
+    right: 0;
+}
+
+.mid-circle {
+    position: absolute;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+
 .node-content h3 {
     color: #f59e0b;
     font-size: 1.6rem;
     margin-bottom: 5px;
-    font-weight: 700;
 }
 
 .node-content p {
@@ -217,20 +209,18 @@ body {
     line-height: 1.4;
 }
 
-/* الترجمة (تغيير لون النص فقط) */
+/* الترجمة والفقاعة */
 .translatable {
     cursor: pointer;
     user-select: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
     -webkit-tap-highlight-color: transparent;
 }
 
 .active-text {
     color: #00c6ff !important;
-    background: none !important;
 }
 
-/* الفقاعة الاحترافية */
 .bubble {
     position: fixed;
     background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
@@ -243,7 +233,7 @@ body {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.2s, transform 0.2s;
     transform: translate(-50%, -130%);
     box-shadow: 0 10px 30px rgba(0, 198, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
