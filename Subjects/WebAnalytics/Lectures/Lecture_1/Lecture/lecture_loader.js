@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         'Slide_10/slide_10_page.html',
         'Slide_11/slide_11_page.html',
         'Slide_12/slide_12_page.html',
+        'Slide_13/slide_13_page.html',
+        'Slide_14/slide_14_page.html',
+        'Slide_15/slide_15_page.html',
+        'Slide_16/slide_16_page.html',
+        'Slide_17/slide_17_page.html',
+        'Slide_18/slide_18_page.html',
+        'Slide_19/slide_19_page.html',
+        'Slide_20/slide_20_page.html',
+        'Slide_21/slide_21_page.html',
+        'Slide_22/slide_22_page.html',
     ];
 
     // جلب الشرائح واحدة تلو الأخرى لضمان الترتيب

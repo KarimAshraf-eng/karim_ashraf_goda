@@ -1,24 +1,30 @@
-/* تنسيق الشريحة 12 المطور */
+/* ========================================= */
+/* تصميم الشريحة 12 - أبعاد ثابتة لا تتغير (Strict Layout) */
+/* ========================================= */
 .roadmap-v2 {
     display: flex;
     flex-direction: column;
     width: 100%;
+    direction: ltr;
+    /* إجبار الاتجاه الإنجليزي (النص يسار والرسم يمين) */
+    -webkit-text-size-adjust: 100%;
+    /* منع متصفحات الهواتف من تكبير الخطوط عشوائياً */
 }
 
+/* استخدام Flex مع مقاسات صارمة بدلاً من Grid المرن */
 .roadmap-container {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    /* فصل النص عن الرسم تماماً */
-    gap: 50px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 880px;
+    /* عرض ثابت تماماً (مساحة الشريحة مطروح منها الحواف) */
     padding: 20px 0;
 }
 
-/* قسم النصوص */
+/* قسم النصوص (عرض ثابت لا يقل ولا يزيد) */
 .roadmap-text {
+    width: 400px !important;
     text-align: left;
-    direction: ltr;
-    unicode-bidi: isolate;
 }
 
 .roadmap-title {
@@ -35,17 +41,19 @@
     margin-bottom: 20px;
 }
 
-/* قسم الرسم البياني */
+/* قسم الرسم البياني (عرض ثابت لا ينضغط) */
 .roadmap-graphic {
+    width: 450px !important;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
 .graph-wrapper {
     position: relative;
-    width: 450px;
-    height: 350px;
+    width: 420px;
+    /* مقاس ثابت للرسم */
+    height: 330px;
     border-left: 2px solid #64748b;
     border-bottom: 2px solid #64748b;
 }
@@ -74,7 +82,7 @@
     text-align: center;
 }
 
-/* الدوائر وتوزيعها المائل */
+/* الدوائر وتوزيعها المائل بأماكن ثابتة بالبكسل */
 .nodes-container {
     position: relative;
     width: 100%;
@@ -82,14 +90,14 @@
 }
 
 .circle-node {
-    width: 105px;
-    height: 105px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 800;
     color: #0f172a;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
@@ -98,29 +106,28 @@
     transition: transform 0.3s ease;
 }
 
-/* الألوان والأماكن (لتحاكي الصورة تماماً) */
 .c1 {
     background: #bae6fd;
-    left: 15px;
-    bottom: 15px;
+    left: 10px;
+    bottom: 10px;
 }
 
 .c2 {
     background: #dcfce7;
-    left: 120px;
-    bottom: 100px;
+    left: 110px;
+    bottom: 90px;
 }
 
 .c3 {
     background: #f3e8ff;
-    left: 225px;
-    bottom: 185px;
+    left: 210px;
+    bottom: 170px;
 }
 
 .c4 {
     background: #ffe4e6;
-    left: 330px;
-    bottom: 270px;
+    left: 310px;
+    bottom: 250px;
 }
 
 /* تأثير الترجمة */
@@ -128,9 +135,10 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px #00c6ff;
     border: 2px solid #fff;
+    z-index: 10;
 }
 
-/* الأزرار التفاعلية */
+/* الأزرار التفاعلية واللوحات */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -138,4 +146,104 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
     margin-top: 20px;
+    direction: rtl;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-blue {
+    border-color: #00c6ff;
+    color: #00c6ff;
+}
+
+.btn-blue:hover,
+.btn-blue.active-btn {
+    background: #00c6ff;
+    color: #000;
+}
+
+.btn-orange {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.btn-orange:hover,
+.btn-orange.active-btn {
+    background: #f59e0b;
+    color: #000;
+}
+
+.info-panel {
+    display: none;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    padding: 30px;
+    direction: rtl;
+    animation: fadeIn 0.4s ease;
+    text-align: right;
+}
+
+.info-panel.show-panel {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel-blue {
+    background: rgba(0, 198, 255, 0.05);
+    border: 1px solid rgba(0, 198, 255, 0.3);
+}
+
+.panel-blue h3 {
+    color: #00c6ff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.panel-orange {
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.panel-orange h3 {
+    color: #f59e0b;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.info-panel p {
+    font-size: 1.3rem;
+    color: #e2e8f0;
+    line-height: 1.8;
+    margin-bottom: 15px;
 }
