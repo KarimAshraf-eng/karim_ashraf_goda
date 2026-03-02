@@ -1,258 +1,161 @@
 /* ========================================= */
-/* تصميم الإنفوجرافيك التفاعلي - (Pro 880px) */
+/* تصميم الـ Overview - أبعاد ثابتة (Strict 880px) */
 /* ========================================= */
-.summary-infographic-layout {
+.overview-strict-layout {
     display: flex;
     flex-direction: column;
     width: 880px;
-    /* العرض الثابت الصارم */
+    /* العرض الثابت لمنع التشوه على الهواتف */
     margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
     direction: rtl;
+    /* اتجاه عربي دائم */
     -webkit-text-size-adjust: 100%;
+    /* منع المتصفح من تكبير الخطوط عشوائياً */
+    padding-bottom: 50px;
 }
 
-/* الترويسة */
-.summary-header {
+/* الترويسة (Header) */
+.overview-header {
     text-align: center;
-    margin-bottom: 50px;
-}
-
-.summary-title {
-    color: #f59e0b;
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-
-.summary-subtitle {
-    color: #00c6ff;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.summary-divider {
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(90deg, #00c6ff, #f59e0b);
-    margin: 0 auto;
-    border-radius: 3px;
-}
-
-/* ========================================= */
-/* تصميم البطاقات (Cards) */
-/* ========================================= */
-.infographic-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    /* مسافة كبيرة بين البطاقات لراحة العين */
-}
-
-.info-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 40px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    /* للإخفاء المبدئي للأنيميشن */
-    opacity: 0;
-    transform: translateY(40px);
+    border-radius: 15px;
 }
 
-/* الكلاس الخاص بالأنيميشن من الجافاسكريبت */
-.info-card.visible {
-    opacity: 1;
-    transform: translateY(0);
+.overview-title {
+    color: #f59e0b;
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.04);
+.overview-subtitle {
+    color: #e2e8f0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
 }
 
-/* عكس الاتجاه (رسم يمين، نص يسار) */
-.info-card.reverse {
-    flex-direction: row-reverse;
+.overview-line {
+    width: 80px;
+    height: 4px;
+    background: #00c6ff;
+    margin: 0 auto;
+    border-radius: 2px;
 }
 
-/* ========================================= */
-/* جزء النصوص */
-/* ========================================= */
-.info-text-side {
-    width: 60%;
-    padding: 0 20px;
+/* شبكة البطاقات (Grid Layout) */
+.overview-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* مسافة بين البطاقات */
 }
 
-.card-badge {
-    display: inline-block;
+/* تصميم البطاقة (Card) */
+.overview-card {
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.overview-card:hover {
+    transform: translateX(-5px);
+    /* حركة خفيفة لليسار عند مرور الماوس */
+    border-color: rgba(0, 198, 255, 0.3);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* رأس البطاقة (الأيقونة والعنوان) */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.blue-box {
     background: rgba(0, 198, 255, 0.15);
     color: #00c6ff;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 198, 255, 0.3);
 }
 
-.orange-badge {
+.orange-box {
     background: rgba(245, 158, 11, 0.15);
     color: #f59e0b;
-    border-color: rgba(245, 158, 11, 0.3);
 }
 
-.purple-badge {
-    background: rgba(139, 92, 246, 0.15);
-    color: #8b5cf6;
-    border-color: rgba(139, 92, 246, 0.3);
-}
-
-.red-badge {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border-color: rgba(239, 68, 68, 0.3);
-}
-
-.info-text-side h3 {
+.card-header h3 {
+    font-size: 1.5rem;
     color: #fff;
-    font-size: 1.8rem;
+    margin: 0;
     font-weight: 800;
-    margin-bottom: 20px;
 }
 
-.desc-text {
-    color: #cbd5e1;
-    font-size: 1.15rem;
-    margin-bottom: 15px;
+/* محتوى البطاقة (النصوص والقوائم) */
+.card-desc {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
 }
 
-.info-list {
+.card-body ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.info-list li {
+.card-body ul li {
     color: #cbd5e1;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.7;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     position: relative;
     padding-right: 20px;
 }
 
-.info-list li::before {
-    content: "✦";
+.card-body ul li::before {
+    content: "▪";
     position: absolute;
     right: 0;
-    color: #64748b;
-    font-size: 0.9rem;
-    top: 5px;
+    top: 0;
+    color: #00c6ff;
+    font-size: 1.2rem;
 }
 
-.info-list li strong {
+.card-body ul li strong {
     color: #fff;
     font-weight: 700;
 }
 
-/* ========================================= */
-/* جزء المشاهد الرسومية (Expressive Graphics) */
-/* ========================================= */
-.info-graphic-side {
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* كلاس الأنيميشن المبدئي (للجافاسكريبت) */
+.fade-in-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.scene-circle {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.main-icon {
-    font-size: 5.5rem;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
-    z-index: 2;
-}
-
-.float-icon {
-    position: absolute;
-    font-size: 2rem;
-    z-index: 3;
-    background: #111827;
-    padding: 10px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* مواقع الأيقونات العائمة */
-.top-right {
-    top: 10px;
-    right: 10px;
-}
-
-.top-left {
-    top: 10px;
-    left: 10px;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-
-.bottom-left {
-    bottom: 10px;
-    left: 10px;
-}
-
-/* ========================================= */
-/* الحركات (Animations) */
-/* ========================================= */
-.float-anim {
-    animation: floatUpDown 4s ease-in-out infinite;
-}
-
-.pulse-anim {
-    animation: pulseGlow 3s infinite alternate;
-}
-
-@keyframes floatUpDown {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulseGlow {
-    0% {
-        filter: drop-shadow(0 0 10px currentColor);
-        transform: scale(0.95);
-    }
-
-    100% {
-        filter: drop-shadow(0 0 25px currentColor);
-        transform: scale(1.05);
-    }
+.fade-in-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

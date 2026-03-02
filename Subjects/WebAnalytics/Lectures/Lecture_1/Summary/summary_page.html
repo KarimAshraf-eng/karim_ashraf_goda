@@ -4,164 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الملخص الشامل - إنفوجرافيك</title>
-
+    <title>الملخص الشامل - Overview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="summary_design.css">
-
-    <style>
-        body {
-            background-color: #0b0f19;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 30px 20px;
-            display: flex;
-            justify-content: center;
-        }
-    </style>
 </head>
 
-<body>
+<body style="background-color: #0b0f19; margin: 0; display: flex; justify-content: center; padding-top: 20px;">
 
-    <article class="slide-box" style="width: 100%;">
-        <div class="slide-inner summary-infographic-layout">
+    <div class="overview-strict-layout">
 
-            <div class="summary-header">
-                <h1 class="summary-title">الملخص الشامل للمحاضرة الأولى</h1>
-                <p class="summary-subtitle">خلاصة تحليلات الويب ووسائل التواصل</p>
-                <div class="summary-divider"></div>
-            </div>
-
-            <div class="infographic-container">
-
-                <div class="info-card reveal-card">
-                    <div class="info-text-side">
-                        <div class="card-badge">أولاً</div>
-                        <h3>المشهد الرقمي الحالي (إحصائيات 2024)</h3>
-                        <ul class="info-list">
-                            <li><strong>انتشار الإنترنت:</strong> 5.3 مليار مستخدم حول العالم.</li>
-                            <li><strong>وسائل التواصل:</strong> 5.04 مليار شخص يستخدمونها.</li>
-                            <li><strong>انفجار البيانات:</strong> إنتاج 2.5 كوينتيليون بايت يومياً.</li>
-                            <li><strong>التدفق اللحظي:</strong> إنفاق مليون دولار، وإرسال 333.2 مليار إيميل كل دقيقة.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-solid fa-earth-americas main-icon pulse-anim" style="color: #00c6ff;"></i>
-                            <i class="fa-solid fa-users float-icon top-right" style="color: #f59e0b;"></i>
-                            <i class="fa-solid fa-envelope float-icon bottom-left" style="color: #10b981;"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-card reverse reveal-card">
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-solid fa-server main-icon" style="color: #f59e0b;"></i>
-                            <i class="fa-solid fa-file-image float-icon top-left" style="color: #ef4444;"></i>
-                            <i class="fa-solid fa-folder-tree float-icon bottom-right" style="color: #00c6ff;"></i>
-                        </div>
-                    </div>
-                    <div class="info-text-side">
-                        <div class="card-badge orange-badge">ثانياً</div>
-                        <h3>ماهية البيانات وأنواعها</h3>
-                        <ul class="info-list">
-                            <li><strong>المهيكلة (Structured):</strong> منظمة في قواعد بيانات وملفات.</li>
-                            <li><strong>غير المهيكلة (Unstructured):</strong> 80% من البيانات (صور، فيديو، صوت).</li>
-                            <li><strong>التصنيف الإحصائي:</strong>
-                                <br> - <strong>كمية:</strong> متقطعة (أرقام صحيحة) أو مستمرة (قياسات).
-                                <br> - <strong>نوعية:</strong> اسمية (تصنيفات) أو ترتيبية (تسلسل).
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="info-card reveal-card">
-                    <div class="info-text-side">
-                        <div class="card-badge">ثالثاً</div>
-                        <h3>مستويات تحليل البيانات</h3>
-                        <p class="desc-text">تتطور عملية التحليل من البساطة للتعقيد عبر 4 مستويات:</p>
-                        <ul class="info-list">
-                            <li><strong>الوصفية:</strong> ماذا حدث؟ (الماضي).</li>
-                            <li><strong>التشخيصية:</strong> لماذا حدث ذلك؟ (الأسباب).</li>
-                            <li><strong>التنبؤية:</strong> ماذا سيحدث؟ (المستقبل).</li>
-                            <li><strong>التوجيهية:</strong> ماذا يجب أن نفعل؟ (الحلول).</li>
-                        </ul>
-                    </div>
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-solid fa-chart-line main-icon float-anim" style="color: #10b981;"></i>
-                            <i class="fa-solid fa-magnifying-glass-chart float-icon bottom-right"
-                                style="color: #00c6ff;"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-card reverse reveal-card">
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-solid fa-code-compare main-icon" style="color: #8b5cf6;"></i>
-                            <i class="fa-solid fa-globe float-icon top-left" style="color: #00c6ff;"></i>
-                            <i class="fa-solid fa-hashtag float-icon bottom-right" style="color: #f59e0b;"></i>
-                        </div>
-                    </div>
-                    <div class="info-text-side">
-                        <div class="card-badge purple-badge">رابعاً</div>
-                        <h3>الويب مقابل وسائل التواصل</h3>
-                        <ul class="info-list">
-                            <li><strong>تحليلات الويب:</strong> التركيز داخل الموقع (زيادة التحويلات، تقليل الارتداد).
-                            </li>
-                            <li><strong>تحليلات التواصل:</strong> التركيز خارج الموقع (تحليل المشاعر، التفاعلات،
-                                والمواقع الجغرافية).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="info-card reveal-card">
-                    <div class="info-text-side">
-                        <div class="card-badge">خامساً</div>
-                        <h3>المصادر والأدوات (Labs)</h3>
-                        <ul class="info-list">
-                            <li><strong>المراجع:</strong> كتاب "الطبقات السبع" و "التحليلات العملية".</li>
-                            <li><strong>التطبيق العملي:</strong> استخدام لغة بايثون (Python) لتحليل البيانات في المعامل.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-brands fa-python main-icon float-anim" style="color: #f59e0b;"></i>
-                            <i class="fa-solid fa-book float-icon top-right" style="color: #00c6ff;"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-card reverse reveal-card">
-                    <div class="info-graphic-side">
-                        <div class="scene-circle">
-                            <i class="fa-regular fa-calendar-check main-icon pulse-anim" style="color: #ef4444;"></i>
-                            <i class="fa-solid fa-flag-checkered float-icon bottom-left" style="color: #fff;"></i>
-                        </div>
-                    </div>
-                    <div class="info-text-side">
-                        <div class="card-badge red-badge">سادساً</div>
-                        <h3>الخطة الزمنية للمساق</h3>
-                        <ul class="info-list">
-                            <li><strong>الأسابيع 1-8:</strong> تحليلات الويب، جمع البيانات، وأداة Google Analytics.</li>
-                            <li><strong>الأسبوع 9:</strong> الامتحان النصفي.</li>
-                            <li><strong>الأسابيع 10-14:</strong> تحليلات التواصل الاجتماعي، تنقيب البيانات، والامتحان
-                                النهائي.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+        <div class="overview-header">
+            <h1 class="overview-title">الملخص الشامل</h1>
+            <h2 class="overview-subtitle">تحليلات الويب ووسائل التواصل الاجتماعي</h2>
+            <div class="overview-line"></div>
         </div>
-    </article>
+
+        <div class="overview-cards-container">
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box blue-box"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3>أولاً: المشهد الرقمي الحالي (إحصائيات 2024)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>انتشار الإنترنت:</strong> وصل عدد المستخدمين إلى 5.3 مليار شخص.</li>
+                        <li><strong>وسائل التواصل:</strong> يستخدمها 5.04 مليار شخص من إجمالي 7.8 مليار.</li>
+                        <li><strong>انفجار البيانات:</strong> ينتج العالم يومياً 2.5 كوينتيليون بايت من البيانات.</li>
+                        <li><strong>التدفق اللحظي:</strong> إنفاق مليون دولار وإرسال 333.2 مليار إيميل كل دقيقة.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box orange-box"><i class="fa-solid fa-database"></i></div>
+                    <h3>ثانياً: ماهية البيانات وأنواعها</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>المهيكلة (Structured):</strong> بيانات منظمة في قواعد بيانات وملفات منسقة.</li>
+                        <li><strong>غير المهيكلة (Unstructured):</strong> تمثل 80% من بيانات العالم (صور، فيديو،
+                            مستندات).</li>
+                        <li><strong>تصنيف إحصائي:</strong>
+                            <br>- <strong>كمية:</strong> متقطعة (أرقام صحيحة) أو مستمرة (قياسات).
+                            <br>- <strong>نوعية:</strong> اسمية (تصنيفات) أو ترتيبية (تسلسل).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box blue-box"><i class="fa-solid fa-chart-stairs"></i></div>
+                    <h3>ثالثاً: مستويات تحليل البيانات</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">تتطور عملية التحليل عبر أربعة مستويات:</p>
+                    <ul>
+                        <li><strong>الوصفية:</strong> توضح "ماذا حدث؟" في الماضي.</li>
+                        <li><strong>التشخيصية:</strong> تبحث في "لماذا حدث ذلك؟".</li>
+                        <li><strong>التنبؤية:</strong> تتوقع "ماذا سيحدث؟" مستقبلاً.</li>
+                        <li><strong>التوجيهية:</strong> تقدم توصيات حول "ماذا يجب أن نفعل؟".</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box orange-box"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>رابعاً: الويب مقابل وسائل التواصل</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>تحليلات الويب:</strong> قياس بيانات الإنترنت لتحسين استخدام المواقع (زيادة الزيارات،
+                            تتبع الارتداد).</li>
+                        <li><strong>تحليلات التواصل:</strong> جمع البيانات من الشبكات الاجتماعية لاتخاذ قرارات (تحليل
+                            المشاعر، التفاعلات).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box blue-box"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>خامساً: المصادر والأدوات</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>المراجع:</strong> الاعتماد على كتب "الطبقات السبع" وتحليلات الويب العملية.</li>
+                        <li><strong>الجانب التطبيقي:</strong> استخدام لغة بايثون (Python) في المختبرات العملية لتحليل
+                            البيانات.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="overview-card fade-in-card">
+                <div class="card-header">
+                    <div class="icon-box orange-box"><i class="fa-regular fa-calendar-check"></i></div>
+                    <h3>سادساً: الخطة الزمنية (Syllabus)</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">تمتد الدراسة عبر 14 أسبوعاً:</p>
+                    <ul>
+                        <li><strong>الأسابيع 1-8:</strong> مقدمة، جمع البيانات، أهداف المواقع، Google Analytics.</li>
+                        <li><strong>الأسبوع 9:</strong> الامتحان النصفي.</li>
+                        <li><strong>الأسابيع 10-14:</strong> تحليلات التواصل الاجتماعي، تنقيب البيانات، والامتحان
+                            النهائي.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <script src="summary_logic.js"></script>
-
 </body>
 
 </html>
