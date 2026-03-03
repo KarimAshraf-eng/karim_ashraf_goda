@@ -1,0 +1,163 @@
+/* ========================================= */
+/* تصميم الشريحة 3 (Lecture 2) - غلاف قسم المقدمة */
+/* ========================================= */
+.section-cover-tech {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 880px;
+    /* العرض الثابت الصارم */
+    height: 100%;
+    margin: 0 auto;
+    direction: ltr;
+    -webkit-text-size-adjust: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #0b0f19;
+}
+
+/* خلفية شبكية خفيفة */
+.tech-bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+/* صندوق الرقم المميز */
+.section-number-box {
+    width: 120px;
+    height: 120px;
+    border: 3px solid #00c6ff;
+    border-radius: 50%;
+    /* دائرة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+    position: relative;
+}
+
+/* تأثير دائرة إضافية متحركة */
+.section-number-box::after {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 1px dashed rgba(0, 198, 255, 0.5);
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+}
+
+.section-number-box .number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+}
+
+/* العنوان الرئيسي */
+.section-title {
+    color: #fff;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* الخط الفاصل */
+.section-line {
+    width: 100px;
+    height: 5px;
+    background: #f59e0b;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+/* ========================================= */
+/* الزخارف التقنية (Circuit Lines) - معدلة للأركان المعاكسة */
+/* ========================================= */
+.tech-decoration {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.top-right {
+    top: 30px;
+    right: 30px;
+    transform: rotate(90deg);
+}
+
+.bottom-left {
+    bottom: 30px;
+    left: 30px;
+    transform: rotate(270deg);
+}
+
+/* مكونات الزخرفة */
+.tech-decoration .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00c6ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00c6ff;
+    top: 0;
+    left: 0;
+}
+
+.tech-decoration .line-h {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, #00c6ff, rgba(245, 158, 11, 0.5), transparent);
+}
+
+.tech-decoration .line-v {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, #00c6ff, rgba(245, 158, 11, 0.5), transparent);
+}
+
+/* تأثير الترجمة */
+.active-text {
+    color: #f59e0b !important;
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+/* أنيميشن الدوران */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

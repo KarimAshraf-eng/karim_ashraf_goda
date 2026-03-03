@@ -1,0 +1,367 @@
+/* ========================================= */
+/* تصميم الشريحة 4 (Lecture 2) - تعريف التحليلات */
+/* ========================================= */
+.slide-4-layout {
+    display: flex;
+    flex-direction: column;
+    width: 880px;
+    /* العرض الثابت الصارم */
+    margin: 0 auto;
+    direction: ltr;
+    -webkit-text-size-adjust: 100%;
+    padding-top: 10px;
+}
+
+.slide-main-title {
+    color: #f59e0b;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 6px solid #00c6ff;
+}
+
+.content-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* ========================================= */
+/* العمود النصي */
+/* ========================================= */
+.text-column {
+    width: 60%;
+}
+
+.analytics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.analytics-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.analytics-list li:hover {
+    transform: translateX(10px);
+    border-color: rgba(0, 198, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.list-icon {
+    font-size: 1.8rem;
+    color: #00c6ff;
+    background: rgba(0, 198, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.analytics-list li p {
+    color: #cbd5e1;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.analytics-list li p strong {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================= */
+/* العمود البصري (Tech Composition) */
+/* ========================================= */
+.visual-column {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analyst-composition {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* إطار الشاشة */
+.monitor-frame {
+    width: 200px;
+    height: 140px;
+    border: 4px solid #f59e0b;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+    z-index: 2;
+}
+
+/* قاعدة الشاشة */
+.monitor-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    width: 60px;
+    height: 20px;
+    background: #f59e0b;
+    border-radius: 0 0 10px 10px;
+}
+
+/* محتوى الشاشة (المخطط) */
+.screen-content {
+    font-size: 5rem;
+    color: #00c6ff;
+}
+
+/* العناصر العائمة */
+.floating-element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #cbd5e1;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: float 4s ease-in-out infinite;
+}
+
+.float-1 {
+    top: -20px;
+    right: -20px;
+    color: #00c6ff;
+    border-color: #00c6ff;
+    animation-delay: 0s;
+}
+
+.float-2 {
+    bottom: 20px;
+    left: -30px;
+    color: #f59e0b;
+    border-color: #f59e0b;
+    animation-delay: 1.5s;
+}
+
+.float-3 {
+    top: 50%;
+    right: -40px;
+    color: #10b981;
+    border-color: #10b981;
+    animation-delay: 2.5s;
+}
+
+/* ========================================= */
+/* الأزرار واللوحات التفاعلية (Standard Pro) */
+/* ========================================= */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+    direction: rtl;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-blue {
+    border-color: #00c6ff;
+    color: #00c6ff;
+}
+
+.btn-blue:hover,
+.btn-blue.active-btn {
+    background: #00c6ff;
+    color: #000;
+}
+
+.btn-orange {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.btn-orange:hover,
+.btn-orange.active-btn {
+    background: #f59e0b;
+    color: #000;
+}
+
+.info-panel {
+    display: none;
+    margin-top: 25px;
+    width: 880px;
+    border-radius: 15px;
+    padding: 30px;
+    direction: rtl;
+    text-align: right;
+    animation: fadeIn 0.4s ease;
+}
+
+.info-panel.show-panel {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel-blue {
+    background: rgba(0, 198, 255, 0.05);
+    border: 1px solid rgba(0, 198, 255, 0.3);
+}
+
+.panel-orange {
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* تنسيق النصوص الداخلية للوحات */
+.panel-header-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.panel-blue .panel-header-title {
+    color: #00c6ff;
+}
+
+.panel-orange .panel-header-title {
+    color: #f59e0b;
+}
+
+.info-block {
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.panel-blue .info-title {
+    color: #00c6ff;
+}
+
+.panel-orange .info-title {
+    color: #f59e0b;
+}
+
+.info-block p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+/* تنسيق قائمة المثال */
+.example-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.example-steps-list li {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    padding-right: 15px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.example-steps-list li strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* الأنيميشن */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        filter: drop-shadow(0 0 5px currentColor);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 15px currentColor);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px currentColor);
+    }
+}
+
+.pulse-anim {
+    animation: pulseGlow 2s infinite;
+}

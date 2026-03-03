@@ -13,7 +13,7 @@
         "number": "02",
         "name": "المحاضرة الثانية - Lecture 2",
         "icon": "fa-solid fa-file-lines",
-        "folder_path": "Lecture_2/index.html",
+        "folder_path": "Lecture_2/lecture_2_page.html",
         "is_active": true,
         "custom_class": "modern-card"
     },

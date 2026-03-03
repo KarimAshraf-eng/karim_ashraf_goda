@@ -1,0 +1,236 @@
+/* ========================================= */
+/* تصميم الشريحة 2 (Lecture 2) - جدول المحتويات */
+/* ========================================= */
+.toc-slide-tech {
+    display: flex;
+    flex-direction: column;
+    width: 880px;
+    /* العرض الثابت الصارم */
+    margin: 0 auto;
+    direction: ltr;
+    -webkit-text-size-adjust: 100%;
+    padding-top: 20px;
+}
+
+.center-title {
+    color: #f59e0b;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+/* حاوية المسار (Timeline) */
+.toc-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    /* المسافات يتم التحكم بها عبر العناصر والروابط */
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* العنصر الفردي */
+.toc-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    /* عرض ثابت لكل عنصر */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* الرقم العلوي */
+.toc-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/* صندوق الأيقونة */
+.toc-icon {
+    width: 70px;
+    height: 70px;
+    background: #111827;
+    border: 2px solid #00c6ff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #00c6ff;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.toc-item:hover .toc-icon {
+    background: #00c6ff;
+    color: #111827;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 198, 255, 0.6);
+}
+
+/* النص السفلي */
+.toc-text {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.toc-item:hover .toc-text {
+    color: #f59e0b;
+}
+
+/* الخط الرابط بين العناصر */
+.toc-connector {
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 68px;
+    /* محاذاة مع منتصف الأيقونات */
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================= */
+/* الأزرار واللوحات التفاعلية (Standard Pro) */
+/* ========================================= */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px;
+    direction: rtl;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-blue {
+    border-color: #00c6ff;
+    color: #00c6ff;
+}
+
+.btn-blue:hover,
+.btn-blue.active-btn {
+    background: #00c6ff;
+    color: #000;
+}
+
+.btn-orange {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.btn-orange:hover,
+.btn-orange.active-btn {
+    background: #f59e0b;
+    color: #000;
+}
+
+.info-panel {
+    display: none;
+    margin-top: 25px;
+    width: 880px;
+    border-radius: 15px;
+    padding: 30px;
+    direction: rtl;
+    text-align: right;
+    animation: fadeIn 0.4s ease;
+}
+
+.info-panel.show-panel {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel-blue {
+    background: rgba(0, 198, 255, 0.05);
+    border: 1px solid rgba(0, 198, 255, 0.3);
+}
+
+.panel-orange {
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* تنسيق النصوص الداخلية للوحات */
+.panel-header-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.panel-blue .panel-header-title {
+    color: #00c6ff;
+}
+
+.panel-orange .panel-header-title {
+    color: #f59e0b;
+}
+
+.info-block {
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.panel-blue .info-title {
+    color: #00c6ff;
+}
+
+.panel-orange .info-title {
+    color: #f59e0b;
+}
+
+.info-block p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin: 0;
+}

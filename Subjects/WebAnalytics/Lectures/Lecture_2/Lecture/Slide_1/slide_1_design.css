@@ -1,0 +1,133 @@
+/* ========================================= */
+/* تصميم الشريحة 1 (Lecture 2) - الغلاف التقني */
+/* ========================================= */
+.title-slide-tech {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 880px;
+    /* العرض الثابت الصارم */
+    height: 100%;
+    margin: 0 auto;
+    direction: ltr;
+    -webkit-text-size-adjust: 100%;
+    position: relative;
+    overflow: hidden;
+    /* لضمان عدم خروج الزخارف */
+    background: radial-gradient(circle at center, rgba(0, 198, 255, 0.03) 0%, transparent 70%);
+}
+
+.title-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+/* الأيقونة العلوية */
+.title-icon-box {
+    font-size: 4rem;
+    color: #00c6ff;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 15px rgba(0, 198, 255, 0.4));
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+/* العنوان الرئيسي */
+.main-tech-title {
+    color: #fff;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+/* الفاصل المضيء */
+.title-separator {
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+    margin: 20px 0 25px;
+    border-radius: 2px;
+}
+
+/* العنوان الفرعي */
+.sub-tech-title {
+    color: #cbd5e1;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* ========================================= */
+/* الزخارف التقنية (Circuit Lines) */
+/* ========================================= */
+.tech-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+}
+
+.top-left {
+    top: 40px;
+    left: 40px;
+}
+
+.bottom-right {
+    bottom: 40px;
+    right: 40px;
+    transform: rotate(180deg);
+}
+
+/* مكونات الزخرفة */
+.tech-decoration .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #f59e0b;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f59e0b;
+    top: 0;
+    left: 0;
+}
+
+.tech-decoration .line-h {
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, #f59e0b, rgba(0, 198, 255, 0.5), transparent);
+}
+
+.tech-decoration .line-v {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 2px;
+    height: 120px;
+    background: linear-gradient(180deg, #f59e0b, rgba(0, 198, 255, 0.5), transparent);
+}
+
+/* تأثير الترجمة */
+.active-text {
+    color: #f59e0b !important;
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+/* أنيميشن بسيط للأيقونة */
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
